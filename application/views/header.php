@@ -14,6 +14,7 @@
     ?>
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap-3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
 
     <?php foreach ($css as $cssFile): ?>
         <link rel="stylesheet" type="text/css" href="<?= $cssFile ?>?version=<?= $css_js_version ?>"/>

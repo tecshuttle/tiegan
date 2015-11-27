@@ -22,14 +22,15 @@ class Welcome extends CI_Controller
     public function index()
     {
         $data = array(
-            'css' => array(
-                '/css/common.css'
-            ),
+            'css' => array(),
             'js' => array()
         );
 
         $this->load->view('header', $data);
         $this->load->view('home', $data);
+        $this->load->view('help_center', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('partner_links', $data);
         $this->load->view('footer', $data);
     }
 }

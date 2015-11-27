@@ -10,6 +10,10 @@ html, body {
     padding: 0em 1em;
 }
 
+.breadcrumb {
+    background-color: white;
+}
+
 textarea, #editor {
     margin: 0;
     height: 100%;
@@ -140,10 +144,6 @@ p.saving {
 }
 
 .blog-item:hover {
-    background-color: #EEE;
-}
-
-.active {
     background-color: #EEE;
 }
 
