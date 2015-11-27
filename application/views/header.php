@@ -27,10 +27,12 @@
 <div class="container-fluid">
     <div class="row header" style="padding-top: 1em;border-bottom: 2px solid gray;">
         <div class="col-xs-2">
-            <p class="img-thumbnail" style="width:200px; text-align: center;padding: 10px;">tiegan logo</p>
+            <a href="/">
+                <p class="img-thumbnail" style="width:200px; text-align: center;padding: 10px;">tiegan logo</p>
+            </a>
         </div>
 
-        <div class="col-xs-10" style="text-align: center;padding-top: 10px;">
+        <div class="col-xs-8" style="text-align: center;padding-top: 10px;">
             <span class="header-menu">目的地</span>
             <span class="header-menu">锦囊</span>
             <span class="header-menu">行程助手</span>
@@ -39,6 +41,14 @@
             <span class="header-menu">自由行</span>
             <span class="header-menu">酒店</span>
             <span class="header-menu">预订</span>
+        </div>
+
+        <div class="col-xs-2">
+            <p style="text-align: center;padding: 10px;">
+                <a href="/user/login">登入</a>
+                <span style="display: inline-block;width:1em;"></span>
+                <a href="/user/register">注册</a>
+            </p>
         </div>
     </div>
 </div>

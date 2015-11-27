@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div class="row" style="background-color: #242424;color: #aaa;padding-top: 1em;">
         <div class="col-xs-2">
-            <p class="img-thumbnail" style="width:200px; text-align: center;padding: 10px;">tiegan logo</p>
+            <a href="/">
+                <p class="img-thumbnail" style="width:200px; text-align: center;padding: 10px;">tiegan logo</p>
+            </a>
         </div>
 
         <div class="col-xs-10" style="text-align: center;">
