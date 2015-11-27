@@ -1,10 +1,50 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class user extends CI_Controller
+class user extends MY_Controller
 {
+    public function __construct($type = NULL)
+    {
+        parent::__construct();
+
+        $this->slogan = '这世上只有一种成功，就是能够用自己喜欢的方式度过自己的一生。';
+    }
+
     public function index()
     {
-        echo 'user controller';
+        if (!$this->user) {
+            header('Location: /user/login');
+        }
+
+        $data = array(
+            'title' => '会员中心',
+            'menu' => 'index',
+            'css' => array(),
+            'js' => array()
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('user/index', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
+    }
+
+    public function account()
+    {
+        if (!$this->user) {
+            header('Location: /user/login');
+        }
+
+        $data = array(
+            'title' => '会员中心',
+            'menu' => 'account',
+            'css' => array(),
+            'js' => array()
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('user/account', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
     }
 
 
@@ -28,15 +68,16 @@ class user extends CI_Controller
     public function register()
     {
         $data = array(
-            'title' => 'Company profile',
+            'title' => '注册',
             'menu' => 'about_us',
             'css' => array(),
-            'js' => array(
-                '/assets/js/scroll.js'
-            )
+            'js' => array()
         );
 
-        $this->load->view('todo/register', $data);
+        $this->load->view('header', $data);
+        $this->load->view('user/register', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
     }
 
     public function register_submit()
@@ -54,15 +95,16 @@ class user extends CI_Controller
     public function login()
     {
         $data = array(
-            'title' => 'Company profile',
+            'title' => '登入',
             'menu' => 'about_us',
             'css' => array(),
-            'js' => array(
-                '/assets/js/scroll.js'
-            )
+            'js' => array()
         );
 
-        $this->load->view('todo/login', $data);
+        $this->load->view('header', $data);
+        $this->load->view('user/login', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
     }
 
 
@@ -96,7 +138,7 @@ class user extends CI_Controller
         $expire = -1;
         setcookie('uid', '', $expire, '/');
 
-        header('Location: /todo');
+        header('Location: /');
     }
 
     public function forget_password()

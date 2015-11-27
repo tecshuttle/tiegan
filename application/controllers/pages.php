@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class pages extends CI_Controller
+class pages extends MY_Controller
 {
     public function index()
     {

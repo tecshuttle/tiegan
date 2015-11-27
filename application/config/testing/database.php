@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'dev.tomtalk.net';
+$db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'tec007DB';
+$db['default']['password'] = '123';
 $db['default']['database'] = 'tiegan';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

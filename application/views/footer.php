@@ -1,3 +1,4 @@
+
 <?php
 //设置默认值
 $js = (isset($js) ? $js : array());

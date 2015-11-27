@@ -45,10 +45,17 @@
 
         <div class="col-xs-2">
             <p style="text-align: center;padding: 10px;">
-                <a href="/user/login">登入</a>
-                <span style="display: inline-block;width:1em;"></span>
-                <a href="/user/register">注册</a>
+                <?php if ($this->user) : ?>
+                    <a href="/user"><?= $this->user['name'] ?></a>
+                    <span style="display: inline-block;width:1em;"></span>
+                    <a href="/user/logout">退出</a>
+                <?php else: ?>
+                    <a href="/user/login">登入</a>
+                    <span style="display: inline-block;width:1em;"></span>
+                    <a href="/user/register">注册</a>
+                <?php endif; ?>
             </p>
         </div>
     </div>
 </div>
+
