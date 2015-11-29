@@ -1,88 +1,3 @@
-var typeInfoPanel = function () {
-    //var me = this;
-
-    var queryPanel = new Ext.form.Panel({
-        id: 'type_info_form',
-        title: '分类信息',
-        bodyStyle: 'padding: 10px;',
-        style: 'margin-bottom: 10px;',
-        collapsible: true,
-        items: [
-            {
-                xtype: 'fieldcontainer',
-                layout: {
-                    type: 'table',
-                    columns: 2,
-                    tableAttrs: {
-                        style: {
-                            width: '100%'
-                        }
-                    }
-                },
-                defaults: {frame: true, margin: '2px'},
-                items: [
-                    {
-                        xtype: 'hiddenfield',
-                        name: 'id',
-                        value: 0
-                    },
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '名称',
-                        name: 'name',
-                        width: 400,
-                        emptyText: ''
-                    },
-                    {
-                        xtype: 'button',
-                        id: this.id + '_type_info_save',
-                        width: 100,
-                        text: '保存'
-                    },
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '封面图',
-                        width: 400,
-                        name: 'cover',
-                        emptyText: ''
-                    },
-                    {
-                        xtype: 'button',
-                        id: this.id + '_btn_product_form',
-                        width: 100,
-                        text: '增加所属'
-                    },
-                    {
-                        xtype: 'numberfield',
-                        fieldLabel: '排序权重',
-                        width: 400,
-                        colspan: 2,
-                        name: 'weight',
-                        emptyText: ''
-                    },
-                    {
-                        xtype: 'button',
-                        id: this.id + '_btn_gallery_batch_add',
-                        width: 100,
-                        hidden: true,
-                        text: '批量增加图片'
-                    },
-                    {
-                        xtype: 'textarea',
-                        colspan: 2,
-                        width: 600,
-                        fieldLabel: '说明',
-                        name: 'desc',
-                        emptyText: ''
-                    }
-                ]
-            }
-        ]
-    });
-
-    return queryPanel;
-}
-
 var gridList = function () {
 
     var store = Ext.create('Ext.data.Store', {
@@ -185,27 +100,18 @@ var gridList = function () {
 }
 
 
-var productForm = function () {
-    var form = Ext.create('Ext.panel.Panel', {
-        module: this.module,
-        hidden: true
-    });
-
-    //this.COMPONENTS.productForm = form;
-
-    return form;
-}
-
-
 Ext.define('MyApp.view.main.Articlepanel', {
     extend: 'Ext.panel.Panel',
+    id: 'article_panel',
     xtype: 'layout-border-doc',
     requires: [
         'Ext.layout.container.Border',
-        'MyApp.view.main.Articletree'
+        'MyApp.view.main.Articletree',
+        'MyApp.view.main.Typeinfo',
+        'MyApp.view.main.Articleform'
     ],
     layout: 'border',
-    width: 900,
+    width: 1000,
     height: 600,
 
     //bodyBorder: false,
@@ -236,10 +142,16 @@ Ext.define('MyApp.view.main.Articlepanel', {
             region: 'center',
             margin: '0 0 0 0',
             items: [
-                typeInfoPanel(),
+                {
+                    xtype: 'typeinfo'
+                },
                 gridList(),
-                productForm()
+                {
+                    xtype: 'articleform'
+                }
             ]
         }
     ]
 });
+
+//end file

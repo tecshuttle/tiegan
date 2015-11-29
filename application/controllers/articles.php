@@ -108,8 +108,11 @@ class articles extends CI_Controller
     public function getList()
     {
         $option = $_GET;
-        $data = $this->articles_model->get($option);
-        echo json_encode($data);
+
+        if (isset($option['type_id'])) {
+            $data = $this->articles_model->get($option);
+            echo json_encode($data);
+        }
     }
 
     public function getDownloadList()
