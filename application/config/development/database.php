@@ -48,11 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'dev.tomtalk.net';
+$db['default']['hostname'] = '42.121.108.182';
 $db['default']['username'] = 'root';
 $db['default']['password'] = 'tec007DB';
 $db['default']['database'] = 'tiegan';
-$db['default']['dbdriver'] = 'mysqli';
+$db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
