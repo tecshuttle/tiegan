@@ -60,7 +60,7 @@ class articles extends CI_Controller
         }
 
         if (isset($_POST['id'])) {
-            $_POST['ctime'] = strtotime($_POST['ctime']);
+            //$_POST['ctime'] = strtotime($_POST['ctime']);
             $_POST['mtime'] = time();
             $this->articles_model->update($_POST);
         } else {
