@@ -4,6 +4,7 @@ Ext.define('MyApp.view.main.Articleform', {
     title: '文章编辑',
     hidden: true,
     xtype: 'articleform',
+    frame: true,
     bodyStyle: 'padding: 10px;',
     style: 'margin-bottom: 10px;',
     collapsible: true,

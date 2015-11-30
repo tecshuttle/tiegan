@@ -58,7 +58,7 @@ Ext.define('MyApp.view.main.Main', {
     },
 
     defaults: {
-        bodyPadding: 20,
+        bodyPadding: 10,
         tabConfig: {
             plugins: 'responsive',
             responsiveConfig: {

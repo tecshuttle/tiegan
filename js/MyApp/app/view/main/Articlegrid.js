@@ -1,9 +1,10 @@
 Ext.define('MyApp.view.main.Articlegrid', {
     extend: 'Ext.grid.GridPanel',
     id: 'article_grid',
-    title: '分类信息',
+    title: '文章列表',
     xtype: 'articlegrid',
-    header: false,
+    //header: false,
+    frame: true,
     columnLines: true,
     store: Ext.create('Ext.data.Store', {
         pageSize: 20,

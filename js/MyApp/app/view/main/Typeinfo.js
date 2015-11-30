@@ -6,6 +6,7 @@ Ext.define('MyApp.view.main.Typeinfo', {
     bodyStyle: 'padding: 10px;',
     style: 'margin-bottom: 10px;',
     collapsible: true,
+    frame: true,
     COMPONENTS: {},
     items: [
         {
