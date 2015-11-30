@@ -19,7 +19,7 @@ class Welcome extends MY_Controller
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index()
+    public function index_()
     {
         $data = array(
             'css' => array(),
@@ -32,6 +32,16 @@ class Welcome extends MY_Controller
         $this->load->view('copy_right', $data);
         $this->load->view('partner_links', $data);
         $this->load->view('footer', $data);
+    }
+
+    public function index()
+    {
+        $data = array(
+            'css' => array(),
+            'js' => array()
+        );
+
+        $this->load->view('qyer', $data);
     }
 }
 
