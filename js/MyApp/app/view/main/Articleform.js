@@ -36,9 +36,14 @@ Ext.define('MyApp.view.main.Articleform', {
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
+            },{
+                xtype: 'textfield',
+                fieldLabel: 'URL短名',
+                allowBlank: false,
+                anchor: '50%',
+                name: 'code',
+                emptyText: '请输入…'
             },
-
-
             {
                 xtype: 'container',
                 anchor: '50%',

@@ -21,9 +21,14 @@ class Welcome extends MY_Controller
      */
     public function index_()
     {
+        //取官方文档
+        $this->load->model('articles_model');
+        $doc = $this->articles_model->getDoc(226);
+
         $data = array(
             'css' => array(),
-            'js' => array()
+            'js' => array(),
+            'doc' => $doc
         );
 
         $this->load->view('header', $data);

@@ -139,18 +139,15 @@ class admin extends MY_Controller
             'msg' => 'admin-articles',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-
+                '/js/extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css',
+                '/css/admin.css'
             ),
             'js' => array(
                 '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
+                '/js/moment.js',
+                '/js/func.js',
+                '/js/extjs4/locale/ext-lang-zh_CN.js',
                 '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/cms_add_form.js',
-                '/js/admin/cms.js',
                 '/js/admin/articles.js'
             )
         );
@@ -540,6 +537,182 @@ class admin extends MY_Controller
         $this->load->model('types_model');
 
         $this->types_model->deleteByID($_POST['id']);
+
+        echo json_encode(array(
+            'success' => true
+        ));
+    }
+
+    public function weixin()
+    {
+        $data = array(
+            'msg' => '微信设置',
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css',
+                '/css/admin.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/extjs4/locale/ext-lang-zh_CN.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/weixin.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+    public function func_log()
+    {
+        $data = array(
+            'msg' => '日志',
+            //'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css',
+                '/css/admin.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/moment.js',
+                '/js/func.js',
+                '/js/extjs4/locale/ext-lang-zh_CN.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/func_log.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+    public function getWeixinList()
+    {
+        $this->load->model('cfg_wx_settings_model');
+
+        $option = $_GET;
+        $data = $this->cfg_wx_settings_model->getList($option);
+        echo json_encode($data);
+    }
+
+    public function getWeixinAutoReplyList()
+    {
+        $this->load->model('cfg_wx_settings_model');
+
+        $option = $_GET;
+        $data = $this->cfg_wx_settings_model->getWeiXinAutoReplyList($option);
+        echo json_encode($data);
+    }
+
+
+    public function weixin_save()
+    {
+        $this->load->model('cfg_wx_settings_model');
+
+        $option = $_POST;
+
+        if (isset($option['ID'])) {
+            $this->cfg_wx_settings_model->update($option);
+        } else {
+            $this->cfg_wx_settings_model->insert($option);
+        }
+
+        echo json_encode(array(
+            'success' => true
+        ));
+    }
+
+
+    public function weixin_remove()
+    {
+        $this->load->model('cfg_wx_settings_model');
+
+        $option = $_POST;
+
+        $this->cfg_wx_settings_model->deleteByID($option['ID']);
+
+        echo json_encode(array(
+            'success' => true
+        ));
+    }
+
+    public function weixin_auto_reply()
+    {
+        $data = array(
+            'msg' => '自动消息回复',
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css',
+                '/css/admin.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/extjs4/locale/ext-lang-zh_CN.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/weixin_auto_reply.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+    public function weixin_menu()
+    {
+        $data = array(
+            'msg' => '自定义菜单',
+            'css' => array(
+                '/js/extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css',
+                '/css/admin.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/extjs4/locale/ext-lang-zh_CN.js',
+                '/js/admin/weixin_menu.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+    public function getMenuData()
+    {
+        $this->load->model('cfg_wx_settings_model');
+        $name = 'custom_menu';
+        $tree = $this->cfg_wx_settings_model->getByName($name);
+
+        $menu = '[{"name":"Home","id":"1","type":"view","value":"www.tomtalk.net","leaf":true},'
+            . '{"name":"优惠活动","id":"2","type":"click","value":"xxx","leaf":true},'
+            . '{"name":"News","id":"3","type":"click","value":"xxx","expanded": "true","children":[{"name":"Products Releases","id":"42","type":"click","value":"xxx","leaf":true}]}'
+            . ']';
+
+        echo $tree;
+    }
+
+    public function weixin_menu_save()
+    {
+        $this->load->model('cfg_wx_settings_model');
+
+        $menu = $this->input->post('menu', true);
+
+        $name = 'custom_menu';
+
+        $option = array(
+            'NAME' => $name,
+            'VALUE' => $menu,
+            'DESC' => '自定义菜单'
+        );
+
+        $row = $this->cfg_wx_settings_model->getRowByName($name);
+
+        if ($row) {
+            $option['ID'] = $row->ID;
+            $this->cfg_wx_settings_model->update($option);
+        } else {
+            $this->cfg_wx_settings_model->insert($option);
+        }
 
         echo json_encode(array(
             'success' => true

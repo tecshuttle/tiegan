@@ -35,7 +35,7 @@ class articles_model extends CI_Model
         $options = $this->_default(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
-        $qualificationArray = array('id', 'type_id', 'ctime');
+        $qualificationArray = array('id', 'type_id', 'ctime', 'code');
 
         foreach ($qualificationArray as $qualifier) {
             if (isset($options[$qualifier]))
@@ -68,7 +68,7 @@ class articles_model extends CI_Model
 
         if ($query->num_rows() == 0) return false;
 
-        if (isset($options['id'])) {
+        if (isset($options['id']) or isset($options['code'])) {
             return $query->row(0);
         } else {
             return array(
@@ -76,6 +76,23 @@ class articles_model extends CI_Model
                 'total' => $total
             );
         }
+    }
+
+    function getDoc($type_id)
+    {
+        //取下级分类
+        $sql = "SELECT * from types WHERE belong = $type_id ORDER BY weight DESC";
+        $query = $this->db->query($sql);
+        $cat = $query->result();
+
+        //取下级分类文档
+        foreach ($cat as &$row) {
+            $sql = "SELECT * from articles WHERE type_id = {$row->id}";
+            $query = $this->db->query($sql);
+            $row->articles = $query->result();
+        }
+
+        return $cat;
     }
 
     function insert($data)

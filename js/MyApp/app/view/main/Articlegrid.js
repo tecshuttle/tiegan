@@ -12,7 +12,7 @@ Ext.define('MyApp.view.main.Articlegrid', {
     columnLines: true,
     store: Ext.create('Ext.data.Store', {
         pageSize: 20,
-        fields: ['id', 'name', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+        fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
         proxy: {
             type: 'ajax',
             url: '/articles/getList',
@@ -30,6 +30,10 @@ Ext.define('MyApp.view.main.Articlegrid', {
         },
         {
             header: "名称", dataIndex: 'name'
+
+        },
+        {
+            header: "URL短名", dataIndex: 'code'
         },
         {
             header: "简介", dataIndex: 'desc'

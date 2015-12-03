@@ -43,7 +43,7 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 
 //自定义路由
-$route['pages/:any'] = 'pages/single'; //单页文章
+$route['pages/(:any)'] = "pages/single/$1"; //单页文章
 
 
 /* End of file routes.php */
