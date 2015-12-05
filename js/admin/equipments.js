@@ -85,32 +85,17 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
             },
             {
                 xtype: 'textfield',
-                fieldLabel: '标题',
+                fieldLabel: '产品名称',
                 allowBlank: false,
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
             },
             {
-                xtype: 'textfield',
-                fieldLabel: '省份',
-                allowBlank: false,
-                anchor: '50%',
-                name: 'code',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: '城市',
-                anchor: '50%',
-                name: 'relative_products',
-                emptyText: '请输入…'
-            },
-            {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 500,
-                fieldLabel: '内容',
+                fieldLabel: '产品详情',
                 name: 'content',
                 allowBlank: false,
                 emptyText: '请输入…'
@@ -236,13 +221,16 @@ Ext.define('Color.admin.GridUI', {
                 header: "ID", dataIndex: 'id', hidden: true
             },
             {
-                header: "品名", dataIndex: 'name'
+                header: "产品名称", dataIndex: 'name'
             },
             {
                 header: "规格数", dataIndex: 'classes'
             },
             {
-                header: "总库存数", dataIndex: 'stock'
+                header: "总库存数", dataIndex: 'stock',
+                renderer: function (v) {
+                    return (v == null ? 0 : v);
+                }
             },
             {
                 header: "活动日期", dataIndex: 'ctime',

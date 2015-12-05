@@ -279,6 +279,7 @@ Ext.define('Color.admin.SizeGridAction', {extend: 'Color.admin.SizeGridUI',
         me.hide();
         $c.sizeForm.hide();
         $c.grid.show();
+        $c.grid.getStore().reload();
     },
 
     _showForm: function () {

@@ -30,7 +30,7 @@ class equipments_model extends CI_Model
     //后台grid调用
     function getProduct($option)
     {
-        $sql = "SELECT e.id, e.name, COUNT(s.id) AS classes, SUM(s.stock) AS stock, e.ctime "
+        $sql = "SELECT e.id, e.name, COUNT(s.id) AS classes, SUM(s.stock) AS stock, e.ctime, e.content "
             ."FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
             ."GROUP BY e.id ORDER BY ctime LIMIT {$option['start']}, 20";
 
