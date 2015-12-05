@@ -212,6 +212,25 @@ class admin extends MY_Controller
         $this->load->view('admin/script', $data);
     }
 
+    public function equipments()
+    {
+        $data = array(
+            'msg' => 'admin-products',
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs6/build/MyApp-all.css'
+            ),
+            'js' => array(
+                '/js/extjs6/ext-all.js',
+                '/js/moment.js',
+                '/js/admin/equipments.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
     public function faqs()
     {
         $data = array(
