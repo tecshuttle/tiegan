@@ -3,9 +3,9 @@
  * Class products_model
  * 这个类和articles类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
  */
-class equipments_model extends CI_Model
+class equipments_size_model extends CI_Model
 {
-    var $table = 'equipments';
+    var $table = 'equipments_size';
 
     function __construct()
     {
@@ -27,20 +27,7 @@ class equipments_model extends CI_Model
         ));
     }
 
-    //后台grid调用
-    function getProduct($option)
-    {
-        $sql = "SELECT e.id, e.name, COUNT(s.id) AS classes, SUM(s.stock) AS stock, e.ctime "
-            ."FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
-            ."GROUP BY e.id ORDER BY ctime LIMIT {$option['start']}, 20";
 
-        $query = $this->db->query($sql);
-
-        return (array(
-            'data' => $query->result(),
-            'total' => $this->db->count_all_results($this->table)
-        ));
-    }
 
     //查询，统后用这个方法
     function select($options = array())
@@ -48,7 +35,7 @@ class equipments_model extends CI_Model
         $options = $this->_default(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
-        $qualificationArray = array('id', 'type_id');
+        $qualificationArray = array('id', 'pid');
 
         foreach ($qualificationArray as $qualifier) {
             if (isset($options[$qualifier]))

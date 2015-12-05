@@ -223,7 +223,7 @@ var store = Ext.create('Ext.data.Store', {
 Ext.define('Color.admin.GridUI', {
     extend: 'Ext.grid.GridPanel',
     id: this.id + '_gridList',
-    title: '越野器材',
+    title: '产品列表',
     columnLines: true,
 
     store: store,
@@ -233,22 +233,22 @@ Ext.define('Color.admin.GridUI', {
 
         me.columns = [
             {
-                header: "ID", dataIndex: 'id', width: 70
+                header: "ID", dataIndex: 'id', hidden: true
             },
             {
-                header: "名称", dataIndex: 'name'
+                header: "品名", dataIndex: 'name'
             },
             {
-                header: "省份", dataIndex: 'code'
+                header: "规格数", dataIndex: 'classes'
             },
             {
-                header: "城市", dataIndex: 'relative_products'
+                header: "总库存数", dataIndex: 'stock'
             },
             {
-                header: "建立时间", dataIndex: 'ctime',
+                header: "活动日期", dataIndex: 'ctime',
                 renderer: function (v) {
                     var date = new Date(v * 1000);
-                    return moment(date).format('YYYY-MM-DD HH:MM:SS');
+                    return moment(date).format('YYYY-MM-DD');
                 }
             },
             {
@@ -260,19 +260,21 @@ Ext.define('Color.admin.GridUI', {
                 name: 'opertation',
                 items: [
                     {
-                        text: '编辑',
                         glyph: '编辑',
-                        cls: 'tom-edit',
-                        icon: '/js/MyApp/edit.png',
                         handler: function (grid, rowIndex, colIndex) {
                             var record = grid.getStore().getAt(rowIndex);
-                            console.log(record);
-                            me._edit(record); //alert("Terminate " + rec.get('title'));
+                            me._edit(record);
+                        }
+                    },
+                    {
+                        glyph: '规格',
+                        handler: function (grid, rowIndex, colIndex) {
+                            var record = grid.getStore().getAt(rowIndex);
+                            me._editSize(record);
                         }
                     },
                     {
                         glyph: '删除',
-                        cls: 'tom-delete',
                         handler: function (grid, rowIndex, colIndex) {
                             var record = grid.getStore().getAt(rowIndex);
                             me._delete(record.get('id'));
@@ -287,7 +289,7 @@ Ext.define('Color.admin.GridUI', {
                 xtype: 'toolbar',
                 items: [
                     {
-                        text: '新建器材',
+                        text: '新增产品',
                         id: this.id + '_add'
                     }
                 ]
@@ -356,6 +358,33 @@ Ext.define('Color.admin.GridAction', {extend: 'Color.admin.GridUI',
         form.setValues(record.data);
     },
 
+    _editSize: function (record) {
+        var me = this;
+        me._showSizeGrid(record.id);
+    },
+
+    _showSizeForm: function () {
+        var me = this;
+        var $c = me.up().up().COMPONENTS;
+
+        $c.grid.hide();
+        $c.sizeForm.show();
+    },
+
+    _showSizeGrid: function (pid) {
+        var me = this;
+        var $c = me.up().up().COMPONENTS;
+
+        $c.grid.hide();
+        $c.sizeGrid.show();
+
+        //加载产品规格
+        var proxy = $c.sizeGrid.getStore().getProxy();
+        proxy.extraParams['pid'] = pid;
+
+        $c.sizeGrid.getStore().reload();
+    },
+
     _delete: function (id) {
         var me = this;
 
@@ -397,8 +426,10 @@ Color.ViewportUI = Ext.extend(Ext.Viewport, {
             border: false,
             layout: 'fit',
             items: [
+                this._productForm(),
                 this._gridList(),
-                this._productForm()
+                this._sizeForm(),
+                this._sizeGrid()
             ]
         });
     },
@@ -416,6 +447,26 @@ Color.ViewportUI = Ext.extend(Ext.Viewport, {
         });
 
         this.COMPONENTS.productForm = form;
+
+        return form;
+    },
+
+    _sizeGrid: function () {
+        var grid = Ext.create('Color.admin.SizeGrid', {
+            hidden: true
+        });
+
+        this.COMPONENTS.sizeGrid = grid;
+
+        return grid;
+    },
+
+    _sizeForm: function () {
+        var form = Ext.create('Color.admin.SizeForm', {
+            hidden: true
+        });
+
+        this.COMPONENTS.sizeForm = form;
 
         return form;
     }

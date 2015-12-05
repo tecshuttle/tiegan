@@ -223,7 +223,8 @@ class admin extends MY_Controller
             'js' => array(
                 '/js/extjs6/ext-all.js',
                 '/js/moment.js',
-                '/js/admin/equipments.js'
+                '/js/admin/equipments.js',
+                '/js/admin/equipments_size.js'
             )
         );
 
