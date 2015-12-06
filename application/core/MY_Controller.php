@@ -9,10 +9,7 @@ class MY_Controller extends CI_Controller
     {
         parent::__construct();
 
-        session_start();
-
         if (ENVIRONMENT !== 'production') {
-
             //$this->output->enable_profiler(TRUE);
         }
 

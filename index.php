@@ -1,7 +1,9 @@
 <?php
+session_start();
 
-if (isset($_GET['dev'])) {
+if (isset($_GET['dev']) or isset($_SESSION['dev'])) {
     define('ENVIRONMENT', 'testing');
+    $_SESSION['dev'] = true;
 } else {
     if ($_SERVER['HTTP_HOST'] === 'dev.tiegan.com') {
         define('ENVIRONMENT', 'development');
