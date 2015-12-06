@@ -40,7 +40,7 @@
             <?php endif; ?>
 
             <div class="col-xs-3 " style="padding: 0.5em;">
-                <div class="img-thumbnail" style="width: 100%;text-align: center;padding: 6em;">
+                <div class="img-thumbnail" style="width: 100%;text-align: center;padding: 6em 1em;">
                     <a href="/pages/<?= $article->id ?>"><?= $article->name ?></a>
                 </div>
             </div>
