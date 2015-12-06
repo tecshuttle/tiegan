@@ -1,9 +1,13 @@
 <?php
 
-if ($_SERVER['HTTP_HOST'] === 'dev.tiegan.com') {
-    define('ENVIRONMENT', 'development');
+if (isset($_GET['dev'])) {
+    define('ENVIRONMENT', 'testing');
 } else {
-    define('ENVIRONMENT', 'production');
+    if ($_SERVER['HTTP_HOST'] === 'dev.tiegan.com') {
+        define('ENVIRONMENT', 'development');
+    } else {
+        define('ENVIRONMENT', 'production');
+    }
 }
 
 switch (ENVIRONMENT) {
@@ -97,7 +101,9 @@ if (!is_dir($view_folder)) {
     }
 }
 
-if (ENVIRONMENT === 'development') {
+if (ENVIRONMENT === 'production') {
+    $view_folder = APPPATH . 'views';
+} else {
     $view_folder = APPPATH . 'views_dev';
 }
 

@@ -128,10 +128,10 @@ class CI_Loader {
 		$this->_ci_helper_paths = array(APPPATH, BASEPATH);
 		$this->_ci_model_paths = array(APPPATH);
 
-        if (ENVIRONMENT === 'development') {
-            $this->_ci_view_paths = array(APPPATH . 'views_dev/' => TRUE);
-        } else {
+        if (ENVIRONMENT === 'production') {
             $this->_ci_view_paths = array(APPPATH . 'views/' => TRUE);
+        } else {
+            $this->_ci_view_paths = array(APPPATH . 'views_dev/' => TRUE);
         }
 
 		log_message('debug', "Loader Class Initialized");

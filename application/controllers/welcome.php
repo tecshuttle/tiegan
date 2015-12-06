@@ -54,15 +54,15 @@ class Welcome extends MY_Controller
             'doc' => $doc
         );
 
-        if (ENVIRONMENT === 'development') {
+        if (ENVIRONMENT === 'production') {
+            $this->load->view('qyer', $data);
+        } else {
             $this->load->view('header', $data);
             $this->load->view('home', $data);
             $this->load->view('help_center', $data);
             $this->load->view('copy_right', $data);
             $this->load->view('partner_links', $data);
             $this->load->view('footer', $data);
-        } else {
-            $this->load->view('qyer', $data);
         }
     }
 }
