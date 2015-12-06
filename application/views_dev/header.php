@@ -34,7 +34,7 @@
 
         <div class="col-xs-8" style="text-align: center;padding-top: 10px;">
             <?php foreach ($nav_menu as $menu): ?>
-                <span class="header-menu"><a href="/articles/#"><?= $menu->name ?></a></span>
+                <span class="header-menu"><a href="/cat/<?=$menu->id?>"><?= $menu->name ?></a></span>
             <?php endforeach; ?>
         </div>
 

@@ -43,8 +43,8 @@ class articles_model extends CI_Model
         }
 
         // If limit / offset are declared (usually for pagination) then we need to take them into account
+        $total = $this->db->count_all_results($this->table);
         if (isset($options['limit'])) {
-            $total = $this->db->count_all_results($this->table);
 
             //取得记录数据后，重新设置一下条件
             foreach ($qualificationArray as $qualifier) {
@@ -64,9 +64,12 @@ class articles_model extends CI_Model
             $this->db->order_by($options['sortBy'], $options['sortDirection']);
         }
 
-        $query = $this->db->get($this->table);
+        foreach ($qualificationArray as $qualifier) {
+            if (isset($options[$qualifier]))
+                $this->db->where($qualifier, $options[$qualifier]);
+        }
 
-        if ($query->num_rows() == 0) return false;
+        $query = $this->db->get($this->table);
 
         if (isset($options['id']) or isset($options['code'])) {
             return $query->row(0);

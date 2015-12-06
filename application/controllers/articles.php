@@ -1,6 +1,6 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class articles extends CI_Controller
+class articles extends MY_Controller
 {
     function __construct()
     {
@@ -113,6 +113,29 @@ class articles extends CI_Controller
             $data = $this->articles_model->get($option);
             echo json_encode($data);
         }
+    }
+
+    public function cat($cat_id)
+    {
+        $articles = $this->articles_model->select(array(
+            'type_id' => $cat_id
+        ));
+
+        //取铁杆文章分类
+        $this->load->model('types_model');
+        $nav_menu = $this->types_model->get_menu(234);
+
+        $data = array(
+            'css' => array(),
+            'js' => array(),
+            'nav_menu' => $nav_menu,
+            'articles' => $articles['data']
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('pages/cat', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
     }
 
     public function getDownloadList()

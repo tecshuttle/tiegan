@@ -11,13 +11,24 @@ class pages extends MY_Controller
     {
         $this->load->model('articles_model');
 
-        $article = $this->articles_model->select(array(
-            'code' => $code
-        ));
+        if (is_numeric($code)) {
+            $article = $this->articles_model->select(array(
+                'id' => $code
+            ));
+        } else {
+            $article = $this->articles_model->select(array(
+                'code' => $code
+            ));
+        }
+
+        //取铁杆文章分类
+        $this->load->model('types_model');
+        $nav_menu = $this->types_model->get_menu(234);
 
         $data = array(
             'css' => array(),
             'js' => array(),
+            'nav_menu' => $nav_menu,
             'article' => $article
         );
 
