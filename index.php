@@ -97,6 +97,10 @@ if (!is_dir($view_folder)) {
     }
 }
 
+if (ENVIRONMENT === 'development') {
+    $view_folder = APPPATH . 'views_dev';
+}
+
 if (($_temp = realpath($view_folder)) !== FALSE) {
     $view_folder = $_temp . DIRECTORY_SEPARATOR;
 } else {
