@@ -126,6 +126,7 @@ class articles extends MY_Controller
         $nav_menu = $this->types_model->get_nav_menu(234);
 
         $data = array(
+            'title' => '文章列表',
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,

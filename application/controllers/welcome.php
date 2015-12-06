@@ -38,10 +38,19 @@ class Welcome extends MY_Controller
             ))['data'];
         }
 
+        //print_r($nav_menu);
+
+        //取产品
+        $this->load->model('equipments_model');
+        $products = $this->equipments_model->select(array(
+            'limit' => 8
+        ))['data'];
+
         $data = array(
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,
+            'products' => $products,
             'doc' => $doc
         );
 

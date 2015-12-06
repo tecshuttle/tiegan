@@ -45,6 +45,7 @@ $route['404_override'] = '';
 //自定义路由
 $route['pages/(:any)'] = "pages/single/$1"; //单页文章
 $route['cat/(:num)'] = "articles/cat/$1"; //文章分类列表
+$route['match/(:num)'] = "equipments/match/$1"; //比赛详情
 
 
 /* End of file routes.php */

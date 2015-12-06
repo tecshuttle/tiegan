@@ -26,6 +26,7 @@ class pages extends MY_Controller
         $nav_menu = $this->types_model->get_nav_menu(234);
 
         $data = array(
+            'title' => $article->name,
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,

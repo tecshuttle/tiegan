@@ -35,6 +35,32 @@ class equipments extends MY_Controller
         echo $this->load->view('products/' . $article, true);
     }
 
+    public function match($id)
+    {
+        $this->load->model('equipments_model');
+
+        $article = $this->equipments_model->select(array(
+            'id' => $id
+        ));
+
+        //取铁杆文章分类
+        $this->load->model('types_model');
+        $nav_menu = $this->types_model->get_nav_menu(234);
+
+        $data = array(
+            'title' => '比赛',
+            'css' => array(),
+            'js' => array(),
+            'nav_menu' => $nav_menu,
+            'match' => $article
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('product/match', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
+    }
+
     public function save()
     {
         $cover = $this->upload_product_cover();
