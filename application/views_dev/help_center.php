@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 1em; ">
     <div class="row" style="background-color: #323232;color: #aaa;padding-top: 1em;">
         <?php foreach ($doc as $cat): ?>
             <li class="col-xs-2">

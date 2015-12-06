@@ -27,9 +27,16 @@ class Welcome extends MY_Controller
 
         //取铁杆文章分类
         $this->load->model('types_model');
-        $nav_menu = $this->types_model->get_menu(234);
+        $nav_menu = $this->types_model->get_nav_menu(234);
 
         //铁杆文章每分类取8篇
+
+        foreach ($nav_menu as &$menu) {
+            $menu->articles = $articles = $this->articles_model->select(array(
+                'type_id' => $menu->id,
+                'limit' => 8
+            ))['data'];
+        }
 
         $data = array(
             'css' => array(),

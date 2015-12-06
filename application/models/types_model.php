@@ -18,9 +18,17 @@ class types_model extends CI_Model
         $this->load->database();
     }
 
-    function get_menu($belong)
+    function get_nav_menu($belong)
     {
         $query = $this->db->query("SELECT * FROM types WHERE  belong = $belong ORDER BY weight DESC");
+        $data = $query->result();
+
+        return $data;
+    }
+
+    function get_menu($type)
+    {
+        $query = $this->db->query("SELECT * FROM types WHERE lang = '{$this->lang}' AND module = " . $this->module[$type] . ' ORDER BY weight DESC');
         $data = $query->result();
 
         return $data;

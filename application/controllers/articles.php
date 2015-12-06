@@ -123,7 +123,7 @@ class articles extends MY_Controller
 
         //取铁杆文章分类
         $this->load->model('types_model');
-        $nav_menu = $this->types_model->get_menu(234);
+        $nav_menu = $this->types_model->get_nav_menu(234);
 
         $data = array(
             'css' => array(),
