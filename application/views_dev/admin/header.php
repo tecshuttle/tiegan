@@ -25,6 +25,12 @@
         }
 
         /* text for actioncolumn end */
+
+        .x-html-editor-input {
+            border-left: 1px solid #d0d0d0;
+            border-right: 1px solid #d0d0d0;
+            border-bottom: 1px solid #d0d0d0;
+        }
     </style>
 </head>
 
