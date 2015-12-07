@@ -37,22 +37,21 @@ class equipments extends MY_Controller
 
     public function match($id)
     {
-        $this->load->model('equipments_model');
-
-        $article = $this->equipments_model->select(array(
-            'id' => $id
-        ));
-
-        //取铁杆文章分类
+        //取铁杆文章分类,用于菜单
         $this->load->model('types_model');
         $nav_menu = $this->types_model->get_nav_menu(234);
+
+        $this->load->model('equipments_model');
+        $match = $this->equipments_model->select(array(
+            'id' => $id
+        ));
 
         $data = array(
             'title' => '比赛',
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,
-            'match' => $article
+            'match' => $match
         );
 
         $this->load->view('header', $data);
