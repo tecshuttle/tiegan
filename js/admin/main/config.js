@@ -6,8 +6,18 @@ Docs.Menu = [
         isMutilLevel: false,
         children: [
             {
+                href: "/admin/gallery",
+                text: "图库",
+                leaf: true
+            },
+            {
                 href: "/admin/articles",
                 text: "文章管理",
+                leaf: true
+            },
+            {
+                href: "/admin/equipments",
+                text: "产品管理",
                 leaf: true
             }
         ]
