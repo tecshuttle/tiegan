@@ -29,6 +29,15 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
             );
         }
 
+        if (me.module == 'admins') {
+            me.items.push(
+                Ext.create('Tomtalk.grid.AccountForm', {
+                    id: me.id + '_form',
+                    hidden: true
+                })
+            );
+        }
+
         Tomtalk.IdcUI.superclass.initComponent.call(me);
     },
 
@@ -54,6 +63,16 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
         });
 
         var linkcolumn = [];
+
+        if (me.module == 'admins') {
+            linkcolumn.push({
+                text: '编辑',
+                handler: function (grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                    me._edit(rec);
+                }
+            });
+        }
 
         if (me.module == 'site_settings') {
             linkcolumn.push({
@@ -89,6 +108,20 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
             columnLines: true,
             store: store,
             columns: me.columns,
+            dockedItems: [
+                {
+                    xtype: 'toolbar',
+                    items: [
+                        {
+                            //iconCls: 'icon-add',
+                            text: '新建帐号',
+                            id: this.id + '_add'
+                            //scope: this,
+                            //handler: this.onAddClick
+                        }
+                    ]
+                }
+            ],
             bbar: {
                 xtype: 'pagingtoolbar',
                 store: store,
@@ -139,6 +172,7 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         Tomtalk.IdcAction.superclass.initEvents.call(me);
 
         this.on('boxready', me._afterrender, me);
+        $c.addBtn.on('click', me._add, me);
     },
 
     _afterrender: function () {
@@ -159,6 +193,14 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
                 me.COMPONENTS.grid.getStore().reload();
             }
         });
+    },
+
+    _add: function() {
+        var $c = this.COMPONENTS;
+
+        $c.grid.hide();
+        $c.form.getForm().reset();
+        $c.form.show();
     },
 
     _edit: function (rec) {

@@ -129,7 +129,7 @@ Ext.define('MyApp.view.main.Typeinfo', {
         $c.grid.hide();
         $c.typeInfoForm.hide();
         $c.articleForm.show();
-    },
+    }
 
 });
 

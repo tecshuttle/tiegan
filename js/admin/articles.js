@@ -1,11 +1,16 @@
-Ext.application({
-    name: "Tiegan",
-    appFolder: '/js/admin/articles',
-    controllers: ["Articles"],
-    autoCreateViewport: true,
-    launch: function () {
-        // 页面加载完成之后执行
-    }
+Ext.onReady(function () {
+    new Ext.Viewport({
+        renderTo: Ext.getBody(),
+        layout: 'fit',
+        style: 'padding:10px;background-color: white;',
+        items: [
+            {
+                border: false,
+                bodyBorder:false,
+                xtype: 'layout-border-doc'
+            }
+        ]
+    });
 });
 
 //end file

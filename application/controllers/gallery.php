@@ -183,8 +183,6 @@ class MyUpload extends UploadHandler
         //先处理小图，再处理原图。在此处，先把文件名记下来。处理原图时，直接用这个文件名。
         $this->timeFileName = $this->time_file_name($new_file_path);
 
-        echo $this->timeFileName;
-
         return $success;
     }
 
@@ -204,11 +202,6 @@ class MyUpload extends UploadHandler
     private function rename_time_file($file_path)
     {
         $info = pathinfo($file_path);
-
-        echo 'time';
-
-        print_r($this->timeFileName);
-        exit;
 
         $new_file_path = $info['dirname'] . '/' . $this->timeFileName;
 

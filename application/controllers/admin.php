@@ -136,19 +136,20 @@ class admin extends MY_Controller
     public function articles()
     {
         $data = array(
-            'msg' => 'admin-articles',
+            'msg' => 'admin-products',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs4/resources/ext-theme-neptune/ext-theme-neptune-all.css',
-                '/css/admin.css'
+                '/js/extjs6/build/MyApp-all.css'
             ),
             'js' => array(
-                '/js/extjs4/bootstrap.js',
+                '/js/extjs6/ext-all.js',
                 '/js/moment.js',
-                '/js/func.js',
-                '/js/extjs4/locale/ext-lang-zh_CN.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/articles.js'
+                '/js/MyApp/app/view/main/Articleform.js',
+                '/js/MyApp/app/view/main/Articlegrid.js',
+                '/js/MyApp/app/view/main/Typeinfo.js',
+                '/js/MyApp/app/view/main/Articletree.js',
+                '/js/MyApp/app/view/main/Articlepanel.js',
+                '/js/admin/articles.js',
             )
         );
 
@@ -340,6 +341,31 @@ class admin extends MY_Controller
                 '/js/admin/grid.js',
                 '/js/admin/grid_form.js',
                 '/js/admin/settings.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+    public function accounts()
+    {
+        $data = array(
+            'msg' => 'admin-' . __FUNCTION__,
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/css/ext-all.css',
+                '/css/admin/themes/ijobs-v3/css/index.css',
+                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/admin/common/common.js',
+                '/js/admin/common/utils.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/admin/grid.js',
+                '/js/admin/grid_account_form.js',
+                '/js/admin/accounts.js'
             )
         );
 

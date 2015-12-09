@@ -55,6 +55,22 @@ Docs.Menu = [
                 leaf: true
             }
         ]
+    },
+    {
+        id: 'set',
+        isMutilLevel: false,
+        children: [
+            {
+                href: "/admin/settings",
+                text: "全站设置",
+                leaf: true
+            },
+            {
+                href: "/admin/accounts",
+                text: "管理员帐号",
+                leaf: true
+            }
+        ]
     }
 ];
 

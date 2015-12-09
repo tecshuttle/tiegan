@@ -4,12 +4,12 @@
 Ext.define('MyApp.view.main.Articlelist', {
     extend: 'Ext.grid.Panel',
     requires: [
-        'Ext.grid.column.Action',
-        'MyApp.store.Article',
-        'MyApp.model.Article'
+        //'Ext.grid.column.Action'
+        //'MyApp.store.Article',
+        //'MyApp.model.Article'
     ],
     xtype: 'articlelist',
-    store: {type: 'article'},
+    //store: {type: 'article'},
     stateful: true,
     collapsible: true,
     multiSelect: true,

@@ -1,7 +1,9 @@
-<html>
+<!Doctype html>
+<html xmlns=http://www.w3.org/1999/xhtml>
 <head>
     <meta http-equiv=Content-Type content="text/html;charset=utf-8">
     <title><?= $msg ?></title>
+    <base href="http://dev.tiegan.com/">
 
     <?php foreach ($css as $cssFile): ?>
         <link rel="stylesheet" type="text/css" href="<?= $cssFile ?>"/>

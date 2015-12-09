@@ -642,7 +642,7 @@ Ext.onReady(function () {
                     }
 
                 } else {//默认为作业执行历史
-                    mainPanel.createNewTab('/admin/weixin', Math.random(), '微信设置');
+                    mainPanel.createNewTab('/admin/articles', Math.random(), '文章管理');
                 }
             },
             /**
