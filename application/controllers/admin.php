@@ -144,11 +144,11 @@ class admin extends MY_Controller
             'js' => array(
                 '/js/extjs6/ext-all.js',
                 '/js/moment.js',
-                '/js/MyApp/app/view/main/Articleform.js',
-                '/js/MyApp/app/view/main/Articlegrid.js',
-                '/js/MyApp/app/view/main/Typeinfo.js',
-                '/js/MyApp/app/view/main/Articletree.js',
-                '/js/MyApp/app/view/main/Articlepanel.js',
+                '/js/admin/Articleform.js',
+                '/js/admin/Articlegrid.js',
+                '/js/admin/Articletypeinfo.js',
+                '/js/admin/Articletree.js',
+                '/js/admin/Articlepanel.js',
                 '/js/admin/articles.js',
             )
         );
