@@ -32,25 +32,28 @@ class Welcome extends MY_Controller
         //铁杆文章每分类取8篇
 
         foreach ($nav_menu as &$menu) {
-            $menu->articles = $articles = $this->articles_model->select(array(
+            $articles = $this->articles_model->select(array(
                 'type_id' => $menu->id,
                 'limit' => 8
-            ))['data'];
+            ));
+
+            $menu->articles = $articles['data'];
         }
 
         //print_r($nav_menu);
 
         //取产品
         $this->load->model('equipments_model');
+
         $products = $this->equipments_model->select(array(
             'limit' => 8
-        ))['data'];
+        ));
 
         $data = array(
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,
-            'products' => $products,
+            'products' => $products['data'],
             'doc' => $doc
         );
 

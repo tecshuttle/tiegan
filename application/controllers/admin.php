@@ -21,18 +21,14 @@ class admin extends MY_Controller
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+                '/css/admin/themes/css/index.css',
+                '/css/admin/themes/css/common.css'
             ),
             'js' => array(
                 '/js/extjs4/bootstrap.js',
                 '/js/extjs4/locale/ext-lang-zh_CN.js',
-                '/js/admin/main/config.js',
-                '/js/admin/main/config_user.js',
-                '/js/admin/main/config_general.js',
-                '/js/admin/main/config_user_general.js',
                 '/js/extjs4/ux/TabCloseMenu.js',
-                '/js/admin/common/utils.js',
+                '/js/admin/main/menuConfig.js',
                 '/js/admin/main/main.js'
             )
         );

@@ -58,6 +58,7 @@ Docs.Menu = [
     },
     {
         id: 'set',
+        text: '系统设置',
         isMutilLevel: false,
         children: [
             {
