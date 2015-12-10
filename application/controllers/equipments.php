@@ -46,6 +46,8 @@ class equipments extends MY_Controller
             'id' => $id
         ));
 
+        $match -> relative_product = $this->equipments_model->getRelative($match->relative);
+
         $data = array(
             'title' => '比赛',
             'css' => array(),

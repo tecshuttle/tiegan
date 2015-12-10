@@ -10,8 +10,12 @@
 
     <div class="row">
         <div class="col-xs-12 " style="padding: 0em 1em;">
-            <div class="img-thumbnail" style="width: 100%;padding: 2em;">
-                <?= $match->content ?>
+            <div class="img-thumbnail" style="width: 100%;padding: 1em;">
+                <?= $match->desc ?>
+
+                <?php if (empty($match->desc)): ?>
+                    暂无产品简介
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -21,16 +25,28 @@
 <div class="container-fluid" style="margin: 1em auto;">
     <div class="row">
         <div class="col-xs-9">
-            <div class="img-thumbnail" style="width: 100%;padding:2em;">
-                <?php for ($i = 0; $i < 7; $i++): ?>
-                    <?= $match->content ?>
-                <?php endfor; ?>
+            <div class="img-thumbnail" style="width: 100%;padding:1em;">
+                <?= $match->content ?>
+
+                <?php if (empty($match->content)): ?>
+                    暂无产品详情
+                <?php endif; ?>
             </div>
         </div>
 
         <div class="col-xs-3" style="padding-left: 0em;">
-            <div class="img-thumbnail" style="width: 100%;text-align: center;padding: 6em 2em;">
-                列表
+            <div class="img-thumbnail" style="width: 100%;text-align: center;padding: 1em;">
+                <?php foreach ($match->relative_product as $r): ?>
+                    <div>
+                        <a href="/match/<?= $r->id ?>">
+                            <?= $r->name ?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+
+                <?php if (empty($match->relative_product)): ?>
+                    暂无相关产品
+                <?php endif; ?>
             </div>
         </div>
     </div>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class products_model
  * 这个类和articles类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
@@ -30,9 +31,9 @@ class equipments_model extends CI_Model
     //后台grid调用
     function getProduct($option)
     {
-        $sql = "SELECT e.id, e.name, COUNT(s.id) AS classes, SUM(s.stock) AS stock, e.ctime, e.content "
-            ."FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
-            ."GROUP BY e.id ORDER BY ctime LIMIT {$option['start']}, 20";
+        $sql = "SELECT e.*, COUNT(s.id) AS classes, SUM(s.stock) AS stock "
+            . "FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
+            . "GROUP BY e.id ORDER BY ctime LIMIT {$option['start']}, 20";
 
         $query = $this->db->query($sql);
 
@@ -132,6 +133,20 @@ class equipments_model extends CI_Model
     function getByIDs($ids)
     {
         $query = $this->db->query('select * from products where id in (' . join(',', $ids) . ')');
+        $data = $query->result();
+
+        return $data;
+    }
+
+
+    //前台调用
+    function getRelative($ids)
+    {
+        if (empty($ids)) {
+            return array();
+        }
+
+        $query = $this->db->query("select id, name from $this->table where id in ($ids)");
         $data = $query->result();
 
         return $data;

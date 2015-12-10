@@ -90,11 +90,31 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
+            },{
+                xtype: 'textfield',
+                fieldLabel: '封面图',
+                anchor: '50%',
+                name: 'cover',
+                emptyText: '示例: /uploads/14201863264972.jpg'
+            },{
+                xtype: 'textfield',
+                fieldLabel: '相关产品',
+                anchor: '50%',
+                name: 'relative',
+                emptyText: '填写产品尖,示例: 23, 453, 21'
             },
             {
                 xtype: 'htmleditor',
                 anchor: '100%',
-                height: 500,
+                height: 300,
+                fieldLabel: '产品简介',
+                name: 'desc',
+                allowBlank: false,
+                emptyText: '请输入…'
+            },{
+                xtype: 'htmleditor',
+                anchor: '100%',
+                height: 300,
                 fieldLabel: '产品详情',
                 name: 'content',
                 allowBlank: false,
@@ -192,7 +212,7 @@ Color.admin.EditForm = Color.admin.EditFormAction;
 
 var store = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'code', 'name', 'desc', 'relative_products', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+    fields: ['id', 'code', 'name', 'desc', 'relative', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
     autoLoad: true,
     proxy: {
         type: 'ajax',
@@ -412,7 +432,7 @@ Color.ViewportUI = Ext.extend(Ext.Viewport, {
         return  Ext.create('Ext.panel.Panel', {
             autoScroll: true,
             border: false,
-            layout: 'fit',
+            //layout: 'fit',
             items: [
                 this._productForm(),
                 this._gridList(),
