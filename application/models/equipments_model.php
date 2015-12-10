@@ -46,7 +46,7 @@ class equipments_model extends CI_Model
     //查询，统后用这个方法
     function select($options = array())
     {
-        $options = $this->_default(array('sortDirection' => 'DESC'), $options);
+        $options = array_merge(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
         $qualificationArray = array('id', 'type_id');
@@ -57,8 +57,8 @@ class equipments_model extends CI_Model
         }
 
         // If limit / offset are declared (usually for pagination) then we need to take them into account
+        $total = $this->db->count_all_results($this->table);
         if (isset($options['limit'])) {
-            $total = $this->db->count_all_results($this->table);
 
             //取得记录数据后，重新设置一下条件
             foreach ($qualificationArray as $qualifier) {
@@ -78,14 +78,12 @@ class equipments_model extends CI_Model
             $this->db->order_by($options['sortBy'], $options['sortDirection']);
         }
 
-        $query = $this->db->get($this->table);
-
-        if ($query->num_rows() == 0) {
-            return array(
-                'data' => array(),
-                'total' => 0
-            );
+        foreach ($qualificationArray as $qualifier) {
+            if (isset($options[$qualifier]))
+                $this->db->where($qualifier, $options[$qualifier]);
         }
+
+        $query = $this->db->get($this->table);
 
         if (isset($options['id'])) {
             return $query->row(0);

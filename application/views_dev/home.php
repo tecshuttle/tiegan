@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row" style="margin: 0 1em 0em 0em;">
         <div class="col-xs-12" style="text-align: center;">
-            <h1>产品</h1>
+            <h1>朝圣</h1>
         </div>
     </div>
 
@@ -22,6 +22,10 @@
 
         <?php endif; ?>
     <?php endforeach; ?>
+
+    <div class="row" style="text-align:center;padding: 2em;margin: 0 1em 0em 0em;">
+        <a href="/equipments">更多</a>
+    </div>
 </div>
 
 

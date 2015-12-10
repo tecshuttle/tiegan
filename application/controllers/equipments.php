@@ -13,12 +13,27 @@ class equipments extends MY_Controller
 
     public function index()
     {
-        //取默认产品分类
-        $default = $this->types_model->get_default_product();
+        //取铁杆文章分类,用于菜单
+        $this->load->model('types_model');
+        $nav_menu = $this->types_model->get_nav_menu(234);
 
-        $_GET['id'] = $default->id; //进入产品页后，显示默认分类列表
+        $this->load->model('equipments_model');
+        $matchs = $this->equipments_model->select(array(
 
-        $this->category_desc();
+        ));
+
+        $data = array(
+            'title' => '比赛',
+            'css' => array(),
+            'js' => array(),
+            'nav_menu' => $nav_menu,
+            'matchs' => $matchs['data']
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('product/list', $data);
+        $this->load->view('copy_right', $data);
+        $this->load->view('footer', $data);
     }
 
     //在内容区加载产品

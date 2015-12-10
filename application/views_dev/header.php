@@ -33,8 +33,10 @@
         </div>
 
         <div class="col-xs-8" style="text-align: center;padding-top: 10px;">
+            <span class="header-menu"><a href="/equipments">朝圣</a></span>
+
             <?php foreach ($nav_menu as $menu): ?>
-                <span class="header-menu"><a href="/cat/<?=$menu->id?>"><?= $menu->name ?></a></span>
+                <span class="header-menu"><a href="/cat/<?= $menu->id ?>"><?= $menu->name ?></a></span>
             <?php endforeach; ?>
         </div>
 
