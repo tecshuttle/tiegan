@@ -135,7 +135,8 @@ class admin extends MY_Controller
             'msg' => 'admin-products',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs6/build/MyApp-all.css'
+                '/js/extjs6/build/MyApp-all.css',
+                '/css/admin.css'
             ),
             'js' => array(
                 '/js/extjs6/ext-all.js',

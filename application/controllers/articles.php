@@ -128,6 +128,9 @@ class articles extends MY_Controller
             'type_id' => $cat_id
         ));
 
+        foreach ($articles as &$a) {
+            $a->digest = mb_substr(strip_tags($a->content), 0, 370);
+        }
 
         //取铁杆文章分类
         $this->load->model('types_model');

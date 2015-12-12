@@ -98,7 +98,7 @@
                             <a href="/pages/<?= $article->id ?>" target="_blank"><?= $article->name ?></a>
                         </div>
                         <div class="mclb_dtwo">
-                            <?= $article->content ?>
+                            <?= $article->digest ?>
                             <a href="/pages/<?= $article->id ?>" target="_blank">[ 查看详细 ]</a>
                         </div>
                         <div class="mclb_dthr">
