@@ -18,9 +18,7 @@ class equipments extends MY_Controller
         $nav_menu = $this->types_model->get_nav_menu(234);
 
         $this->load->model('equipments_model');
-        $matchs = $this->equipments_model->select(array(
-
-        ));
+        $matchs = $this->equipments_model->select(array());
 
         $data = array(
             'title' => '比赛',
@@ -30,10 +28,14 @@ class equipments extends MY_Controller
             'matchs' => $matchs['data']
         );
 
-        $this->load->view('header', $data);
-        $this->load->view('product/list', $data);
-        $this->load->view('copy_right', $data);
-        $this->load->view('footer', $data);
+        if (ENVIRONMENT === 'production') {
+            $this->load->view('product_list', $data);
+        } else {
+            $this->load->view('header', $data);
+            $this->load->view('product/list', $data);
+            $this->load->view('copy_right', $data);
+            $this->load->view('footer', $data);
+        }
     }
 
     //在内容区加载产品
@@ -61,7 +63,7 @@ class equipments extends MY_Controller
             'id' => $id
         ));
 
-        $match -> relative_product = $this->equipments_model->getRelative($match->relative);
+        $match->relative_product = $this->equipments_model->getRelative($match->relative);
 
         $data = array(
             'title' => '比赛',
@@ -71,10 +73,14 @@ class equipments extends MY_Controller
             'match' => $match
         );
 
-        $this->load->view('header', $data);
-        $this->load->view('product/match', $data);
-        $this->load->view('copy_right', $data);
-        $this->load->view('footer', $data);
+        if (ENVIRONMENT === 'production') {
+            $this->load->view('product_detail', $data);
+        } else {
+            $this->load->view('header', $data);
+            $this->load->view('product/match', $data);
+            $this->load->view('copy_right', $data);
+            $this->load->view('footer', $data);
+        }
     }
 
     public function save()

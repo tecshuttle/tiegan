@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class articles_model
  * 这个类和products类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
@@ -79,6 +80,17 @@ class articles_model extends CI_Model
                 'total' => $total
             );
         }
+    }
+
+    function getCatList($option)
+    {
+        $type_id = $option['type_id'];
+
+        $sql = "SELECT a.*, t.name as cat_name from articles as a left join types as t on (a.type_id = t.id) WHERE a.type_id = $type_id";
+        $query = $this->db->query($sql);
+        $cat = $query->result();
+
+        return $cat;
     }
 
     function getDoc($type_id)

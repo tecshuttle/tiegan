@@ -5,7 +5,7 @@
                 <dl>
                     <dt><?= $cat->name ?></dt>
                     <?php foreach ($cat->articles as $article): ?>
-                        <dd><a href="/pages/<?= $article->code ?>" target="_blank"><?= $article->name ?></a></dd>
+                        <dd><a href="/pages/<?= $article->code ?>" target="_blank">c</a></dd>
                     <?php endforeach; ?>
                 </dl>
             </li>

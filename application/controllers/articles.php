@@ -117,7 +117,7 @@ class articles extends MY_Controller
 
     public function cat($cat_id)
     {
-        $articles = $this->articles_model->select(array(
+        $articles = $this->articles_model->getCatList(array(
             'type_id' => $cat_id
         ));
 
@@ -130,13 +130,17 @@ class articles extends MY_Controller
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,
-            'articles' => $articles['data']
+            'articles' => $articles
         );
 
-        $this->load->view('header', $data);
-        $this->load->view('pages/cat', $data);
-        $this->load->view('copy_right', $data);
-        $this->load->view('footer', $data);
+        if (ENVIRONMENT === 'production') {
+            $this->load->view('article_list', $data);
+        } else {
+            $this->load->view('header', $data);
+            $this->load->view('pages/cat', $data);
+            $this->load->view('copy_right', $data);
+            $this->load->view('footer', $data);
+        }
     }
 
     public function getDownloadList()

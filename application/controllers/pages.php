@@ -33,10 +33,14 @@ class pages extends MY_Controller
             'article' => $article
         );
 
-        $this->load->view('header', $data);
-        $this->load->view('pages/single', $data);
-        $this->load->view('copy_right', $data);
-        $this->load->view('footer', $data);
+        if (ENVIRONMENT === 'production') {
+            $this->load->view('article_detail', $data);
+        } else {
+            $this->load->view('header', $data);
+            $this->load->view('pages/single', $data);
+            $this->load->view('copy_right', $data);
+            $this->load->view('footer', $data);
+        }
     }
 }
 

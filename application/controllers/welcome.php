@@ -58,7 +58,7 @@ class Welcome extends MY_Controller
         );
 
         if (ENVIRONMENT === 'production') {
-            $this->load->view('qyer', $data);
+            $this->load->view('home', $data);
         } else {
             $this->load->view('header', $data);
             $this->load->view('home', $data);
