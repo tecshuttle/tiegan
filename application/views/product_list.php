@@ -82,14 +82,14 @@
 
                     <div class="details">
                         <h1><a href="/match/<?= $m->id ?>"><?= $m->name ?></a></h1>
-                        行程天数：7天5晚<br>
-                        出发日期：2015/10/23<br>
-                        行程概览：中国——巴黎——巴黎（购物）<br>
+                        行程天数：<?= $m->travel_long ?><br>
+                        出发日期：<?= $m->travel_begin ?><br>
+                        行程概览：<?= $m->brief ?><br>
 
                         <div class="firTitle clearfix"></div>
                     </div>
                     <div class="rs">
-                        <span class="money"><span>¥4680</span>起</span>
+                        <span class="money"><span>¥<?= $m->price ?></span>起</span>
                         <a href="/match/<?= $m->id ?>" title="预订">预订</a>
                     </div>
                 </li>

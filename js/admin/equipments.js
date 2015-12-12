@@ -96,6 +96,34 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 anchor: '50%',
                 name: 'cover',
                 emptyText: '示例: /uploads/14201863264972.jpg'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: '价格',
+                anchor: '50%',
+                name: 'price',
+                emptyText: '请输入…'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: '行程天数',
+                anchor: '50%',
+                name: 'travel_long',
+                emptyText: '示例: 7天5晚'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: '出发日期',
+                anchor: '50%',
+                name: 'travel_begin',
+                emptyText: '格式: 2015-12-30'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: '行程概览',
+                anchor: '50%',
+                name: 'brief',
+                emptyText: '示例: 中国——巴黎——巴黎（购物）'
             },{
                 xtype: 'textfield',
                 fieldLabel: '相关产品',

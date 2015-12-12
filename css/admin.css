@@ -49,3 +49,9 @@
     -o-transition: background-position 0.1s linear;
     transition: background-position 0.1s linear;
 }
+
+.x-html-editor-input {
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    border-bottom: 1px solid #d0d0d0;
+}
