@@ -252,15 +252,15 @@
                                             <p class="ellipsis"><?= $article->name ?></p>
                                         </div>
                                         <div class="pro-desc">
-                                            <p class="ellipsis">行程天数：7天5晚</p>
+                                            <p class="ellipsis">行程天数：<?= $article->travel_long ?></p>
 
-                                            <p class="ellipsis">出发日期：2015/10/23</p>
+                                            <p class="ellipsis">出发日期：<?= $article->travel_begin ?></p>
 
-                                            <p class="ellipsis">行程概览：中国——巴黎——巴黎（购物）</p>
+                                            <p class="ellipsis">行程概览：<?= $article->brief ?></p>
                                         </div>
                                         <div class="bottom">
                                             <span class="fr">10703个人去过这里</span>
-                                            <span class="f14 price"><b>¥4680</b>起</span>
+                                            <span class="f14 price"><b>¥<?= $article->price ?></b>起</span>
                                         </div>
                                     </a>
                                 </div>
