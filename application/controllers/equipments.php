@@ -24,6 +24,7 @@ class equipments extends MY_Controller
             'title' => '比赛',
             'css' => array(),
             'js' => array(),
+            'menu' => 'product',
             'nav_menu' => $nav_menu,
             'matchs' => $matchs['data']
         );
@@ -69,6 +70,7 @@ class equipments extends MY_Controller
             'title' => '比赛',
             'css' => array(),
             'js' => array(),
+            'menu' => 'product',
             'nav_menu' => $nav_menu,
             'match' => $match
         );

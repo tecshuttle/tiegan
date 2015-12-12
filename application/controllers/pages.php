@@ -2,6 +2,18 @@
 
 class pages extends MY_Controller
 {
+    function __construct()
+    {
+        parent::__construct(); // Call the Model constructor
+
+        $this->menu = array(
+            225 => 'back',
+            223 => 'travel',
+            227 => 'news',
+            233 => 'fan',
+        );
+    }
+
     public function index()
     {
         echo 'access deny';
@@ -21,6 +33,9 @@ class pages extends MY_Controller
             ));
         }
 
+        //文章PV
+        $this->articles_model->pv_inc($article->id);
+
         //取铁杆文章分类
         $this->load->model('types_model');
         $nav_menu = $this->types_model->get_nav_menu(234);
@@ -29,6 +44,7 @@ class pages extends MY_Controller
             'title' => $article->name,
             'css' => array(),
             'js' => array(),
+            'menu' => $this->menu[$article->type_id],
             'nav_menu' => $nav_menu,
             'article' => $article
         );

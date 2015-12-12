@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>文章详情</title>
+    <title><?= $article->name ?></title>
     <base href="/">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -31,7 +31,7 @@
 
 <!-- inner header start -->
 <div class="q-layer-header">
-    <?php $this->load->view('mini_header')?>
+    <?php $this->load->view('mini_header') ?>
 </div>
 <!-- inner header end -->
 
@@ -41,7 +41,7 @@
     <!--搜索-->
     <div class="m_seach">
 
-        当前位置：<a href="/">首页</a> &gt; <a href="#">文章列表</a> &gt; <?= $article->name ?>
+        当前位置：<a href="/">首页</a> &gt; <a href="/cat/<?= $article->type_id ?>">文章列表</a> &gt; <?= $article->name ?>
 
     </div>
     <!--搜索end-->

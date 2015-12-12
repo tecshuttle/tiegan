@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>文章列表</title>
+    <title><?= $articles[0]->cat_name ?></title>
     <base href="/">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -49,7 +49,7 @@
 
 <!-- inner header start -->
 <div class="q-layer-header">
-    <?php $this->load->view('mini_header') ?>
+    <?php $this->load->view('mini_header', array('menu' => $menu)) ?>
 </div>
 <!-- inner header end -->
 
@@ -104,9 +104,7 @@
                         <div class="mclb_dthr">
                             <span><?= date('Y-m-d H:i:s', $article->mtime) ?> 更新</span>
 
-                            <p>
-                                浏览：35
-                            </p>
+                            <p> 浏览：<?= $article->pv ?> </p>
                         </div>
                     </div>
                 <?php endforeach; ?>

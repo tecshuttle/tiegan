@@ -176,6 +176,12 @@ class articles_model extends CI_Model
         ));
     }
 
+    function pv_inc($id)
+    {
+        $sql = "UPDATE articles SET pv = pv+1 WHERE id = $id";
+        $this->db->query($sql);
+    }
+
     function news_search($keyword)
     {
         $sql = "SELECT * from articles WHERE type_id IN (42,43,44) AND name LIKE '%$keyword%'";

@@ -6,6 +6,13 @@ class articles extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('articles_model');
+
+        $this->menu = array(
+            225 => 'back',
+            223 => 'travel',
+            227 => 'news',
+            233 => 'fan',
+        );
     }
 
     public function index()
@@ -121,6 +128,7 @@ class articles extends MY_Controller
             'type_id' => $cat_id
         ));
 
+
         //取铁杆文章分类
         $this->load->model('types_model');
         $nav_menu = $this->types_model->get_nav_menu(234);
@@ -129,6 +137,7 @@ class articles extends MY_Controller
             'title' => '文章列表',
             'css' => array(),
             'js' => array(),
+            'menu' => $this->menu[$cat_id],
             'nav_menu' => $nav_menu,
             'articles' => $articles
         );
