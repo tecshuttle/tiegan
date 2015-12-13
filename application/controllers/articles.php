@@ -6,6 +6,7 @@ class articles extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('articles_model');
+        $this->load->model('types_model');
 
         $this->menu = array(
             225 => 'back',
@@ -122,27 +123,33 @@ class articles extends MY_Controller
         }
     }
 
-    public function cat($cat_id)
+    public function cat($cat_id, $page)
     {
-        $articles = $this->articles_model->getCatList(array(
-            'type_id' => $cat_id
+        //取文章内容
+        $per_page = 10;
+
+        $articles = $this->articles_model->select(array(
+            'type_id' => $cat_id,
+            'sortBy' => 'ctime',
+            'limit' => $per_page,
+            'offset' => ($page - 1) * $per_page
         ));
 
-        foreach ($articles as &$a) {
+        foreach ($articles['data'] as &$a) {
             $a->digest = mb_substr(strip_tags($a->content), 0, 370);
         }
 
-        //取铁杆文章分类
-        $this->load->model('types_model');
-        $nav_menu = $this->types_model->get_nav_menu(234);
+        //取分类信息
+        $cat = $this->types_model->getByID($cat_id);
 
         $data = array(
             'title' => '文章列表',
             'css' => array(),
             'js' => array(),
             'menu' => $this->menu[$cat_id],
-            'nav_menu' => $nav_menu,
-            'articles' => $articles
+            'cat' => $cat,
+            'articles' => $articles['data'],
+            'pager' => build_pagebar($articles['total'], $per_page, $page, '/cat/' . $cat_id . '/__page__', $cat_id)
         );
 
         if (ENVIRONMENT === 'production') {

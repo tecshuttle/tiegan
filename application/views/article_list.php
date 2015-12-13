@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?= $articles[0]->cat_name ?></title>
+    <title><?= $cat->name ?></title>
     <base href="/">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -94,7 +94,7 @@
                 <?php foreach ($articles as $article): ?>
                     <div class="mclb_div">
                         <div class="mclb_done">
-                            <span class="mcl_a2"><?= $article->cat_name ?></span>
+                            <span class="mcl_a2"><?= $cat->name ?></span>
                             <a href="/pages/<?= $article->id ?>" target="_blank"><?= $article->name ?></a>
                         </div>
                         <div class="mclb_dtwo">
@@ -113,15 +113,7 @@
 
 
             <!-- page -->
-            <div class="resultPage clearfix" id="page_div">
-                <a href="#" class="pre">上一页</a>
-                <a href="#" class="num" style=" border:1px solid #12af7e; background:#12af7e; color:#fff; ">1</a>
-                <a href="#" class="num">2</a>
-                <a href="#" class="num">3</a>
-                <a href="#" class="num">4</a>
-                <a href="#" class="num">5</a>
-                <a href="#" class="next">下一页</a>
-            </div>
+            <?= $pager ?>
         </div>
         <!--leftend-->
 
