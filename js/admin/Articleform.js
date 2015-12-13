@@ -39,7 +39,6 @@ Ext.define('MyApp.view.main.Articleform', {
             },{
                 xtype: 'textfield',
                 fieldLabel: 'URL短名',
-                allowBlank: false,
                 anchor: '50%',
                 name: 'code',
                 emptyText: '请输入…'
@@ -88,7 +87,7 @@ Ext.define('MyApp.view.main.Articleform', {
             {
                 xtype: 'htmleditor',
                 anchor: '100%',
-                height: 200,
+                height: 400,
                 fieldLabel: '内容',
                 name: 'content',
                 allowBlank: false,
