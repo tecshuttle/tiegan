@@ -38,7 +38,7 @@
 <div class="content">
     <!-- filter -->
     <div class="filter_options">
-        <dl class="clearfix options_item">
+        <dl class="clearfix options_item" style="display:none;">
             <dt>相 关 主 题：</dt>
             <dd class="options">
                 <a href="javascript:void(0)" class="option alls hover" value='all'>全部</a>
@@ -50,20 +50,14 @@
                 <a href="javascript:void(0)" class="option" value=''><span>五大联赛</span></a>
             </dd>
         </dl>
+
         <dl class="clearfix options_location">
-            <dt>相关目的地：</dt>
+            <dt>相关主题：</dt>
             <dd class="options">
-                <a href="javascript:void(0)" class="option alls hover" value='all'>全部</a>
-                <a href="javascript:void(0)" class="option" value=''><span>慕尼黑</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>西班牙</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>德国</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>英国</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>玩转足球一日游</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>五大联赛</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>体育冬夏令营</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>橄榄球</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>玩转足球一日游</span></a>
-                <a href="javascript:void(0)" class="option" value=''><span>五大联赛</span></a>
+                <a href="/equipments" class="option alls <?= ($tag_id == 0 ? 'hover' : '') ?>" value='all'>全部</a>
+                <?php foreach ($tags as $t): ?>
+                    <a href="/equipments/<?= $t->id ?>" class="option alls <?= ($tag_id == $t->id ? 'hover' : '') ?>" value='all'><?= $t->name ?></a>
+                <?php endforeach; ?>
             </dd>
             <!-- <dd class="more"><a href="javascript:void(0)">多选</a></dd> -->
             <div class="clearfix"></div>
@@ -71,10 +65,10 @@
     </div>
     <!-- select result -->
     <div class="selectResult">
-        <div class="count" id="temp">选择结果：共<span>50</span>条</div>
+        <div class="count" id="temp">选择结果：共<span><?= $matchs['total'] ?></span>条</div>
         <ul class="resultList" id="htmlcontent">
 
-            <?php foreach ($matchs as $m): ?>
+            <?php foreach ($matchs['data'] as $m): ?>
                 <li class="clearfix">
                     <a href="/match/<?= $m->id ?>" class="l">
                         <img src="<?= $m->cover ?>">
@@ -97,15 +91,7 @@
         </ul>
     </div>
     <!-- page -->
-    <div class="resultPage clearfix" id="page_div">
-        <a href="#" class="pre">上一页</a>
-        <a href="#" class="num" style=" border:1px solid #12af7e; background:#12af7e; color:#fff; ">1</a>
-        <a href="#" class="num">2</a>
-        <a href="#" class="num">3</a>
-        <a href="#" class="num">4</a>
-        <a href="#" class="num">5</a>
-        <a href="#" class="next">下一页</a>
-    </div>
+    <?= $pager ?>
 </div>
 <!-- content end -->
 <!-- footer start-->

@@ -149,7 +149,7 @@ class articles extends MY_Controller
             'menu' => $this->menu[$cat_id],
             'cat' => $cat,
             'articles' => $articles['data'],
-            'pager' => build_pagebar($articles['total'], $per_page, $page, '/cat/' . $cat_id . '/__page__', $cat_id)
+            'pager' => build_pagebar($articles['total'], $per_page, $page, '/cat/' . $cat_id . '/__page__')
         );
 
         if (ENVIRONMENT === 'production') {

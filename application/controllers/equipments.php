@@ -11,22 +11,37 @@ class equipments extends MY_Controller
         $this->load->model('equipments_size_model');
     }
 
-    public function index()
+    public function index($tag_id, $page)
     {
-        //取铁杆文章分类,用于菜单
-        $this->load->model('types_model');
-        $nav_menu = $this->types_model->get_nav_menu(234);
-
+        //取产品列表
         $this->load->model('equipments_model');
-        $matchs = $this->equipments_model->select(array());
+
+        $per_page = 2;
+
+        $option = array(
+            'limit' => $per_page,
+            'offset' => ($page - 1) * $per_page
+        );
+
+        if ($tag_id != 0) {
+            $option['tag_id'] = $tag_id;
+        }
+
+        $matchs = $this->equipments_model->select($option);
+
+        //取产品分类
+        $sql = 'select * from equipments_tag';
+        $rows = $this->db->query($sql);
 
         $data = array(
             'title' => '比赛',
             'css' => array(),
             'js' => array(),
             'menu' => 'product',
-            'nav_menu' => $nav_menu,
-            'matchs' => $matchs['data']
+            'tags' => $rows->result(),
+            'tag_id' => $tag_id,
+            'matchs' => $matchs,
+            'pager' => build_pagebar($matchs['total'], $per_page, $page, '/equipments/' . $tag_id . '/__page__')
         );
 
         if (ENVIRONMENT === 'production') {
@@ -146,6 +161,12 @@ class equipments extends MY_Controller
     {
         $option = (empty($_POST) ? $_GET : $_POST);
         $data = $this->equipments_model->getProduct($option);
+        echo json_encode($data);
+    }
+
+    public function getTagList()
+    {
+        $data = $this->equipments_model->getTagList();
         echo json_encode($data);
     }
 

@@ -67,6 +67,20 @@ Ext.define('MyApp.overrides.grid.column.Action', {
 
 Ext.ns('Color.admin');
 
+var tag_store = Ext.create('Ext.data.Store', {
+    fields: ['id', 'name'],
+    autoLoad: true,
+    proxy: {
+        type: 'ajax',
+        url: '/equipments/getTagList',
+        reader: {
+            type: 'json',
+            root: 'data',
+            totalProperty: 'total'
+        }
+    }
+});
+
 
 /*  START 器材编辑表单  */
 Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
@@ -130,6 +144,16 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 anchor: '50%',
                 name: 'relative',
                 emptyText: '填写产品尖,示例: 23, 453, 21'
+            },
+            {
+                xtype: 'combo',
+                fieldLabel: '分类',
+                store: tag_store,
+                anchor: '50%',
+                name: 'tag_id',
+                displayField: 'name',
+                valueField: 'id',
+                typeAhead: true
             },
             {
                 xtype: 'htmleditor',

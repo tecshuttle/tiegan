@@ -56,7 +56,7 @@ function time_ms()
  *
  * @return string
  */
-function build_pagebar($total, $perpage, $page, $url, $type_id = 0)
+function build_pagebar($total, $perpage, $page, $url)
 {
     if ($total == 0) {
         return '';

@@ -43,13 +43,26 @@ class equipments_model extends CI_Model
         ));
     }
 
+    //后台grid调用
+    function getTagList()
+    {
+        $sql = "SELECT * FROM equipments_tag";
+
+        $query = $this->db->query($sql);
+
+        return (array(
+            'data' => $query->result(),
+            'total' => $this->db->count_all_results('equipments_tag')
+        ));
+    }
+
     //查询，统后用这个方法
     function select($options = array())
     {
         $options = array_merge(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
-        $qualificationArray = array('id', 'type_id');
+        $qualificationArray = array('id', 'type_id', 'tag_id');
 
         foreach ($qualificationArray as $qualifier) {
             if (isset($options[$qualifier]))

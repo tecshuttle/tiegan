@@ -44,8 +44,14 @@ $route['404_override'] = '';
 
 //自定义路由
 $route['pages/(:any)'] = "pages/single/$1"; //单页文章
+
 $route['cat/(:num)'] = "articles/cat/$1/1"; //文章分类列表
 $route['cat/(:num)/(:num)'] = "articles/cat/$1/$2"; //文章分类列表,带分页
+
+$route['equipments'] = "equipments/index/0/1"; //比赛详情
+$route['equipments/(:num)'] = "equipments/index/$1/1"; //比赛详情
+$route['equipments/(:num)/(:num)'] = "equipments/index/$1/$2"; //比赛详情
+
 $route['match/(:num)'] = "equipments/match/$1"; //比赛详情
 
 
