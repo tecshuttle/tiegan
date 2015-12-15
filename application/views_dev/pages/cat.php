@@ -3,7 +3,7 @@
         <div class="col-xs-12" style="margin-top: 1em;">
             <ol class="breadcrumb">
                 <li><a href="/">首页</a></li>
-                <li class="active"><?= $articles[0]->cat_name ?></li>
+                <li class="active"><?= $cat->name ?></li>
             </ol>
         </div>
 
@@ -16,11 +16,11 @@
                 <div style="border-bottom: 1px solid #d2d2d2;margin-bottom: 1em;padding-bottom: 1em;">
                     <p>
                     <span style="background-color: deeppink;color: white;width:100px;text-align: center;padding: 0.5em;margin-right: 1em;">
-                        <?= $article->cat_name ?>
+                        <?= $cat->name ?>
                     </span>
                         <a href="/pages/<?= $article->id ?>" style="font-size: 24px;"><?= $article->name ?></a>
                     </p>
-                    <?= $article->content ?>
+                    <?= $article->digest ?>
                     <a href="/pages/<?= $article->id ?>">[查看详细]</a>
 
                     <p>

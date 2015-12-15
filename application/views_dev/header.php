@@ -33,11 +33,11 @@
         </div>
 
         <div class="col-xs-8" style="text-align: center;padding-top: 10px;">
-            <span class="header-menu"><a href="/equipments">朝圣</a></span>
-
-            <?php foreach ($nav_menu as $menu): ?>
-                <span class="header-menu"><a href="/cat/<?= $menu->id ?>"><?= $menu->name ?></a></span>
-            <?php endforeach; ?>
+            <span class="header-menu <?= ($menu == 'product' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/equipments" title="朝圣">朝圣</a></span>
+            <span class="header-menu <?= ($menu == 'back' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/225" title="荣归">荣归</a></span>
+            <span class="header-menu <?= ($menu == 'travel' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/223" title="旅行那些事">旅行那些事</a></span>
+            <span class="header-menu <?= ($menu == 'news' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/227" title="天下足球">天下足球</a></span>
+            <span class="header-menu <?= ($menu == 'fan' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/233" title="我是铁杆">我是铁杆</a></span>
         </div>
 
         <div class="col-xs-2">
