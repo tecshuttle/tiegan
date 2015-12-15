@@ -67,6 +67,13 @@ class articles extends MY_Controller
             }
         }
 
+        if ($_POST['editor'] === 'html') {
+            unset($_POST['content_markdown']);
+        } else {
+            $_POST['content'] = $_POST['content_markdown'];
+            unset($_POST['content_markdown']);
+        }
+
         if (isset($_POST['id'])) {
             //$_POST['ctime'] = strtotime($_POST['ctime']);
             $_POST['mtime'] = time();
@@ -136,6 +143,12 @@ class articles extends MY_Controller
         ));
 
         foreach ($articles['data'] as &$a) {
+            //markdown文章转义
+            if ($a->editor === 'markdown') {
+                $parse_down = new Parsedown();
+                $a->content = $parse_down->text($a->content);
+            }
+
             $a->digest = mb_substr(strip_tags($a->content), 0, 370);
         }
 

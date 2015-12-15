@@ -33,6 +33,12 @@ class pages extends MY_Controller
             ));
         }
 
+        //markdown文章转义
+        if ($article->editor === 'markdown') {
+            $parse_down = new Parsedown();
+            $article->content = $parse_down->text($article->content);
+        }
+
         //文章PV
         $this->articles_model->pv_inc($article->id);
 

@@ -204,6 +204,7 @@ Ext.define('MyApp.view.main.Articlegrid', {
         me._showArticleForm();
 
         record.data.ctime = new Date(record.data.ctime * 1000);
+        record.data.content_markdown = record.data.content;
         form.setValues(record.data);
     },
 

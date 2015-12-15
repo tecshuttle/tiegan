@@ -36,7 +36,8 @@ Ext.define('MyApp.view.main.Articleform', {
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
-            },{
+            },
+            {
                 xtype: 'textfield',
                 fieldLabel: 'URL短名',
                 anchor: '50%',
@@ -85,13 +86,47 @@ Ext.define('MyApp.view.main.Articleform', {
                 emptyText: '请输入…'
             },
             {
+                xtype: 'fieldcontainer',
+                fieldLabel: '编辑器类型',
+                defaultType: 'radiofield',
+                layout: 'hbox',
+                items: [
+                    {
+                        boxLabel: 'html',
+                        name: 'editor',
+                        id: this.id + 'radio_html',
+                        checked: true,
+                        inputValue: 'html'
+                    },
+                    {
+                        boxLabel: 'markdown',
+                        name: 'editor',
+                        id: this.id + 'radio_markdown',
+                        margin: '0 0 0 30',
+                        inputValue: 'markdown'
+                    }
+                ]
+            },
+            {
                 xtype: 'htmleditor',
                 anchor: '100%',
+                id: 'editor_html',
                 height: 400,
                 fieldLabel: '内容',
                 name: 'content',
                 allowBlank: false,
                 emptyText: '请输入…'
+            },
+            {
+                xtype: 'textarea',
+                fieldLabel: '内容',
+                id: 'editor_markdown',
+                //disabled: true,
+                hidden: true,
+                anchor: '100%',
+                height: 400,
+                name: 'content_markdown',
+                emptyText: 'markdown格式，请输入…'
             },
             {
                 xtype: 'button',
@@ -117,12 +152,37 @@ Ext.define('MyApp.view.main.Articleform', {
         Ext.apply(this.COMPONENTS, {
             typeInfoForm: Ext.getCmp('type_info_form'),
             grid: Ext.getCmp('article_grid'),
+
+            radioHtml: Ext.getCmp(this.id + 'radio_html'),
+            radioMarkdown: Ext.getCmp(this.id + 'radio_markdown'),
+            editorHtml: Ext.getCmp('editor_html'),
+            editorMarkdown: Ext.getCmp('editor_markdown'),
+
             saveBtn: Ext.getCmp(this.id + '_save'),
             returnBtn: Ext.getCmp(this.id + '_return')
         });
 
+        $c.radioHtml.on('change', me._editor_radio, me);
+
         $c.saveBtn.on('click', me._save, me);
         $c.returnBtn.on('click', me._return, me);
+    },
+
+    _editor_radio: function (radio, oldValue, newValue) {
+        var $c = this.COMPONENTS;
+
+        if (newValue) {
+            $c.editorHtml.hide();
+            $c.editorHtml.disable();
+
+            $c.editorMarkdown.show();
+            $c.editorMarkdown.enable();
+        } else {
+            $c.editorMarkdown.hide();
+            $c.editorMarkdown.disable();
+            $c.editorHtml.show();
+            $c.editorHtml.enable();
+        }
     },
 
     _return: function () {
