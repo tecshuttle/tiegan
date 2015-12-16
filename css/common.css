@@ -223,3 +223,13 @@ input.search {
     margin: 1em;
     -webkit-column-gap: 2em;
 }
+
+span.nav-list-selected {
+    background-color: orange;
+    padding: 28px 1em 25px 1em;
+}
+
+a.hover {
+    background-color: orange;
+    padding: 10px 1em;
+}

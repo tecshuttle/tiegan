@@ -53,6 +53,7 @@ class Welcome extends MY_Controller
             'css' => array(),
             'js' => array(),
             'nav_menu' => $nav_menu,
+            'menu' => 'home',
             'products' => $products['data'],
             'doc' => $doc
         );

@@ -25,10 +25,12 @@
 
                     <p>
                         <span style="float:left;"><?= date('Y-m-d H:i:s', $article->mtime) ?> 更新</span>
-                        <span style="float:right;">浏览: </span>
+                        <span style="float:right;">浏览: <?= $article->pv ?></span>
                     </p>
                 </div>
             <?php endforeach; ?>
+
+            <?= $pager ?>
         </div>
 
         <div class="col-xs-3" style="margin-bottom: 2em;padding: 0em 2em;">

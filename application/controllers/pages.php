@@ -50,7 +50,7 @@ class pages extends MY_Controller
             'title' => $article->name,
             'css' => array(),
             'js' => array(),
-            'menu' => $this->menu[$article->type_id],
+            'menu' => (isset($this->menu[$article->type_id]) ? $this->menu[$article->type_id] : ''),
             'nav_menu' => $nav_menu,
             'article' => $article
         );
