@@ -26,6 +26,7 @@
     <div class="row">
         <div class="col-xs-9">
             <div class="img-thumbnail" style="width: 100%;padding:1em;">
+                <?= $match->price_table ?>
                 <?= $match->content ?>
 
                 <?php if (empty($match->content)): ?>

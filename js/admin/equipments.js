@@ -104,7 +104,8 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 anchor: '50%',
                 name: 'name',
                 emptyText: '请输入…'
-            },{
+            },
+            {
                 xtype: 'textfield',
                 fieldLabel: '封面图',
                 anchor: '50%',
@@ -138,7 +139,8 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 anchor: '50%',
                 name: 'brief',
                 emptyText: '示例: 中国——巴黎——巴黎（购物）'
-            },{
+            },
+            {
                 xtype: 'textfield',
                 fieldLabel: '相关产品',
                 anchor: '50%',
@@ -156,6 +158,17 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 typeAhead: true
             },
             {
+                xtype: 'textarea',
+                fieldLabel: '价格表',
+                anchor: '50%',
+                name: 'price_table',
+                height: 120,
+                emptyText: "数据格式\n土豪2人人均, 土豪1人单价, 小资2人人均, 小资1人单价, 屌丝2人人均, 屌丝1人单价" +
+                    "\n5999, 7699, 3999, 4999, 2899, 3599" +
+                    "\n3999, 5699, 2599, 3599, 1999, 2699" +
+                    "\n3699, 5399, 2399, 3399, 1699, 2399"
+            },
+            {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 300,
@@ -163,7 +176,8 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 name: 'desc',
                 allowBlank: false,
                 emptyText: '请输入…'
-            },{
+            },
+            {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 300,
