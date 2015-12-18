@@ -114,6 +114,27 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
             },
             {
                 xtype: 'textfield',
+                fieldLabel: '球队海报1',
+                anchor: '50%',
+                name: 'cover1',
+                emptyText: '示例: /uploads/14201863264972.jpg'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: '球队海报2',
+                anchor: '50%',
+                name: 'cover2',
+                emptyText: '示例: /uploads/14201863264972.jpg'
+            },
+            {
+                xtype: 'textfield',
+                fieldLabel: '球队海报3',
+                anchor: '50%',
+                name: 'cover3',
+                emptyText: '示例: /uploads/14201863264972.jpg'
+            },
+            {
+                xtype: 'textfield',
                 fieldLabel: '价格',
                 anchor: '50%',
                 name: 'price',
@@ -158,22 +179,11 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 typeAhead: true
             },
             {
-                xtype: 'textarea',
-                fieldLabel: '价格表',
-                anchor: '50%',
-                name: 'price_table',
-                height: 120,
-                emptyText: "数据格式\n土豪2人人均, 土豪1人单价, 小资2人人均, 小资1人单价, 屌丝2人人均, 屌丝1人单价" +
-                    "\n5999, 7699, 3999, 4999, 2899, 3599" +
-                    "\n3999, 5699, 2599, 3599, 1999, 2699" +
-                    "\n3699, 5399, 2399, 3399, 1699, 2399"
-            },
-            {
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 300,
-                fieldLabel: '产品简介',
-                name: 'desc',
+                fieldLabel: '服务列表',
+                name: 'service_list',
                 allowBlank: false,
                 emptyText: '请输入…'
             },
@@ -181,8 +191,35 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 xtype: 'htmleditor',
                 anchor: '100%',
                 height: 300,
-                fieldLabel: '产品详情',
-                name: 'content',
+                fieldLabel: '赛程图',
+                name: 'schedule',
+                allowBlank: false,
+                emptyText: '请输入…'
+            },
+            {
+                xtype: 'htmleditor',
+                anchor: '100%',
+                height: 300,
+                fieldLabel: '球票位置介绍',
+                name: 'seat_position',
+                allowBlank: false,
+                emptyText: '请输入…'
+            },
+            {
+                xtype: 'htmleditor',
+                anchor: '100%',
+                height: 300,
+                fieldLabel: '住宿介绍',
+                name: 'hotel_condition',
+                allowBlank: false,
+                emptyText: '请输入…'
+            },
+            {
+                xtype: 'htmleditor',
+                anchor: '100%',
+                height: 300,
+                fieldLabel: '推荐行程',
+                name: 'trip_recommend',
                 allowBlank: false,
                 emptyText: '请输入…'
             }

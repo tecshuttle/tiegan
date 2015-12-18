@@ -2,7 +2,7 @@
 
 class tag_model extends CI_Model
 {
-    var $table = 'tags';
+    var $table = 'equipments_tag';
 
     function __construct()
     {
@@ -60,6 +60,15 @@ class tag_model extends CI_Model
                 'total' => $total
             );
         }
+    }
+
+    function getByID($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get($this->table);
+        $data = $query->result();
+
+        return $data[0];
     }
 
 

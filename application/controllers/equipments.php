@@ -70,45 +70,20 @@ class equipments extends MY_Controller
 
     public function match($id)
     {
-        //取铁杆文章分类,用于菜单
-        $this->load->model('types_model');
-        $nav_menu = $this->types_model->get_nav_menu(234);
-
+        //取产品
         $this->load->model('equipments_model');
         $match = $this->equipments_model->select(array(
             'id' => $id
         ));
 
-        //格式化价格表
-        $html = '';
-        if (!empty($match->price_table)) {
-            $price_table = explode("\n", $match->price_table);
-
-            $html .= '<table class="table" style="margin-top:10px;">'
-                . '<tbody>'
-                . '<tr> <td rowspan="2"></td> <td colspan="2">土豪级服务</td> <td colspan="2">小资级服务</td> <td colspan="2">屌丝级服务</td> </tr>'
-                . '<tr> <td>2人出游</td> <td>1人出游</td> <td>2人出游</td> <td>1人出游</td> <td>2人出游</td> <td>1人出游</td> </tr>';
-
-            foreach ($price_table as $key => $row_raw) {
-                $row = explode(',', $row_raw);
-
-                $td = array('S级赛事', 'A级赛事', 'B级赛事');
-                $html .= '<tr> <td>' . $td[$key] . '</td>';
-
-                foreach ($row as $r) {
-                    $html .= '<td>' . $r . '元/人</td>';
-                }
-
-                $html .= '</tr>';
-            }
-
-            $html .= '</tbody>'
-                . '</table>';
-
-            $match->price_table = $html;
-
+        //取产品分类
+        if (!empty($match->tag_id)) {
+            $this->load->model('tag_model');
+            $tag = $this->tag_model->getByID($match->tag_id);
+            $match->tag_name = $tag->name;
         }
 
+        //取相关产品
         $match->relative_product = $this->equipments_model->getRelative($match->relative);
 
         $data = array(
@@ -116,7 +91,6 @@ class equipments extends MY_Controller
             'css' => array(),
             'js' => array(),
             'menu' => 'product',
-            'nav_menu' => $nav_menu,
             'match' => $match
         );
 
