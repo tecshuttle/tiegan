@@ -32,9 +32,10 @@ class Welcome extends MY_Controller
         //铁杆文章每分类取8篇
 
         foreach ($nav_menu as &$menu) {
+
             $articles = $this->articles_model->select(array(
                 'type_id' => $menu->id,
-                'limit' => 8
+                'limit' => ($menu->id == 225 ? 8 : 9)
             ));
 
             $menu->articles = $articles['data'];
@@ -46,7 +47,7 @@ class Welcome extends MY_Controller
         $this->load->model('equipments_model');
 
         $products = $this->equipments_model->select(array(
-            'limit' => 8
+            'limit' => 6
         ));
 
         $data = array(

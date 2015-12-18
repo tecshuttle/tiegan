@@ -101,7 +101,7 @@ function build_pagebar($total, $perpage, $page, $url)
 
     for ($i = $start; $i <= $end; $i++) {
         if ($page == $i) {
-            $html .= "<a href='#' class='num' style=\" border:1px solid #12af7e; background:#12af7e; color:#fff; \">$i</a>";
+            $html .= "<a href='#' class='num' style=\" border:1px solid #f60; background:#f60; color:#fff; \">$i</a>";
         } else {
             $html .= "<a href=\"" . str_replace("__page__", $i, $url) . "\">$i</a>";
         }

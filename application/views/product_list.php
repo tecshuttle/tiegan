@@ -25,15 +25,11 @@
     <![endif]-->
 </head>
 <body>
-
-
 <!-- inner header start -->
 <div class="q-layer-header">
     <?php $this->load->view('mini_header') ?>
 </div>
 <!-- inner header end -->
-
-
 <!-- content start -->
 <div class="content">
     <!-- filter -->
@@ -56,7 +52,8 @@
             <dd class="options">
                 <a href="/equipments" class="option alls <?= ($tag_id == 0 ? 'hover' : '') ?>" value='all'>全部</a>
                 <?php foreach ($tags as $t): ?>
-                    <a href="/equipments/<?= $t->id ?>" class="option alls <?= ($tag_id == $t->id ? 'hover' : '') ?>" value='all'><?= $t->name ?></a>
+                    <a href="/equipments/<?= $t->id ?>" class="option alls <?= ($tag_id == $t->id ? 'hover' : '') ?>"
+                       value='all'><?= $t->name ?></a>
                 <?php endforeach; ?>
             </dd>
             <!-- <dd class="more"><a href="javascript:void(0)">多选</a></dd> -->
@@ -67,7 +64,6 @@
     <div class="selectResult">
         <div class="count" id="temp">选择结果：共<span><?= $matchs['total'] ?></span>条</div>
         <ul class="resultList" id="htmlcontent">
-
             <?php foreach ($matchs['data'] as $m): ?>
                 <li class="clearfix">
                     <a href="/match/<?= $m->id ?>" class="l">
@@ -101,29 +97,25 @@
             <div class="zw-footer-intro">
                 <p class="logo"><img src="images/foot-logo.png"></p>
 
-                <p class="text">最世界·自由行——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界</p>
+                <p class="text">铁杆体育——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界</p>
             </div>
             <dl class="zw-footer-concerns">
                 <dt>关注我们</dt>
-                <dd class="iphone">
-                    <p class="icons"><span class="fa fa-mobile-phone"></span></p>
-
-                    <div class="layer">
-                        <div class="box">
-                            <div class="clearfix">
-                                <p class="pics"><img src="images/foot-qrcode-app.jpg"></p>
-
-                                <div class="text">
-                                    <p class="txt1">扫一扫下载</p>
-
-                                    <p class="txt2">穷游最世界</p>
-
-                                    <p class="txt3">APP</p>
-                                </div>
-                            </div>
+                <!-- <dd class="iphone">
+                  <p class="icons"><span class="fa fa-mobile-phone"></span></p>
+                  <div class="layer">
+                    <div class="box">
+                      <div class="clearfix">
+                        <p class="pics"><img src="images/foot-qrcode-app.jpg"></p>
+                        <div class="text">
+                          <p class="txt1">扫一扫下载</p>
+                          <p class="txt2">穷游最世界</p>
+                          <p class="txt3">APP</p>
                         </div>
+                      </div>
                     </div>
-                </dd>
+                  </div>
+                </dd> -->
                 <dd class="wechat">
                     <p class="icons"><span class="fa fa-weixin"></span></p>
 
@@ -143,22 +135,23 @@
                         </div>
                     </div>
                 </dd>
-                <dd class="weibo">
-                    <p class="icons"><span class="fa fa-weibo"></span></p>
-
-                    <div class="layer">
-                        <div class="box">
-                            <div class="clearfixs">
-                                <a href="#" target="_blank" class="follow">+ 关注</a>
-                                <span class="text"><a href="#" target="_blank">@最世界自由行</a></span>
-                            </div>
-                        </div>
+                <!-- <dd class="weibo">
+                  <p class="icons"><span class="fa fa-weibo"></span></p>
+                  <div class="layer">
+                    <div class="box">
+                      <div class="clearfixs">
+                        <a href="#"target="_blank"class="follow">+ 关注</a>
+                        <span class="text"><a href="#"target="_blank">@最世界自由行</a></span>
+                      </div>
                     </div>
-                </dd>
+                  </div>
+                </dd> -->
             </dl>
         </div>
         <div class="zw-footer-line2">
-            <div class="zw-footer-listlinks">2004-2015 © 穷游网™ qyer.com All rights reserved. Version v5.57 京ICP备12003524号 京公网安备11010502023470 京ICP证140673号</div>
+            <div class="zw-footer-listlinks">2004-2015 © 铁杆体育 All rights reserved. Version v5.57 京ICP备12003524号
+                京公网安备11010502023470 京ICP证140673号
+            </div>
         </div>
     </div>
 </div>

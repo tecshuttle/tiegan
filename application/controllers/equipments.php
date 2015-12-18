@@ -30,22 +30,7 @@ class equipments extends MY_Controller
         $matchs = $this->equipments_model->select($option);
 
         //取产品分类
-        $query = $this->db->query('select distinct tag_id from equipments where tag_id is not null');
-        $rows = $query->result();
-
-        $pt = array();
-        foreach ($rows as $r) {
-            $pt[] = $r->tag_id;
-        }
-
-
-        if (count($rows) > 0) {
-            $sql = 'select * from equipments_tag where id in (' . implode(', ', $pt) . ')';
-        } else {
-            $sql = 'select * from equipments_tag';
-        }
-
-
+        $sql = 'select * from equipments_tag';
         $rows = $this->db->query($sql);
 
         $data = array(

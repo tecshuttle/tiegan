@@ -1,5 +1,5 @@
 <div class="header-inner">
-    <a data-bn-ipg="head-logo" href="/"><img class="logo" src="images/logo_116x36.png" width="58" height="18"></a>
+    <a data-bn-ipg="head-logo" href="/"><img class="logo" src="images/logo_inner.png" width="auto" height="40"></a>
     <!-- nav -->
     <div class="nav">
         <ul class="nav-ul">
