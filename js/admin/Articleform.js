@@ -81,7 +81,8 @@ Ext.define('MyApp.view.main.Articleform', {
             {
                 xtype: 'textarea',
                 fieldLabel: '简介',
-                anchor: '50%',
+                id: 'kendoeditor',
+                anchor: '100%',
                 name: 'desc',
                 emptyText: '请输入…'
             },
@@ -158,14 +159,23 @@ Ext.define('MyApp.view.main.Articleform', {
             editorHtml: Ext.getCmp('editor_html'),
             editorMarkdown: Ext.getCmp('editor_markdown'),
 
+            kendoeditor: Ext.getCmp('kendoeditor'),
+
             saveBtn: Ext.getCmp(this.id + '_save'),
             returnBtn: Ext.getCmp(this.id + '_return')
         });
+
+        this.on('boxready', me._afterrender, me);
 
         $c.radioHtml.on('change', me._editor_radio, me);
 
         $c.saveBtn.on('click', me._save, me);
         $c.returnBtn.on('click', me._return, me);
+    },
+
+    _afterrender: function () {
+        var $c = this.COMPONENTS;
+
     },
 
     _editor_radio: function (radio, oldValue, newValue) {
@@ -241,6 +251,8 @@ Ext.define('MyApp.view.main.Articleform', {
         return addForm.getValues();
     }
 });
+
+
 
 
 //end file

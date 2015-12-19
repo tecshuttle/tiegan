@@ -69,11 +69,11 @@ Ext.define('MyApp.view.main.Articlegrid', {
     id: 'article_grid',
     title: '文章列表',
     xtype: 'articlegrid',
-    requires: [
-    ],
+    requires: [],
     border: false,
     COMPONENTS: {},
     frame: true,
+    KE: false,
     columnLines: true,
     store: Ext.create('Ext.data.Store', {
         pageSize: 20,
@@ -206,6 +206,72 @@ Ext.define('MyApp.view.main.Articlegrid', {
         record.data.ctime = new Date(record.data.ctime * 1000);
         record.data.content_markdown = record.data.content;
         form.setValues(record.data);
+
+        console.log(me.KE);
+
+        if (me.KE) {
+            console.log(me.KE);
+            me.KE.data("kendoEditor").value(record.data.desc);
+            return;
+        }
+
+        me.KE = $("#kendoeditor-inputEl").kendoEditor({
+            value: record.data.desc,
+            encoded: false,
+            tools: [
+                "bold",
+                "italic",
+                "underline",
+                "strikethrough",
+                "justifyLeft",
+                "justifyCenter",
+                "justifyRight",
+                "justifyFull",
+                "insertUnorderedList",
+                "insertOrderedList",
+                "indent",
+                "outdent",
+                "createLink",
+                "unlink",
+                "insertImage",
+                "subscript",
+                "superscript",
+                "createTable",
+                "addRowAbove",
+                "addRowBelow",
+                "addColumnLeft",
+                "addColumnRight",
+                "deleteRow",
+                "deleteColumn",
+                "viewHtml",
+                "formatting",
+                "cleanFormatting",
+                "fontName",
+                "fontSize",
+                "foreColor",
+                "backColor",
+                "print"
+            ],
+            imageBrowser: {
+                messages: {
+                    dropFilesHere: "Drop files here"
+                },
+                transport: {
+                    read: "/editor.php?type=1",
+                    destroy: {
+                        url: "/editor.php?type=2",
+                        type: "POST"
+                    },
+                    create: {
+                        url: "/editor.php?type=3",
+                        type: "POST"
+                    },
+                    thumbnailUrl: "/ImageBrowser/Thumbnail",
+                    uploadUrl: "editor.php?type=4",
+                    imageUrl: "/ImageBrowser/Image/{0}"
+                }
+            }
+        });
     },
 
     _delete: function (id) {
