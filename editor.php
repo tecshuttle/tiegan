@@ -28,7 +28,7 @@ function read()
     $images = array();
     $path = $_POST['path'];
 
-    $root = $_SERVER['DOCUMENT_ROOT'] . "ImageBrowser/Image/";
+    $root = $_SERVER['DOCUMENT_ROOT'] . "/ImageBrowser/Image/";
     $dir = opendir($root . $path);
 
     //列出 images 目录中的文件
@@ -50,7 +50,7 @@ function read()
 function delete()
 {
     $file = $_POST['path'] . $_POST['name'];
-    $root = $_SERVER['DOCUMENT_ROOT'] . "ImageBrowser/Image/";
+    $root = $_SERVER['DOCUMENT_ROOT'] . "/ImageBrowser/Image/";
 
     echo $root . $file . "\n";
     var_dump(is_dir($root . $file));
@@ -64,7 +64,7 @@ function delete()
 function createDirectory()
 {
     $paras = $_POST;
-    $dir = $_SERVER['DOCUMENT_ROOT'] . "ImageBrowser/Image/" . $paras['path'] . $paras['name'];
+    $dir = $_SERVER['DOCUMENT_ROOT'] . "/ImageBrowser/Image/" . $paras['path'] . $paras['name'];
     if (!file_exists($dir)) {
         mkdir($dir);
 
@@ -72,7 +72,7 @@ function createDirectory()
     }
 
     //缩略图目录
-    $dir2 = $_SERVER['DOCUMENT_ROOT'] . "ImageBrowser/Thumbnail/" . $paras['path'] . $paras['name'];
+    $dir2 = $_SERVER['DOCUMENT_ROOT'] . "/ImageBrowser/Thumbnail/" . $paras['path'] . $paras['name'];
     if (!file_exists($dir2)) {
         mkdir($dir2);
     }
@@ -82,13 +82,13 @@ function createDirectory()
 function upload()
 {
     $paras = $_POST;
-    $dir = $_SERVER['DOCUMENT_ROOT'] . "ImageBrowser/Image/" . $paras['path'];
+    $dir = $_SERVER['DOCUMENT_ROOT'] . "/ImageBrowser/Image/" . $paras['path'];
     if (!file_exists($dir)) {
         mkdir($dir);
         //此处需要加上数据库记录目录信息，以方便下次获取时在也没中展示
     }
     //缩略图目录
-    $dir2 = $_SERVER['DOCUMENT_ROOT'] . "ImageBrowser/Thumbnail/" . $paras['path'];
+    $dir2 = $_SERVER['DOCUMENT_ROOT'] . "/ImageBrowser/Thumbnail/" . $paras['path'];
     if (!file_exists($dir2)) {
         mkdir($dir2);
     }
