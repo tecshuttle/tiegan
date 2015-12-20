@@ -100,7 +100,7 @@ Ext.define('MyApp.view.main.Articleform', {
                     border:0
                 },
                 border: 0,
-                allowBlank: false,
+                //allowBlank: false,
                 emptyText: '请输入…'
             },
             {
@@ -125,6 +125,7 @@ Ext.define('MyApp.view.main.Articleform', {
         var $c = this.COMPONENTS;
 
         Ext.apply(this.COMPONENTS, {
+            panelWest: Ext.getCmp('panel_west'),
             typeInfoForm: Ext.getCmp('type_info_form'),
             grid: Ext.getCmp('article_grid'),
 
@@ -158,6 +159,7 @@ Ext.define('MyApp.view.main.Articleform', {
 
         var $c = this.COMPONENTS;
 
+        $c.panelWest.show();
         $c.typeInfoForm.show();
         $c.grid.show();
         $c.grid.getStore().reload();

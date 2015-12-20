@@ -83,7 +83,8 @@ var tag_store = Ext.create('Ext.data.Store', {
 
 
 /*  START 器材编辑表单  */
-Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
+Ext.define('Color.admin.EditFormUI', {
+    extend: 'Ext.form.Panel',
     title: '器材编辑',
     bodyStyle: 'padding:10px;',
     layout: 'anchor',
@@ -179,48 +180,53 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
                 typeAhead: true
             },
             {
-                xtype: 'htmleditor',
+                xtype: 'textarea',
                 anchor: '100%',
                 height: 300,
                 fieldLabel: '服务列表',
+                id: 'service_list',
                 name: 'service_list',
-                allowBlank: false,
+                //allowBlank: false,
                 emptyText: '请输入…'
             },
             {
-                xtype: 'htmleditor',
+                xtype: 'textarea',
                 anchor: '100%',
                 height: 300,
                 fieldLabel: '赛程图',
+                id: 'schedule',
                 name: 'schedule',
-                allowBlank: false,
+                //allowBlank: false,
                 emptyText: '请输入…'
             },
             {
-                xtype: 'htmleditor',
+                xtype: 'textarea',
                 anchor: '100%',
                 height: 300,
                 fieldLabel: '球票位置介绍',
                 name: 'seat_position',
-                allowBlank: false,
+                id: 'seat_position',
+                //allowBlank: false,
                 emptyText: '请输入…'
             },
             {
-                xtype: 'htmleditor',
+                xtype: 'textarea',
                 anchor: '100%',
                 height: 300,
                 fieldLabel: '住宿介绍',
                 name: 'hotel_condition',
-                allowBlank: false,
+                id: 'hotel_condition',
+                //allowBlank: false,
                 emptyText: '请输入…'
             },
             {
-                xtype: 'htmleditor',
+                xtype: 'textarea',
                 anchor: '100%',
                 height: 300,
                 fieldLabel: '推荐行程',
                 name: 'trip_recommend',
-                allowBlank: false,
+                id: 'trip_recommend',
+                //allowBlank: false,
                 emptyText: '请输入…'
             }
         ];
@@ -249,7 +255,8 @@ Ext.define('Color.admin.EditFormUI', {extend: 'Ext.form.Panel',
     }
 });
 
-Ext.define('Color.admin.EditFormAction', {extend: 'Color.admin.EditFormUI',
+Ext.define('Color.admin.EditFormAction', {
+    extend: 'Color.admin.EditFormUI',
     constructor: function (config) {
         Color.admin.EditFormAction.superclass.constructor.call(this, config);
     },
@@ -333,7 +340,13 @@ Ext.define('Color.admin.GridUI', {
     id: this.id + '_gridList',
     title: '产品列表',
     columnLines: true,
-
+    ke: {
+        service_list: false,
+        schedule: false,
+        seat_position: false,
+        hotel_condition: false,
+        trip_recommend: false
+    },
     store: store,
     COMPONENTS: {},
     initComponent: function () {
@@ -428,7 +441,8 @@ Ext.define('Color.admin.GridUI', {
 });
 
 
-Ext.define('Color.admin.GridAction', {extend: 'Color.admin.GridUI',
+Ext.define('Color.admin.GridAction', {
+    extend: 'Color.admin.GridUI',
     constructor: function (config) {
         Color.admin.GridAction.superclass.constructor.call(this, config);
     },
@@ -467,6 +481,75 @@ Ext.define('Color.admin.GridAction', {extend: 'Color.admin.GridUI',
 
         //record.raw.ctime = new Date(record.raw.ctime * 1000);
         form.setValues(record.data);
+
+        var ke_config = {
+            value: record.data.service_list,
+            resizable: {
+                content: true
+            },
+            encoded: false,
+            tools: [
+                "bold", "italic", "underline", "strikethrough", "justifyLeft", "justifyCenter", "justifyRight",
+                "justifyFull", "insertUnorderedList", "insertOrderedList", "indent", "outdent", "createLink",
+                "unlink", "insertImage", "subscript", "superscript", "createTable", "addRowAbove",
+                "addRowBelow", "addColumnLeft", "addColumnRight", "deleteRow", "deleteColumn", "viewHtml",
+                "formatting", "cleanFormatting", "fontName", "fontSize", "foreColor", "backColor", "print"
+            ],
+            imageBrowser: {
+                messages: {
+                    dropFilesHere: "Drop files here"
+                },
+                transport: {
+                    read: "/editor.php?type=1",
+                    destroy: {
+                        url: "/editor.php?type=2",
+                        type: "POST"
+                    },
+                    create: {
+                        url: "/editor.php?type=3",
+                        type: "POST"
+                    },
+                    thumbnailUrl: "/ImageBrowser/Thumbnail",
+                    uploadUrl: "editor.php?type=4",
+                    imageUrl: "/ImageBrowser/Image/{0}"
+                }
+            }
+        };
+
+        if (me.ke.service_list) {
+            me.ke.service_list.data("kendoEditor").value(record.data.service_list);
+        } else {
+            ke_config.value = record.data.service_list;
+            me.ke.service_list = $("#service_list-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.schedule) {
+            me.ke.schedule.data("kendoEditor").value(record.data.schedule);
+        } else {
+            ke_config.value = record.data.schedule;
+            me.ke.schedule = $("#schedule-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.seat_position) {
+            me.ke.seat_position.data("kendoEditor").value(record.data.seat_position);
+        } else {
+            ke_config.value = record.data.seat_position;
+            me.ke.seat_position = $("#seat_position-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.hotel_condition) {
+            me.ke.hotel_condition.data("kendoEditor").value(record.data.hotel_condition);
+        } else {
+            ke_config.value = record.data.hotel_condition;
+            me.ke.hotel_condition = $("#hotel_condition-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.trip_recommend) {
+            me.ke.trip_recommend.data("kendoEditor").value(record.data.trip_recommend);
+        } else {
+            ke_config.value = record.data.trip_recommend;
+            me.ke.trip_recommend = $("#trip_recommend-inputEl").kendoEditor(ke_config);
+        }
     },
 
     _editSize: function (record) {
@@ -532,7 +615,7 @@ Color.ViewportUI = Ext.extend(Ext.Viewport, {
     },
 
     _centerPanel: function () {
-        return  Ext.create('Ext.panel.Panel', {
+        return Ext.create('Ext.panel.Panel', {
             autoScroll: true,
             border: false,
             //layout: 'fit',

@@ -15,6 +15,7 @@ Ext.define('MyApp.view.main.Articlepanel', {
             region: 'west',
             padding: '0 0 0 0',
             width: 250,
+            id: 'panel_west',
             border: false,
             frame: true,
             layout: 'fit',

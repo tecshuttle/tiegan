@@ -73,7 +73,6 @@ Ext.define('MyApp.view.main.Articlegrid', {
     border: false,
     COMPONENTS: {},
     frame: true,
-    KE: false,
     columnLines: true,
     store: Ext.create('Ext.data.Store', {
         pageSize: 20,
@@ -177,6 +176,7 @@ Ext.define('MyApp.view.main.Articlegrid', {
 
         Ext.apply(this.COMPONENTS, {
             typeTree: Ext.getCmp('type_tree'),
+            panelWest: Ext.getCmp('panel_west'),
             typeInfoForm: Ext.getCmp('type_info_form'),
             articleForm: Ext.getCmp('article_form'),
             grid: Ext.getCmp('article_grid')
@@ -192,6 +192,7 @@ Ext.define('MyApp.view.main.Articlegrid', {
         var $c = this.COMPONENTS;
 
         $c.grid.hide();
+        $c.panelWest.hide();
         $c.typeInfoForm.hide();
         $c.articleForm.show();
     },
@@ -207,75 +208,70 @@ Ext.define('MyApp.view.main.Articlegrid', {
         record.data.content_markdown = record.data.content;
         form.setValues(record.data);
 
-        console.log(me.KE);
+        var $c = this.COMPONENTS;
+        var KE = $c.typeInfoForm.KE;
 
-        if (me.KE) {
-            console.log(me.KE);
-            me.KE.data("kendoEditor").value(record.data.content);
-            return;
-        }
-
-        me.KE = $("#kendoeditor-inputEl").kendoEditor({
-            value: record.data.content,
-            resizable: {
-                content: true
-                //toolbar: true
-            },
-            encoded: false,
-            tools: [
-                "bold",
-                "italic",
-                "underline",
-                "strikethrough",
-                "justifyLeft",
-                "justifyCenter",
-                "justifyRight",
-                "justifyFull",
-                "insertUnorderedList",
-                "insertOrderedList",
-                "indent",
-                "outdent",
-                "createLink",
-                "unlink",
-                "insertImage",
-                "subscript",
-                "superscript",
-                "createTable",
-                "addRowAbove",
-                "addRowBelow",
-                "addColumnLeft",
-                "addColumnRight",
-                "deleteRow",
-                "deleteColumn",
-                "viewHtml",
-                "formatting",
-                "cleanFormatting",
-                "fontName",
-                "fontSize",
-                "foreColor",
-                "backColor",
-                "print"
-            ],
-            imageBrowser: {
-                messages: {
-                    dropFilesHere: "Drop files here"
+        if (KE) {
+            KE.data("kendoEditor").value(record.data.content);
+        } else {
+            $c.typeInfoForm.KE = $("#kendoeditor-inputEl").kendoEditor({
+                value: record.data.content,
+                resizable: {
+                    content: true
+                    //toolbar: true
                 },
-                transport: {
-                    read: "/editor.php?type=1",
-                    destroy: {
-                        url: "/editor.php?type=2",
-                        type: "POST"
+                encoded: false,
+                tools: [
+                    "bold", "italic", "underline", "strikethrough", "justifyLeft", "justifyCenter", "justifyRight",
+                    "justifyFull", "insertUnorderedList", "insertOrderedList", "indent", "outdent", "createLink",
+                    "unlink", "insertImage", "subscript", "superscript", "createTable", "addRowAbove", "addRowBelow",
+                    "addColumnLeft", "addColumnRight", "deleteRow", "deleteColumn", "viewHtml", "formatting",
+                    "cleanFormatting", "fontSize", "foreColor", "backColor", "print",
+                    {
+                        name: "fontName",
+                        items: [
+                            {text: "Times New Roman", value: "Times New Roman"},
+                            {text: "Arial", value: "Arial"},
+                            {text: "Arial Bold Italic", value: "Arial Bold Italic"},
+                            {text: "Arial Black", value: "Arial Black"},
+                            {text: "Arial Narrow", value: "Arial Narrow"},
+                            {text: "宋体", value: "SimSun"},
+                            {text: "黑体", value: "SimHei"},
+                            {text: "微软雅黑", value: "Microsoft YaHei"},
+                            {text: "微软正黑体", value: "Microsoft JhengHei"},
+                            {text: "新宋体", value: "NSimSun"},
+                            {text: "新细明体", value: "PMingLiU"},
+                            {text: "细明体", value: "MingLiU"},
+                            {text: "标楷体", value: "DFKai-SB"},
+                            {text: "仿宋", value: "FangSong"},
+                            {text: "楷体", value: "KaiTi"},
+                            {text: "仿宋_GB2312", value: "FangSong_GB2312"},
+                            {text: "楷体_GB2312", value: "KaiTi_GB2312"}
+
+                        ]
+                    }
+                ],
+                imageBrowser: {
+                    messages: {
+                        dropFilesHere: "Drop files here"
                     },
-                    create: {
-                        url: "/editor.php?type=3",
-                        type: "POST"
-                    },
-                    thumbnailUrl: "/ImageBrowser/Thumbnail",
-                    uploadUrl: "editor.php?type=4",
-                    imageUrl: "/ImageBrowser/Image/{0}"
+                    transport: {
+                        read: "/editor.php?type=1",
+                        destroy: {
+                            url: "/editor.php?type=2",
+                            type: "POST"
+                        },
+                        create: {
+                            url: "/editor.php?type=3",
+                            type: "POST"
+                        },
+                        thumbnailUrl: "/ImageBrowser/Thumbnail",
+                        uploadUrl: "editor.php?type=4",
+                        imageUrl: "/ImageBrowser/Image/{0}"
+                    }
                 }
-            }
-        });
+            });
+        }
     },
 
     _delete: function (id) {
