@@ -1,5 +1,8 @@
 RewriteEngine on
 
+RewriteCond %{QUERY_STRING} ^path=(\w+/)(\w+)\.(\w+)$
+RewriteRule ^(ImageBrowser/Thumbnail/)$ ImageBrowser/Thumbnail/%1%2.%3
+
 RewriteCond %{QUERY_STRING} ^path=(\w+)\.(\w+)$
 RewriteRule ^(ImageBrowser/Thumbnail/)$ ImageBrowser/Thumbnail/%1.%2
 

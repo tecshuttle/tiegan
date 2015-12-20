@@ -7,6 +7,7 @@ Ext.define('MyApp.view.main.Articleform', {
     frame: true,
     bodyStyle: 'padding: 10px;',
     style: 'margin-bottom: 10px;',
+    autoScroll: true,
     collapsible: true,
     constructor: function (config) {
         var me = this;
@@ -81,53 +82,26 @@ Ext.define('MyApp.view.main.Articleform', {
             {
                 xtype: 'textarea',
                 fieldLabel: '简介',
-                id: 'kendoeditor',
                 anchor: '100%',
                 name: 'desc',
                 emptyText: '请输入…'
             },
             {
-                xtype: 'fieldcontainer',
-                fieldLabel: '编辑器类型',
-                defaultType: 'radiofield',
-                layout: 'hbox',
-                items: [
-                    {
-                        boxLabel: 'html',
-                        name: 'editor',
-                        id: this.id + 'radio_html',
-                        checked: true,
-                        inputValue: 'html'
-                    },
-                    {
-                        boxLabel: 'markdown',
-                        name: 'editor',
-                        id: this.id + 'radio_markdown',
-                        margin: '0 0 0 30',
-                        inputValue: 'markdown'
-                    }
-                ]
-            },
-            {
-                xtype: 'htmleditor',
+                xtype: 'textarea',
                 anchor: '100%',
-                id: 'editor_html',
-                height: 400,
+                id: 'kendoeditor',
+                height: 240,
                 fieldLabel: '内容',
                 name: 'content',
+                style: {
+                    border:0
+                },
+                bodyStyle: {
+                    border:0
+                },
+                border: 0,
                 allowBlank: false,
                 emptyText: '请输入…'
-            },
-            {
-                xtype: 'textarea',
-                fieldLabel: '内容',
-                id: 'editor_markdown',
-                //disabled: true,
-                hidden: true,
-                anchor: '100%',
-                height: 400,
-                name: 'content_markdown',
-                emptyText: 'markdown格式，请输入…'
             },
             {
                 xtype: 'button',
@@ -154,10 +128,10 @@ Ext.define('MyApp.view.main.Articleform', {
             typeInfoForm: Ext.getCmp('type_info_form'),
             grid: Ext.getCmp('article_grid'),
 
-            radioHtml: Ext.getCmp(this.id + 'radio_html'),
-            radioMarkdown: Ext.getCmp(this.id + 'radio_markdown'),
-            editorHtml: Ext.getCmp('editor_html'),
-            editorMarkdown: Ext.getCmp('editor_markdown'),
+            //radioHtml: Ext.getCmp(this.id + 'radio_html'),
+            //radioMarkdown: Ext.getCmp(this.id + 'radio_markdown'),
+            //editorHtml: Ext.getCmp('editor_html'),
+            //editorMarkdown: Ext.getCmp('editor_markdown'),
 
             kendoeditor: Ext.getCmp('kendoeditor'),
 
@@ -167,7 +141,7 @@ Ext.define('MyApp.view.main.Articleform', {
 
         this.on('boxready', me._afterrender, me);
 
-        $c.radioHtml.on('change', me._editor_radio, me);
+        //$c.radioHtml.on('change', me._editor_radio, me);
 
         $c.saveBtn.on('click', me._save, me);
         $c.returnBtn.on('click', me._return, me);
@@ -176,23 +150,6 @@ Ext.define('MyApp.view.main.Articleform', {
     _afterrender: function () {
         var $c = this.COMPONENTS;
 
-    },
-
-    _editor_radio: function (radio, oldValue, newValue) {
-        var $c = this.COMPONENTS;
-
-        if (newValue) {
-            $c.editorHtml.hide();
-            $c.editorHtml.disable();
-
-            $c.editorMarkdown.show();
-            $c.editorMarkdown.enable();
-        } else {
-            $c.editorMarkdown.hide();
-            $c.editorMarkdown.disable();
-            $c.editorHtml.show();
-            $c.editorHtml.enable();
-        }
     },
 
     _return: function () {

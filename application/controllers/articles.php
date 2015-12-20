@@ -67,12 +67,7 @@ class articles extends MY_Controller
             }
         }
 
-        if ($_POST['editor'] === 'html') {
-            unset($_POST['content_markdown']);
-        } else {
-            $_POST['content'] = $_POST['content_markdown'];
-            unset($_POST['content_markdown']);
-        }
+
 
         if (isset($_POST['id'])) {
             //$_POST['ctime'] = strtotime($_POST['ctime']);

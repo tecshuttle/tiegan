@@ -211,12 +211,16 @@ Ext.define('MyApp.view.main.Articlegrid', {
 
         if (me.KE) {
             console.log(me.KE);
-            me.KE.data("kendoEditor").value(record.data.desc);
+            me.KE.data("kendoEditor").value(record.data.content);
             return;
         }
 
         me.KE = $("#kendoeditor-inputEl").kendoEditor({
-            value: record.data.desc,
+            value: record.data.content,
+            resizable: {
+                content: true
+                //toolbar: true
+            },
             encoded: false,
             tools: [
                 "bold",
