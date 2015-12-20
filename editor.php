@@ -5,6 +5,9 @@
  * Date: 2015/12/16
  * Time: 23:03
  */
+
+include 'resizeImage.php';
+
 $type = $_GET['type'];
 switch ($type) {
     case 1:
@@ -110,8 +113,10 @@ function upload()
     $src_img = $file;
     $dst_img = $dir2;
 
-    $thumbnails = new thumbnails($src_img, $width = 80, $height = 80, $dst_img);
-    $thumbnails->produce();
+    $resizeimage = new resizeImage($file, "100", "100", "0", $dir2 . $_FILES['file']['name']);
+
+    //$thumbnails = new thumbnails($src_img, $width = 80, $height = 80, $dst_img);
+    //$thumbnails->produce();
 }
 
 /**
