@@ -55,3 +55,7 @@
     border-right: 1px solid #d0d0d0;
     border-bottom: 1px solid #d0d0d0;
 }
+
+iframe.k-content {
+    height: 500px !important;
+}

@@ -90,16 +90,9 @@ Ext.define('MyApp.view.main.Articleform', {
                 xtype: 'textarea',
                 anchor: '100%',
                 id: 'kendoeditor',
-                height: 240,
+                height: 500,
                 fieldLabel: '内容',
                 name: 'content',
-                style: {
-                    border:0
-                },
-                bodyStyle: {
-                    border:0
-                },
-                border: 0,
                 //allowBlank: false,
                 emptyText: '请输入…'
             },

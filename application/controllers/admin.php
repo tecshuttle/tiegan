@@ -132,7 +132,7 @@ class admin extends MY_Controller
     public function articles()
     {
         $data = array(
-            'msg' => 'admin-products',
+            'msg' => 'admin-文章',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs6/build/MyApp-all.css',
@@ -143,6 +143,7 @@ class admin extends MY_Controller
             'js' => array(
                 '/js/extjs6/ext-all.js',
                 '/js/jquery-1.9.1.min.js',
+                '/js/admin/ke_config.js',
                 '/js/kendo.all.min.js',
                 '/js/moment.js',
                 '/js/admin/Articleform.js',
@@ -217,7 +218,7 @@ class admin extends MY_Controller
     public function equipments()
     {
         $data = array(
-            'msg' => 'admin-products',
+            'msg' => 'admin-产品',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs6/build/MyApp-all.css',
@@ -229,6 +230,7 @@ class admin extends MY_Controller
                 '/js/extjs6/ext-all.js',
                 '/js/jquery-1.9.1.min.js',
                 '/js/kendo.all.min.js',
+                '/js/admin/ke_config.js',
                 '/js/moment.js',
                 '/js/admin/equipments.js',
                 '/js/admin/equipments_size.js'

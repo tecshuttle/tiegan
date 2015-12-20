@@ -182,7 +182,7 @@ Ext.define('Color.admin.EditFormUI', {
             {
                 xtype: 'textarea',
                 anchor: '100%',
-                height: 300,
+                height: 430,
                 fieldLabel: '服务列表',
                 id: 'service_list',
                 name: 'service_list',
@@ -192,7 +192,7 @@ Ext.define('Color.admin.EditFormUI', {
             {
                 xtype: 'textarea',
                 anchor: '100%',
-                height: 300,
+                height: 430,
                 fieldLabel: '赛程图',
                 id: 'schedule',
                 name: 'schedule',
@@ -202,7 +202,7 @@ Ext.define('Color.admin.EditFormUI', {
             {
                 xtype: 'textarea',
                 anchor: '100%',
-                height: 300,
+                height: 430,
                 fieldLabel: '球票位置介绍',
                 name: 'seat_position',
                 id: 'seat_position',
@@ -212,7 +212,7 @@ Ext.define('Color.admin.EditFormUI', {
             {
                 xtype: 'textarea',
                 anchor: '100%',
-                height: 300,
+                height: 430,
                 fieldLabel: '住宿介绍',
                 name: 'hotel_condition',
                 id: 'hotel_condition',
@@ -222,7 +222,7 @@ Ext.define('Color.admin.EditFormUI', {
             {
                 xtype: 'textarea',
                 anchor: '100%',
-                height: 300,
+                height: 430,
                 fieldLabel: '推荐行程',
                 name: 'trip_recommend',
                 id: 'trip_recommend',
@@ -369,7 +369,7 @@ Ext.define('Color.admin.GridUI', {
                 }
             },
             {
-                header: "活动日期", dataIndex: 'ctime',
+                header: "最后编辑时间", dataIndex: 'mtime',
                 renderer: function (v) {
                     var date = new Date(v * 1000);
                     return moment(date).format('YYYY-MM-DD');
@@ -401,7 +401,12 @@ Ext.define('Color.admin.GridUI', {
                         glyph: '删除',
                         handler: function (grid, rowIndex, colIndex) {
                             var record = grid.getStore().getAt(rowIndex);
-                            me._delete(record.get('id'));
+
+                            Ext.MessageBox.confirm('操作', '真的要删除产品吗?', function (btn, text) {
+                                if (btn === 'yes') {
+                                    me._delete(record.get('id'));
+                                }
+                            }, this);
                         }
                     }
                 ]
@@ -481,40 +486,6 @@ Ext.define('Color.admin.GridAction', {
 
         //record.raw.ctime = new Date(record.raw.ctime * 1000);
         form.setValues(record.data);
-
-        var ke_config = {
-            value: record.data.service_list,
-            resizable: {
-                content: true
-            },
-            encoded: false,
-            tools: [
-                "bold", "italic", "underline", "strikethrough", "justifyLeft", "justifyCenter", "justifyRight",
-                "justifyFull", "insertUnorderedList", "insertOrderedList", "indent", "outdent", "createLink",
-                "unlink", "insertImage", "subscript", "superscript", "createTable", "addRowAbove",
-                "addRowBelow", "addColumnLeft", "addColumnRight", "deleteRow", "deleteColumn", "viewHtml",
-                "formatting", "cleanFormatting", "fontName", "fontSize", "foreColor", "backColor", "print"
-            ],
-            imageBrowser: {
-                messages: {
-                    dropFilesHere: "Drop files here"
-                },
-                transport: {
-                    read: "/editor.php?type=1",
-                    destroy: {
-                        url: "/editor.php?type=2",
-                        type: "POST"
-                    },
-                    create: {
-                        url: "/editor.php?type=3",
-                        type: "POST"
-                    },
-                    thumbnailUrl: "/ImageBrowser/Thumbnail",
-                    uploadUrl: "editor.php?type=4",
-                    imageUrl: "/ImageBrowser/Image/{0}"
-                }
-            }
-        };
 
         if (me.ke.service_list) {
             me.ke.service_list.data("kendoEditor").value(record.data.service_list);
