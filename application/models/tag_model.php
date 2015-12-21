@@ -62,6 +62,21 @@ class tag_model extends CI_Model
         }
     }
 
+    function getList($option)
+    {
+        $this->db->order_by('id', 'DESC');
+        $query = $this->db->get($this->table, $option['limit'], $option['start']);
+
+        return (array('data' => $query->result(),
+            'total' => $this->db->count_all_results($this->table)
+        ));
+    }
+
+    function deleteByID($id)
+    {
+        $this->db->delete($this->table, array('id' => $id));
+    }
+
     function getByID($id)
     {
         $this->db->where('id', $id);
@@ -86,7 +101,7 @@ class tag_model extends CI_Model
 
     function update($option)
     {
-        $this->db->update($this->table, $option, array('cid' => $option['cid']));
+        $this->db->update($this->table, $option, array('id' => $option['id']));
     }
 
     function insert($option)

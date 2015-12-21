@@ -16,6 +16,11 @@ Docs.Menu = [
                 leaf: true
             },
             {
+                href: "/admin/tags",
+                text: "服务主题",
+                leaf: true
+            },
+            {
                 href: "/admin/equipments",
                 text: "产品管理",
                 leaf: true

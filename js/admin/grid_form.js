@@ -17,47 +17,88 @@ Ext.define('Tomtalk.grid.FormUI', {extend: 'Ext.form.Panel',
     initComponent: function () {
         var me = this;
 
-        me.items = [
-            {
-                xtype: 'hiddenfield',
-                name: 'id',
-                value: 0
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: '参数名称',
-                anchor: '50%',
-                name: 'name',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: '参数说明',
-                anchor: '50%',
-                name: 'desc',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textarea',
-                fieldLabel: '参数值',
-                anchor: '50%',
-                name: 'value',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'button',
-                text: '保存',
-                id: this.id + '_save',
-                width: 100
-            },
-            {
-                xtype: 'button',
-                text: '返回',
-                id: this.id + '_return',
-                style: 'margin-left: 50px;',
-                width: 100
-            }
-        ];
+        console.log(me.module);
+
+        if (me.module === 'tag') {
+            me.items = [
+                {
+                    xtype: 'hiddenfield',
+                    name: 'id',
+                    value: 0
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '主题名称',
+                    anchor: '50%',
+                    name: 'name',
+                    emptyText: '请输入…'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '说明',
+                    anchor: '50%',
+                    name: 'desc',
+                    emptyText: '请输入…'
+                },
+                {
+                    xtype: 'button',
+                    text: '保存',
+                    id: this.id + '_save',
+                    width: 100
+                },
+                {
+                    xtype: 'button',
+                    text: '返回',
+                    id: this.id + '_return',
+                    style: 'margin-left: 50px;',
+                    width: 100
+                }
+            ];
+        } else {
+            me.items = [
+                {
+                    xtype: 'hiddenfield',
+                    name: 'id',
+                    value: 0
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '参数名称',
+                    anchor: '50%',
+                    name: 'name',
+                    emptyText: '请输入…'
+                },
+                {
+                    xtype: 'textfield',
+                    fieldLabel: '参数说明',
+                    anchor: '50%',
+                    name: 'desc',
+                    emptyText: '请输入…'
+                },
+                {
+                    xtype: 'textarea',
+                    fieldLabel: '参数值',
+                    anchor: '50%',
+                    name: 'value',
+                    emptyText: '请输入…'
+                },
+                {
+                    xtype: 'button',
+                    text: '保存',
+                    id: this.id + '_save',
+                    width: 100
+                },
+                {
+                    xtype: 'button',
+                    text: '返回',
+                    id: this.id + '_return',
+                    style: 'margin-left: 50px;',
+                    width: 100
+                }
+            ];
+        }
+
+
 
         Tomtalk.grid.FormUI.superclass.initComponent.call(me);
     }

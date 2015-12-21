@@ -29,6 +29,16 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
             );
         }
 
+        if (me.module == 'tag') {
+            me.items.push(
+                Ext.create('Tomtalk.grid.Form', {
+                    id: me.id + '_form',
+                    module: me.module,
+                    hidden: true
+                })
+            );
+        }
+
         if (me.module == 'admins') {
             me.items.push(
                 Ext.create('Tomtalk.grid.AccountForm', {
@@ -65,6 +75,16 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
         var linkcolumn = [];
 
         if (me.module == 'admins') {
+            linkcolumn.push({
+                text: '编辑',
+                handler: function (grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                    me._edit(rec);
+                }
+            });
+        }
+
+        if (me.module == 'tag') {
             linkcolumn.push({
                 text: '编辑',
                 handler: function (grid, rowIndex, colIndex) {
@@ -113,11 +133,8 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
                     xtype: 'toolbar',
                     items: [
                         {
-                            //iconCls: 'icon-add',
-                            text: '新建帐号',
+                            text: '新建',
                             id: this.id + '_add'
-                            //scope: this,
-                            //handler: this.onAddClick
                         }
                     ]
                 }

@@ -106,28 +106,6 @@ class admin extends MY_Controller
         $this->login();
     }
 
-    public function jobs_userFavorites()
-    {
-        $data = array(
-            'msg' => 'admin-articles',
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/extjs4/locale/ext-lang-zh_CN.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/ZeroClipboard/ZeroClipboard.min.js',
-                '/js/admin/jobs/userFavorites.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
 
     public function articles()
     {
@@ -190,30 +168,6 @@ class admin extends MY_Controller
         $this->load->view('admin/script', $data);
     }
 
-    public function products()
-    {
-        $data = array(
-            'msg' => 'admin-products',
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/cms_add_form.js',
-                '/js/admin/cms.js',
-                '/js/admin/products.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
 
     public function equipments()
     {
@@ -241,23 +195,6 @@ class admin extends MY_Controller
         $this->load->view('admin/script', $data);
     }
 
-    public function mvvm()
-    {
-        $data = array(
-            'msg' => 'admin-products',
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs6/build/MyApp-all.css'
-            ),
-            'js' => array(
-                '/js/extjs6/ext-all.js',
-                '/js/mvvm.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
 
     public function faqs()
     {
@@ -307,29 +244,6 @@ class admin extends MY_Controller
         $this->load->view('admin/script', $data);
     }
 
-    public function enquiries()
-    {
-        $data = array(
-            'msg' => 'admin-' . __FUNCTION__,
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/grid.js',
-                '/js/admin/enquiries.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
 
     public function settings()
     {
@@ -349,6 +263,33 @@ class admin extends MY_Controller
                 '/js/admin/grid.js',
                 '/js/admin/grid_form.js',
                 '/js/admin/settings.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+
+    //铁杆服务主题
+    public function tags()
+    {
+        $data = array(
+            'msg' => 'admin-' . __FUNCTION__,
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs4/resources/css/ext-all.css',
+                '/css/admin.css'
+            ),
+            'js' => array(
+                '/js/extjs4/bootstrap.js',
+                '/js/admin/common/common.js',
+                '/js/admin/common/utils.js',
+                '/js/admin/common/ux/LinkColumn.js',
+                '/js/moment.js',
+                '/js/admin/grid.js',
+                '/js/admin/grid_form.js',
+                '/js/admin/tags.js'
             )
         );
 
@@ -381,101 +322,6 @@ class admin extends MY_Controller
         $this->load->view('admin/script', $data);
     }
 
-    public function subscriptions()
-    {
-        $data = array(
-            'msg' => 'admin-' . __FUNCTION__,
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/grid.js',
-                '/js/admin/subscriptions.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
-
-    public function sample_request()
-    {
-        $data = array(
-            'msg' => 'admin-' . __FUNCTION__,
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/grid.js',
-                '/js/admin/sample_request.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
-
-    public function po_request()
-    {
-        $data = array(
-            'msg' => 'admin-' . __FUNCTION__,
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/grid.js',
-                '/js/admin/po_request.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
-
-    public function rfq_requirement()
-    {
-        $data = array(
-            'msg' => 'admin-' . __FUNCTION__,
-            'base_url' => $this->config->config['base_url'],
-            'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
-            ),
-            'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
-                '/js/admin/grid.js',
-                '/js/admin/rfq_requirement.js'
-            )
-        );
-
-        $this->load->view('admin/header', $data);
-        $this->load->view('admin/script', $data);
-    }
 
     //根据module，返回相应grid数据
     public function getList()
