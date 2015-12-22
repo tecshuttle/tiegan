@@ -4,11 +4,11 @@
  * date:2015-12-7
  */
 body { background: #f5f5f5; }
-.q-layer-header { width: 100%; min-width: 870pt; height: 52px; background-color: #121f42; position: relative; z-index: 1000; }
+.q-layer-header { width: 100%; min-width: 870pt; height: 70px; background-color: #121f42; position: relative; z-index: 1000; }
 .q-layer-header:after { font-size: 0; content: " "; visibility: hidden; clear: both; }
 .q-layer-header .header-inner { margin: 0 auto; max-width: 20in; }
 .q-layer-header a { color: #FFF; }
-.q-layer-header .logo { float: left !important; margin: 6px 5px 0 30px; width: 50px; height: 40px; }
+.q-layer-header .logo { float: left !important; margin: 6px 5px 0 30px; width: 303px; height: 62px; }
 .q-layer-header .nav { float: left !important; }
 .q-layer-header .nav ul.nav-ul { margin-left: 13px; }
 .q-layer-header .nav ul.nav-ul li.nav-list { position: relative; height: 30px; float: left !important; }
@@ -20,7 +20,7 @@ body { background: #f5f5f5; }
 .q-layer-header .nav ul.nav-ul li.nav-list.nav-list-selected>a,
 .q-layer-header .nav ul.nav-ul li.nav-list.nav-list-selected>span,
 .q-layer-header .nav ul.nav-ul li.nav-list:hover>a,
-.q-layer-header .nav ul.nav-ul li.nav-list:hover>span { color: #f60; }
+.q-layer-header .nav ul.nav-ul li.nav-list:hover>span { color: #e50314; }
 .q-layer-header .fun { float: right !important; margin-right: 30px; }
 .q-layer-header .fun .status { float: left !important; padding-left: 9pt; margin-left: 8px; height: 30px; background: url(../images/line2.png) left center no-repeat; font-size: 14px; }
 .q-layer-header .fun .status .login { height: 30px; line-height: 30px; transition: all .2s ease-in-out; }
@@ -39,11 +39,11 @@ body { background: #f5f5f5; }
 .filter_options dl { padding: 15px 0 0; }
 .filter_options dl dd.options { margin-left: 30px; width: 1010px; }
 /*.filter_options dl:first-child dd.options { border-bottom: 1px solid #f0f0f0; }*/
-.filter_options dl dd.options a.hover { background: #f60; color: #fff; }
-.filter_options dl dd.options a:hover { background: none; color: #f60; text-decoration: underline; }
+.filter_options dl dd.options a.hover { background: #e50314; color: #fff; }
+.filter_options dl dd.options a:hover { background: none; color: #e50314; text-decoration: underline; }
 .resultList li { background: #fff; }
 .resultList li:hover { -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2); -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .2); box-shadow: 0 0 5px rgba(0, 0, 0, .2); }
-.resultList li h1 a:hover { color: #f60; }
+.resultList li h1 a:hover { color: #e50314; }
 .resultPage a:hover,
 .resultPage a.num:hover,
 .resultPage a.hover { background: #f60; border: 1px solid #f60; }
@@ -64,7 +64,7 @@ body { background: #f5f5f5; }
 .zw-footer-concerns .icons span.fa-mobile-phone { font-size: 40px; }
 .zw-footer-concerns .icons span.fa-weixin { font-size: 26px; }
 .zw-footer-concerns .icons span.fa-weibo { font-size: 30px; }
-.resultList li .rs a{line-height:39px; text-align:center; background:#f60; font-size:20px; color:#fff;}
+.resultList li .rs a{line-height:39px; text-align:center; background:#e50314; font-size:20px; color:#fff;}
 /*.resultList li .rs a:hover{background:#e56b5f;}*/
 
 /*搜索*/
@@ -158,18 +158,18 @@ body { background: #f5f5f5; }
 
 
 /*====================== 修改@12-12 style =======================*/
-.header .logo{margin-top:10px; width:200px; height:68px;}
+.header .logo{margin-top:10px; width:586px; height:120px;}
 .header .nav{margin-top:18px;}
 .header .fun{margin-top:20px;}
 .header .qrcode{top:74px;}
-.header .nav ul.nav-ul li.nav-list:hover a{color:#f60;}
-.header .nav ul.nav-ul li.nav-list:hover:before{ background:#f60; color:#f60;}
-.footer .footer-line{background:#f60;}
-.footer .footer-inner2{height:52px;}
-.footer .footer-copyright{padding-left:122px;}
+.header .nav ul.nav-ul li.nav-list:hover a{color:#e50314;}
+.header .nav ul.nav-ul li.nav-list:hover:before{ background:#e50314; color:#e50314;}
+.footer .footer-line{background:#e50314;}
+.footer .footer-inner2{height:64px;}
+.footer .footer-copyright{padding-left:84px;}
 .footer .footer-copyright img{margin-right:40px;}
 
-.hottravels .item .travel .inner a:hover{color:#f60;}
+.hottravels .item .travel .inner a:hover{color:#e50314;}
 
 .section.section-green{background: #1bcdae;
     background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#6dd27c),color-stop(1,#1bcdae));
@@ -183,7 +183,7 @@ body { background: #f5f5f5; }
 .h-view-more{position:absolute; top:0; right:0; font-size:14px;}
 .c-view-more-1{color:#777;}
 .c-view-more-2{color:#fff;}
-.view-more:hover, .items-list li a:hover{color:#f60;}
+.view-more:hover, .items-list li a:hover{color:#e50314;}
 
 .header-inner .fun .h-service-phone{margin-top:14px;}
 .footer .footer-about dl{background:url(../images/line_footer.png) no-repeat left 4px;}
@@ -199,4 +199,28 @@ body { background: #f5f5f5; }
 .mclb_done .mcl_a2:after{position:absolute; top:10px; right:-15px; display:block; content:''; width:0; height:0; border-style:dashed dashed dashed solid; border-width:10px; border-color:transparent transparent transparent #f60;}
 
 .q-layer-header .header-inner .nav,
-.q-layer-header .fun{margin-top:14px;}
+.q-layer-header .fun{margin-top:20px;}
+
+
+/*====================== 修改@12-20 style =======================*/
+.header .header-inner { position: relative; }
+.header .nav { position: absolute; top: 54px; left: 346px;}
+.header .nav ul.nav-ul { margin-left: 0; }
+.header .nav ul.nav-ul li.nav-list .nav-span { line-height: 40px; }
+.header-inner .fun .service-phone { padding-right: 0; height: 32px; line-height: 32px; font-size: 20px; }
+.header-inner .fun .service-phone .ico-phone { vertical-align: -10px; margin-right: 8px; width: 32px; height: 32px; background: url(../images/icon_phone.png) no-repeat; }
+.header .fun .status { float: none !important; padding-left: 0; margin-left: 0; height: 40px; background: none;  }
+.header .fun .status .login { height: 40px; line-height: 40px; text-align: right; color: #fff; }
+.header .fun .status .login a { padding-left: 0; }
+.header .qrcode { top: 124px; }
+.banner .search .panel .panel-cont .input-control .btn { background: #ff7800; font-weight: normal; }
+.section .title { height: 60px; line-height: 60px; text-align: left; border-bottom: 2px solid #e50314; font-size: 30px; color: #3e3a39; }
+.section .title span { margin-left: 10px; font-size: 14px; }
+.h-view-more { top: 10px; }
+.interest ul { margin-left: -25px; }
+.interest ul li { margin-left: 25px; }
+.section.section-green { background: #ccc; }
+.section.section-green .title { color: #3e3a39; }
+.c-view-more-2 { color: #777; }
+.hottravels .item .travel .tip { padding-bottom: 0; background: #e50314; }
+.hottravels .item .travel .tip:before { position: absolute; bottom: -9px; left: 0; display: block; content: ''; border-width: 6px 0 3px 6px; border-style: solid dashed dashed; border-color: #e50314 transparent transparent; }

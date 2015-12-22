@@ -15,9 +15,6 @@
         <div class="service-phone"><i class="ico-phone"></i>400-601-4066</div>
         <div id="userStatus" class="status">
             <div class="login">
-                <a class="otherlogin-link" href="javascript:;" rel="noflow"><i class="fa fa-qq"></i></a>
-                <a class="otherlogin-link" href="javascript:;" rel="noflow"><i class="fa fa-weibo"></i></a>
-                <a class="otherlogin-link" href="javascript:;" rel="noflow"><i class="fa fa-weixin"></i></a>
                 <a href="#">注册</a>
                 <a href="#">登录</a>
             </div>
