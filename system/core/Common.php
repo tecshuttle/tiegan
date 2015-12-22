@@ -254,7 +254,11 @@ if ( ! function_exists('get_config'))
 			}
 		}
 
-		return $_config[0] =& $config;
+        $_config[0] =& $config;
+
+        $res = $_config[0];
+
+		return $res;
 	}
 }
 

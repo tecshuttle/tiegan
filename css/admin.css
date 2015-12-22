@@ -56,6 +56,33 @@
     border-bottom: 1px solid #d0d0d0;
 }
 
+/* kendo editor */
 iframe.k-content {
     height: 500px !important;
 }
+
+table.k-editor {
+    border-width: 0px;
+    border-spacing: 0px;
+}
+
+div#service_list-bodyEl div.x-form-trigger-wrap-default {
+    border-width: 0px;
+}
+
+div#schedule-bodyEl div.x-form-trigger-wrap-default {
+    border-width: 0px;
+}
+
+div#seat_position-bodyEl div.x-form-trigger-wrap-default {
+    border-width: 0px;
+}
+
+div#hotel_condition-bodyEl div.x-form-trigger-wrap-default {
+    border-width: 0px;
+}
+
+div#trip_recommend-bodyEl div.x-form-trigger-wrap-default {
+    border-width: 0px;
+}
+
