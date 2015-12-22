@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
     <!-- style layout -->
     <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/article_detail.css">
     <!--[if IE 6]>
     <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>

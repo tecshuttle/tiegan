@@ -378,12 +378,7 @@ body {
                             <td><img alt="" src="<?= $match->seat0 ?>" width="300"/></td>
                         </tr>
                         <tr>
-                            <td><p>绿色 + 蓝色：屌丝级</p>
-
-                                <p>橙色二层 + 红色二层/三层：小资级</p>
-
-                                <p>红色一层 + 橙色一层：土豪</p>
-                            </td>
+                            <td><?= $match->seat_desc ?></td>
                         </tr>
                         </tbody>
                     </table>

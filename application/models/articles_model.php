@@ -25,7 +25,8 @@ class articles_model extends CI_Model
 
         $this->db->where('type_id', $option['type_id']); //取记录数条件
 
-        return (array('data' => $query->result(),
+        return (array(
+            'data' => $query->result(),
             'total' => $this->db->count_all_results('articles')
         ));
     }

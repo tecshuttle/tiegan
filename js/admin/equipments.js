@@ -227,6 +227,36 @@ Ext.define('Color.admin.GridAction', {
 
         $c.grid.hide();
         $c.productForm.show();
+
+        if (me.ke.service_list) {
+            me.ke.service_list.data("kendoEditor").value('');
+        } else {
+            me.ke.service_list = $("#service_list-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.seat_position) {
+            me.ke.seat_position.data("kendoEditor").value('');
+        } else {
+            me.ke.seat_position = $("#seat_position-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.schedule) {
+            me.ke.schedule.data("kendoEditor").value('');
+        } else {
+            me.ke.schedule = $("#schedule-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.hotel_condition) {
+            me.ke.hotel_condition.data("kendoEditor").value('');
+        } else {
+            me.ke.hotel_condition = $("#hotel_condition-inputEl").kendoEditor(ke_config);
+        }
+
+        if (me.ke.trip_recommend) {
+            me.ke.trip_recommend.data("kendoEditor").value('');
+        } else {
+            me.ke.trip_recommend = $("#trip_recommend-inputEl").kendoEditor(ke_config);
+        }
     },
 
     _edit: function (record) {

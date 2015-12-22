@@ -64,6 +64,22 @@ Ext.define('MyApp.overrides.grid.column.Action', {
     }
 });
 
+
+var articleStore= Ext.create('Ext.data.Store', {
+    pageSize: 20,
+    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+    proxy: {
+        type: 'ajax',
+        url: '/articles/getList',
+        reader: {
+            type: 'json',
+            rootProperty: 'data',
+            totalProperty: 'total'
+        }
+    },
+    autoLoad: true
+});
+
 Ext.define('MyApp.view.main.Articlegrid', {
     extend: 'Ext.grid.GridPanel',
     id: 'article_grid',
@@ -74,20 +90,7 @@ Ext.define('MyApp.view.main.Articlegrid', {
     COMPONENTS: {},
     frame: true,
     columnLines: true,
-    store: Ext.create('Ext.data.Store', {
-        pageSize: 20,
-        fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
-        proxy: {
-            type: 'ajax',
-            url: '/articles/getList',
-            reader: {
-                type: 'json',
-                rootProperty: 'data',
-                totalProperty: 'total'
-            }
-        },
-        autoLoad: true
-    }),
+    store: articleStore,
     columns: [
         {
             header: "ID", dataIndex: 'id'
@@ -149,20 +152,7 @@ Ext.define('MyApp.view.main.Articlegrid', {
     ],
     bbar: {
         xtype: 'pagingtoolbar',
-        store: Ext.create('Ext.data.Store', {
-            pageSize: 20,
-            fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
-            proxy: {
-                type: 'ajax',
-                url: '/articles/getList',
-                reader: {
-                    type: 'json',
-                    rootProperty: 'data',
-                    totalProperty: 'total'
-                }
-            },
-            autoLoad: true
-        }),
+        store: articleStore,
         displayInfo: true,
         beforePageText: '页',
         afterPageText: '/ {0}',
