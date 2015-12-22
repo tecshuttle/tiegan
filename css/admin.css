@@ -64,6 +64,11 @@ iframe.k-content {
 table.k-editor {
     border-width: 0px;
     border-spacing: 0px;
+    background-color: white;
+}
+
+div#kendoeditor-bodyEl div.x-form-trigger-wrap-default {
+    border-width: 0px;
 }
 
 div#service_list-bodyEl div.x-form-trigger-wrap-default {
@@ -84,5 +89,10 @@ div#hotel_condition-bodyEl div.x-form-trigger-wrap-default {
 
 div#trip_recommend-bodyEl div.x-form-trigger-wrap-default {
     border-width: 0px;
+}
+
+/* fieldset */
+.x-fieldset {
+    background: white;
 }
 

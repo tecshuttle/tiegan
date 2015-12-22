@@ -114,9 +114,9 @@ class admin extends MY_Controller
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs6/build/MyApp-all.css',
-                '/css/admin.css',
                 '/styles/kendo.bootstrap.min.css',
-                '/styles/kendo.common-bootstrap.min.css'
+                '/styles/kendo.common-bootstrap.min.css',
+                '/css/admin.css'
             ),
             'js' => array(
                 '/js/extjs6/ext-all.js',
