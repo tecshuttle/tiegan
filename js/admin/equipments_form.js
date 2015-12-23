@@ -36,91 +36,139 @@ Ext.define('Color.admin.EditFormUI', {
                 title: '基本信息',
                 collapsible: true,
                 defaults: {
-                    //labelWidth: 90,
-                    anchor: '100%',
-                    layout: 'hbox'
+                    anchor: '100%'
                 },
                 items: [
                     {
-                        xtype: 'textfield',
-                        fieldLabel: '产品名称',
-                        allowBlank: false,
-                        anchor: '50%',
-                        name: 'name',
-                        emptyText: '请输入…'
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '产品名称',
+                                allowBlank: false,
+                                flex: 1,
+                                margin: '0 10 0 0',
+                                name: 'name',
+                                emptyText: '请输入…'
+                            },
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '价格',
+                                anchor: '50%',
+                                flex: 1,
+                                name: 'price',
+                                emptyText: '请输入…'
+                            }
+                        ]
                     },
                     {
-                        xtype: 'textfield',
-                        fieldLabel: '封面图',
-                        anchor: '50%',
-                        name: 'cover',
-                        emptyText: '示例: /uploads/14201863264972.jpg'
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '封面图',
+                                flex: 1,
+                                margin: '0 10 0 0',
+                                name: 'cover',
+                                emptyText: '示例: /uploads/14201863264972.jpg'
+                            },
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '球队海报1',
+                                flex: 1,
+                                name: 'cover1',
+                                emptyText: '示例: /uploads/14201863264972.jpg'
+                            }
+                        ]
                     },
                     {
-                        xtype: 'textfield',
-                        fieldLabel: '球队海报1',
-                        anchor: '50%',
-                        name: 'cover1',
-                        emptyText: '示例: /uploads/14201863264972.jpg'
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '球队海报2',
+                                flex: 1,
+                                margin: '0 10 0 0',
+                                name: 'cover2',
+                                emptyText: '示例: /uploads/14201863264972.jpg'
+                            },
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '球队海报3',
+                                flex: 1,
+                                name: 'cover3',
+                                emptyText: '示例: /uploads/14201863264972.jpg'
+                            }
+                        ]
                     },
                     {
-                        xtype: 'textfield',
-                        fieldLabel: '球队海报2',
-                        anchor: '50%',
-                        name: 'cover2',
-                        emptyText: '示例: /uploads/14201863264972.jpg'
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '行程天数',
+                                flex: 1,
+                                margin: '0 10 0 0',
+                                name: 'travel_long',
+                                emptyText: '示例: 7天5晚'
+                            },
+                            {
+                                xtype: 'datefield',
+                                fieldLabel: '出发日期',
+                                flex: 1,
+                                name: 'travel_begin',
+                                format: 'Y-m-d',
+                                value: new Date(),
+                                emptyText: '格式: 2015-12-30'
+                            }
+                        ]
                     },
                     {
-                        xtype: 'textfield',
-                        fieldLabel: '球队海报3',
-                        anchor: '50%',
-                        name: 'cover3',
-                        emptyText: '示例: /uploads/14201863264972.jpg'
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '行程概览',
+                                flex: 1,
+                                name: 'brief',
+                                margin: '0 10 0 0',
+                                emptyText: '示例: 中国——巴黎——巴黎（购物）'
+                            },
+                            {
+                                xtype: 'combo',
+                                fieldLabel: '相关主题',
+                                store: tag_store,
+                                flex: 1,
+                                name: 'tag_id',
+                                displayField: 'name',
+                                valueField: 'id',
+                                typeAhead: true
+                            }
+                        ]
                     },
                     {
-                        xtype: 'textfield',
-                        fieldLabel: '价格',
-                        anchor: '50%',
-                        name: 'price',
-                        emptyText: '请输入…'
-                    },
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '行程天数',
-                        anchor: '50%',
-                        name: 'travel_long',
-                        emptyText: '示例: 7天5晚'
-                    },
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '出发日期',
-                        anchor: '50%',
-                        name: 'travel_begin',
-                        emptyText: '格式: 2015-12-30'
-                    },
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '行程概览',
-                        anchor: '50%',
-                        name: 'brief',
-                        emptyText: '示例: 中国——巴黎——巴黎（购物）'
-                    },
-                    {
-                        xtype: 'textfield',
-                        fieldLabel: '相关产品',
-                        anchor: '50%',
-                        name: 'relative',
-                        emptyText: '填写产品尖,示例: 23, 453, 21'
-                    },
-                    {
-                        xtype: 'combo',
-                        fieldLabel: '相关主题',
-                        store: tag_store,
-                        anchor: '50%',
-                        name: 'tag_id',
-                        displayField: 'name',
-                        valueField: 'id',
-                        typeAhead: true
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '相关产品',
+                                flex: 1,
+                                margin: '0 10 0 0',
+                                name: 'relative',
+                                emptyText: '填写产品尖,示例: 23, 453, 21'
+                            },
+                            {
+                                xtype: 'displayfield',
+                                flex: 1,
+                                value: ''
+                            }
+                        ]
                     }
                 ]
             },

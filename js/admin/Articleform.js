@@ -31,53 +31,63 @@ Ext.define('MyApp.view.main.Articleform', {
                 value: 0
             },
             {
-                xtype: 'textfield',
-                fieldLabel: '标题',
-                allowBlank: false,
-                anchor: '50%',
-                name: 'name',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'textfield',
-                fieldLabel: 'URL短名',
-                anchor: '50%',
-                name: 'code',
-                emptyText: '请输入…'
-            },
-            {
-                xtype: 'container',
-                anchor: '50%',
-                layout: {
-                    type: 'hbox',
-                    padding: '0 0 5px 0'
-                },
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
                 items: [
                     {
                         xtype: 'textfield',
-                        fieldLabel: '封面图',
-                        name: 'cover',
-                        flex: 4,
-                        emptyText: '直接输入图片URL或上传文件(尺寸107*107)，文件类型：gif | jpg | png'
+                        fieldLabel: '标题',
+                        allowBlank: false,
+                        flex: 1,
+                        margin: '0 10 0 0',
+                        name: 'name',
+                        emptyText: '请输入…'
                     },
                     {
-                        xtype: 'filefield',
-                        id: 'product_cover',
-                        buttonOnly: true,
-                        hideLabel: true,
-                        style: 'margin-left: 5px;',
+                        xtype: 'textfield',
+                        fieldLabel: 'URL短名',
                         flex: 1,
-                        name: 'product_cover',
-                        buttonText: '上传文件'
+                        name: 'code',
+                        emptyText: '请输入…'
                     }
                 ]
             },
             {
-                xtype: 'textfield',
-                fieldLabel: 'SEO Keywords',
-                anchor: '50%',
-                name: 'keywords',
-                emptyText: '请输入…'
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        flex: 1,
+                        margin: '0 10 0 0',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                fieldLabel: '封面图',
+                                name: 'cover',
+                                flex: 1,
+                                emptyText: '直接输入图片URL或上传文件(尺寸107*107)，文件类型：gif | jpg | png'
+                            },
+                            {
+                                xtype: 'filefield',
+                                id: 'product_cover',
+                                buttonOnly: true,
+                                hideLabel: true,
+                                width: 100,
+                                name: 'product_cover',
+                                buttonText: '上传文件'
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'textfield',
+                        fieldLabel: 'SEO Keywords',
+                        flex: 1,
+                        name: 'keywords',
+                        emptyText: '请输入…'
+                    }
+                ]
             },
             {
                 xtype: 'textarea',
@@ -203,8 +213,6 @@ Ext.define('MyApp.view.main.Articleform', {
         return addForm.getValues();
     }
 });
-
-
 
 
 //end file

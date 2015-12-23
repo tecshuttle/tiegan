@@ -124,7 +124,7 @@ Ext.define('Color.admin.GridUI', {
                 header: "最后编辑时间", dataIndex: 'mtime',
                 renderer: function (v) {
                     var date = new Date(v * 1000);
-                    return moment(date).format('YYYY-MM-DD');
+                    return moment(date).format('YYYY-MM-DD HH:mm:ss');
                 }
             },
             {

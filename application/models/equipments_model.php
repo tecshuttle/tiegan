@@ -33,7 +33,7 @@ class equipments_model extends CI_Model
     {
         $sql = "SELECT e.*, COUNT(s.id) AS classes, SUM(s.stock) AS stock "
             . "FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
-            . "GROUP BY e.id ORDER BY ctime LIMIT {$option['start']}, 20";
+            . "GROUP BY e.id ORDER BY mtime desc LIMIT {$option['start']}, 20";
 
         $query = $this->db->query($sql);
 
