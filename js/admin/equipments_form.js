@@ -149,8 +149,8 @@ Ext.define('Color.admin.EditFormUI', {
                             margin: '0 10 0 0'
                         },
                         items: [
-                            {xtype: 'displayfield', value: '土豪', margin: '0 0 0 220'},
-                            {xtype: 'displayfield', value: '小资', margin: '0 80 0 80'},
+                            {xtype: 'displayfield', value: '土豪', margin: '0 0 0 260'},
+                            {xtype: 'displayfield', value: '小资', margin: '0 120 0 120'},
                             {xtype: 'displayfield', value: '屌丝'}
                         ]
                     },
@@ -162,7 +162,7 @@ Ext.define('Color.admin.EditFormUI', {
                         layout: 'hbox',
                         defaults: {
                             hideLabel: true,
-                            width: 60,
+                            width: 80,
                             margin: '0 10 0 0'
                         },
                         items: [
@@ -182,7 +182,7 @@ Ext.define('Color.admin.EditFormUI', {
                         layout: 'hbox',
                         defaults: {
                             hideLabel: true,
-                            width: 60,
+                            width: 80,
                             margin: '0 10 0 0'
                         },
                         items: [
@@ -202,7 +202,7 @@ Ext.define('Color.admin.EditFormUI', {
                         layout: 'hbox',
                         defaults: {
                             hideLabel: true,
-                            width: 60,
+                            width: 80,
                             margin: '0 10 0 0'
                         },
                         items: [

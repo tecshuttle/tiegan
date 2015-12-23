@@ -71,8 +71,8 @@ body {
 }
 
 .nr_list .list_con {
-    padding: 0;
-    width: 845px;
+    padding: 0 0 0 20px;
+    width: 825px;
 }
 
 .table {
@@ -310,21 +310,23 @@ body {
 <div class="nr_list" tabrel="fwlb" id="fwlb">
     <div class="list_tit"><i class="fa fa-paper-plane"></i>服务列表</div>
     <div class="list_con">
+        <?= $match->service_list ?>
+
         <table class="table" style="margin-top:10px;">
             <tbody>
             <tr>
                 <td rowspan="2"></td>
-                <td colspan="2">土豪级服务</td>
-                <td colspan="2">小资级服务</td>
-                <td colspan="2">屌丝级服务</td>
+                <td colspan="2">土豪</td>
+                <td colspan="2">小资</td>
+                <td colspan="2">屌丝</td>
             </tr>
             <tr>
-                <td>2人出游</td>
-                <td>1人出游</td>
-                <td>2人出游</td>
-                <td>1人出游</td>
-                <td>2人出游</td>
-                <td>1人出游</td>
+                <td>双人出游</td>
+                <td>单房差</td>
+                <td>双人出游</td>
+                <td>单房差</td>
+                <td>双人出游</td>
+                <td>单房差</td>
             </tr>
             <tr>
                 <td>S级赛事</td>
@@ -355,8 +357,6 @@ body {
             </tr>
             </tbody>
         </table>
-
-        <?= $match->service_list ?>
     </div>
 </div>
 <div class="nr_list" tabrel="sct" id="sct">
@@ -375,7 +375,7 @@ body {
                     <table>
                         <tbody>
                         <tr>
-                            <td><img alt="" src="<?= $match->seat0 ?>" width="300"/></td>
+                            <td><img alt="" src="<?= $match->seat0 ?>" width="340"/></td>
                         </tr>
                         <tr>
                             <td><?= $match->seat_desc ?></td>
@@ -441,25 +441,25 @@ body {
         <dl>
             <dt>屌丝级住宿服务安排（经济型旅舍&华人球迷之家）</dt>
             <dd class="clearfix">
-                <img src="<?= $match->hotel1 ?>" width="" height="" alt=""/>
-                <img src="<?= $match->hotel2 ?>" width="" height="" alt=""/>
-                <img src="<?= $match->hotel3 ?>" width="" height="" alt=""/>
+                <img src="<?= $match->hotel1 ?>" width="267" alt=""/>
+                <img src="<?= $match->hotel2 ?>" width="267" alt=""/>
+                <img src="<?= $match->hotel3 ?>" width="267" alt=""/>
             </dd>
         </dl>
         <dl>
             <dt>小资级住宿服务安排（三星级或国际连锁品牌酒店）</dt>
             <dd class="clearfix">
-                <img src="<?= $match->hotel4 ?>" width="" height="" alt=""/>
-                <img src="<?= $match->hotel5 ?>" width="" height="" alt=""/>
-                <img src="<?= $match->hotel6 ?>" width="" height="" alt=""/>
+                <img src="<?= $match->hotel4 ?>" width="267" alt=""/>
+                <img src="<?= $match->hotel5 ?>" width="267" alt=""/>
+                <img src="<?= $match->hotel6 ?>" width="267" alt=""/>
             </dd>
         </dl>
         <dl>
             <dt>土豪级住宿服务安排（国际四星级或以上品牌酒店）</dt>
             <dd class="clearfix">
-                <img src="<?= $match->hotel7 ?>" width="" height="" alt=""/>
-                <img src="<?= $match->hotel8 ?>" width="" height="" alt=""/>
-                <img src="<?= $match->hotel9 ?>" width="" height="" alt=""/>
+                <img src="<?= $match->hotel7 ?>" width="267" alt=""/>
+                <img src="<?= $match->hotel8 ?>" width="267" alt=""/>
+                <img src="<?= $match->hotel9 ?>" width="267" alt=""/>
             </dd>
         </dl>
         <p style="margin-top:6px;">*具体酒店名字不可指定</p>
