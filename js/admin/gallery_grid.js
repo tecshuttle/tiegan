@@ -1,12 +1,11 @@
 Ext.ns('Tomtalk.gallery');
 
 Ext.define('Tomtalk.gallery.GridUI', {extend: 'Ext.Panel',
+    autoScroll: true,
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
-            title: '图库',
-            bodyStyle: 'padding:10px;',
-            layout: 'anchor'
+            bodyStyle: 'padding:10px;'
         }, config);
 
         me.COMPONENTS = {};
@@ -20,6 +19,29 @@ Ext.define('Tomtalk.gallery.GridUI', {extend: 'Ext.Panel',
         me.items = [
             me._grid()
         ];
+
+        this.tbar = {
+            items: [
+                {
+                    xtype: 'button',
+                    text: '上传图片',
+                    disabled: true,
+                    id: this.id + '_upload'
+                },
+                {
+                    xtype: 'button',
+                    text: '删除',
+                    disabled: true,
+                    id: this.id + '_btn_del'
+                },
+                {
+                    xtype: 'tbtext',
+                    id: this.id + '_num_selected',
+                    text: ''
+                }
+            ]
+        };
+
 
         Tomtalk.gallery.GridUI.superclass.initComponent.call(me);
     },
@@ -55,7 +77,7 @@ Ext.define('Tomtalk.gallery.GridUI', {extend: 'Ext.Panel',
             tpl: [
                 '<tpl for=".">',
                 '<div class="thumb-wrap" id="{name:stripTags}">',
-                '<div class="thumb"><img width=100 src="/uploads/{download}" title="{name:htmlEncode}"></div>',
+                '<div class="thumb"><img width=100 src="/uploads/thumbnail/{download}" title="{name:htmlEncode}"></div>',
                 '<span class="x-editable">{shortName:htmlEncode}</span>',
                 '</div>',
                 '</tpl>',
@@ -68,6 +90,31 @@ Ext.define('Tomtalk.gallery.GridUI', {extend: 'Ext.Panel',
             overItemCls: 'x-item-over',
             itemSelector: 'div.thumb-wrap',
             emptyText: 'No images to display',
+            plugins: [
+                Ext.create('Ext.ux.DataView.DragSelector', { }),
+                Ext.create('Ext.ux.DataView.LabelEditor', {
+                    dataIndex: 'name',
+                    listeners: {
+                        click: {
+                            element: 'el', //bind to the underlying el property on the panel
+                            fn: function () {
+                                console.log('click el');
+                            }
+                        },
+                        complete: {
+                            fn: function (obj, value, startValue, eOpts) {
+                                $.post("/gallery/update", {
+                                    id: obj.activeRecord.id,
+                                    name: value
+                                }, function (result) {
+                                    console.log(result);
+                                }, 'json')
+                            }
+                        }
+
+                    }
+                })
+            ],
             prepareData: function (data) {
                 Ext.apply(data, {
                     shortName: Ext.util.Format.ellipsis(data.name, 18),
@@ -93,9 +140,12 @@ Ext.define('Tomtalk.gallery.GridAction', {extend: 'Tomtalk.gallery.GridUI',
         Tomtalk.gallery.GridAction.superclass.initComponent.call(this);
 
         Ext.apply(this.COMPONENTS, {
-            saveBtn: Ext.getCmp(this.id + '_save'),
-            returnBtn: Ext.getCmp(this.id + '_return'),
-            grid: Ext.getCmp('images-view')
+            //saveBtn: Ext.getCmp(this.id + '_save'),
+            //returnBtn: Ext.getCmp(this.id + '_return'),
+            grid: Ext.getCmp('images-view'),
+            uploadBtn: Ext.getCmp(this.id + '_upload'),
+            delBtn: Ext.getCmp(this.id + '_btn_del'),
+            tips: Ext.getCmp(this.id + '_num_selected')
         });
     },
 
@@ -105,8 +155,25 @@ Ext.define('Tomtalk.gallery.GridAction', {extend: 'Tomtalk.gallery.GridUI',
 
         Tomtalk.gallery.GridAction.superclass.initEvents.call(me);
 
-        $c.grid.on('select', me._select, me);
-        //$c.returnBtn.on('click', me._return, me);
+        //$c.grid.on('select', me._select, me);
+        $c.delBtn.on('click', me._del, me);
+        $c.uploadBtn.on('click', me._upload, me);
+
+        $c.grid.on('selectionchange', me._selectionchange, me);
+    },
+
+    _selectionchange: function (dv, nodes) {
+        var me = this;
+        var $c = this.COMPONENTS;
+
+
+        if (nodes.length === 0) {
+            $c.delBtn.setDisabled(true);
+            $c.tips.setData('');
+        } else {
+            $c.delBtn.enable();
+            $c.tips.setData('已选择 ' + nodes.length + ' 张图片');
+        }
     },
 
     //取图库的store
@@ -114,6 +181,31 @@ Ext.define('Tomtalk.gallery.GridAction', {extend: 'Tomtalk.gallery.GridUI',
         return this.COMPONENTS.grid.getStore();
     },
 
+    _del: function () {
+        var $c = this.COMPONENTS;
+        var nodes = $c.grid.getSelectedNodes();
+
+        $.each(nodes, function (i, node) {
+            Ext.get(node.id).destroy();
+        });
+
+        var recs = $c.grid.getSelectionModel().getSelection();
+
+        var ids = [];
+        $.each(recs, function (i, rec) {
+            ids.push(rec.id);
+        });
+
+        $.post("/gallery/deleteByids", {
+            ids: ids.join(',')
+        }, function (result) {
+            console.log(result);
+        }, 'json')
+    },
+
+    _upload: function () {
+        this.up().up()._showGalleryBatchPanel();
+    },
 
     _select: function (grid, rec, opt) {
         this.up().up()._edit(rec);

@@ -143,23 +143,30 @@ class admin extends MY_Controller
             'msg' => 'Admin-Gallery',
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+                '/js/extjs6/build/MyApp-all.css',
+                '/css/gallery.css'
+                //'/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.css'
 
+                //'/js/extjs4/resources/css/ext-all.css',
+                //'/css/admin/themes/ijobs-v3/css/index.css',
+                //'/css/admin/themes/ijobs-v3/css/ijobs.css'
             ),
             'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
+                '/js/extjs6/ext-all.js',
+                '/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.js',
+                '/js/MyApp/ext/packages/ux/classic/src/DataView/LabelEditor.js',
+                //'/js/extjs6/ux.js',
+                //'/js/extjs4/bootstrap.js',
+                //'/js/admin/common/common.js',
+                //'/js/admin/common/utils.js',
+                //'/js/admin/common/ux/LinkColumn.js',
                 '/js/jquery.min.js',
                 '/js/jQuery-File-Upload/jquery.ui.widget.js',
                 '/js/jQuery-File-Upload/jquery.fileupload.js',
                 '/js/admin/gallery_batch_panel.js',
                 '/js/admin/gallery_form.js',
                 '/js/admin/gallery_grid.js',
-                '/js/admin/cms.js',
+                //'/js/admin/cms.js',
                 '/js/admin/gallery.js'
             )
         );

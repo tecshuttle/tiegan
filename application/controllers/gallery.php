@@ -138,7 +138,7 @@ class MyUpload extends UploadHandler
             }
             return true;
         }
-        if (empty($options['crop'])) {
+        if (!empty($options['crop'])) {
             $new_width = $img_width * $scale;
             $new_height = $img_height * $scale;
             $dst_x = 0;
@@ -203,6 +203,8 @@ class MyUpload extends UploadHandler
     {
         $info = pathinfo($file_path);
 
+        //print_r($info);
+
         $new_file_path = $info['dirname'] . '/' . $this->timeFileName;
 
         rename($file_path, $new_file_path);
@@ -210,7 +212,7 @@ class MyUpload extends UploadHandler
         //把图片入数据库
         $option = array(
             'type_id' => $this->CI->input->post('type_id', true),
-            'name' => $this->timeFileName,
+            'name' => $info['basename'],
             'ctime' => time(),
             'download' => $this->timeFileName,
             'mtime' => time()
@@ -267,6 +269,17 @@ class gallery extends CI_Controller
         echo json_encode(array('success' => true));
     }
 
+    public function update()
+    {
+        $_POST['mtime'] = time();
+        $this->gallery_model->update($_POST);
+
+        echo json_encode(array(
+            'success' => true,
+            'name' => $_POST['name']
+        ));
+    }
+
     private function time_file_name($file_path)
     {
         $info = pathinfo($file_path);
@@ -297,7 +310,7 @@ class gallery extends CI_Controller
 
     public function getList()
     {
-        $option = $_POST;
+        $option = $_GET;
         $data = $this->gallery_model->get($option);
         echo json_encode($data);
     }
@@ -325,6 +338,37 @@ class gallery extends CI_Controller
         echo json_encode(array(
             'img' => $img,
             'thumb' => $thumb,
+            'success' => true
+        ));
+    }
+
+    public function deleteByids()
+    {
+        $ids = $_POST['ids'];
+
+        $idss = explode(',', $ids);
+
+        foreach ($idss as $id) {
+            //删除图像文件
+            $rows = $this->gallery_model->loadByID($id);
+
+            $root = dirname(dirname(__DIR__));
+
+            $ds = DIRECTORY_SEPARATOR;
+
+            $img = $root . $ds . 'uploads' . $ds . $rows[0]->download;
+            @unlink($img);
+
+            $thumb = $root . $ds . 'uploads' . $ds . 'thumbnail' . $ds . $rows[0]->download;
+            @unlink($thumb);
+
+            //删除数据库记录
+            $this->gallery_model->deleteByID($id);
+        }
+
+        echo json_encode(array(
+            'img' => $ids,
+            //'thumb' => $thumb,
             'success' => true
         ));
     }

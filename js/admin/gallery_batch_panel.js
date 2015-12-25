@@ -1,12 +1,12 @@
 Ext.ns('Tomtalk.gallery');
 
 Ext.define('Tomtalk.gallery.BatchUI', {extend: 'Ext.form.Panel',
+    layout: 'vbox',
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
             title: '批量上传图片',
-            bodyStyle: 'padding:10px;',
-            layout: 'anchor'
+            bodyStyle: 'padding:10px;'
         }, config);
 
         me.COMPONENTS = {};
