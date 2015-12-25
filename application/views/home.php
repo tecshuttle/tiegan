@@ -294,7 +294,7 @@
                 <div class="slider-inner">
                     <div class="item">
                         <ul>
-                            <?php foreach ($nav_menu[2]->articles as $key => $a): ?>
+                            <?php foreach ($nav_menu[0]->articles as $key => $a): ?>
                                 <li>
                                     <div class="travel">
                                         <div class="photo">
