@@ -258,3 +258,4 @@ a:hover img { opacity: 1; }
 .mclb_done a { padding-left: 16px; }
 
 .banner { height: auto; }
+.nr_list .list_con p strong { font-weight: bold; }
