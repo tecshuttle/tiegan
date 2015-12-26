@@ -405,10 +405,10 @@
                     <dl>
                         <dt>关于我们</dt>
                         <dd>
-                            <a href="/doc/about" target="_blank" rel="nofollow">了解我们</a>
+                            <a href="html/about.html" target="_blank" rel="nofollow">了解我们</a>
                         </dd>
                         <dd>
-                            <a href="/doc/contact" target="_blank" rel="nofollow">联系我们</a>
+                            <a href="html/contact.html" target="_blank" rel="nofollow">联系我们</a>
                         </dd>
                     </dl>
                 </li>
@@ -416,7 +416,7 @@
                     <dl>
                         <dt>帮助中心</dt>
                         <dd>
-                            <a href="/doc/questions" target="_blank" rel="nofollow">常见问题</a>
+                            <a href="html/questions.html" target="_blank" rel="nofollow">常见问题</a>
                         </dd>
                     </dl>
                 </li>
@@ -424,7 +424,7 @@
                     <dl>
                         <dt>达人招募</dt>
                         <dd>
-                            <a href="/doc/recruitment" target="_blank" rel="nofollow">招聘啦</a>
+                            <a href="html/recruitment.html" target="_blank" rel="nofollow">招聘啦</a>
                         </dd>
                     </dl>
                 </li>
@@ -451,7 +451,7 @@
 </div>
 
 <!-- call 咨询框 start -->
-<div class="call" style="display: none;position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
+<div class="call" style="position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
     <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png" width="156" height="80" alt="" /></a>
 
     <div class="btn-close"

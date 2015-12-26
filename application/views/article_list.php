@@ -115,7 +115,7 @@
                 <?php foreach ($articles as $article): ?>
                     <div class="mclb_div">
                         <div class="mclb_done">
-                            <span class="mcl_a2" style="width: 5px;"></span>
+                            <!-- <span class="mcl_a2" style="width: 5px;"></span> -->
                             <a href="/pages/<?= $article->id ?>" target="_blank"><?= $article->name ?></a>
                         </div>
                         <div class="mclb_dtwo">
