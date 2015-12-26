@@ -259,3 +259,5 @@ a:hover img { opacity: 1; }
 
 .banner { height: auto; }
 .nr_list .list_con p strong { font-weight: bold; }
+.wen_con .bs_data li strong { font-size: 16px; font-weight: bold; }
+.wen_con .bs_data li strong i { font-size: 12px; }
