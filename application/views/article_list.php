@@ -94,17 +94,15 @@
             <!--轮播-->
             <div class="mcl_lb">
                 <ul class="bxslider">
-                    <li><img src="images/20151110170034.jpg" width="810" height="390" alt=""/></li>
+                    <!-- <li><img src="images/20151110170034.jpg" width="810" height="390" alt=""/></li> -->
                     <li><img src="images/20151110163919.jpg" width="810" height="390" alt=""/></li>
                     <li><img src="images/20151110164142.jpg" width="810" height="390" alt=""/></li>
-                    <li><img src="images/20150914170950.jpg" width="810" height="390" alt=""/></li>
+                    <!-- <li><img src="images/20150914170950.jpg" width="810" height="390" alt=""/></li> -->
                 </ul>
                 <div id="bx-pager">
                     <ul>
                         <li><a data-slide-index="0" href="">1</a></li>
                         <li><a data-slide-index="1" href="">2</a></li>
-                        <li><a data-slide-index="2" href="">3</a></li>
-                        <li><a data-slide-index="3" href="">4</a></li>
                     </ul>
                 </div>
             </div>

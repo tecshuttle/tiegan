@@ -157,7 +157,7 @@
 <div class="section">
     <div class="wrapper">
         <h2 class="title">
-            朝圣<a href="#" class="h-view-more c-view-more-1">查看更多俱乐部&gt;&gt;</a>
+            朝圣<a href="/equipments" class="h-view-more c-view-more-1">查看更多俱乐部&gt;&gt;</a>
             <span>精选全球最优质酒店、球票等足球旅行产品</span>
         </h2>
 
@@ -212,7 +212,7 @@
 <!-- 荣归 travel notes -->
 <div class="section section-green">
     <div class="wrapper">
-        <h2 class="title">荣归<a href="#"
+        <h2 class="title">荣归<a href="/cat/225"
                                class="h-view-more c-view-more-2">查看更多&gt;&gt;</a><span>精选全球最优质酒店、球票等足球旅行产品</span></h2>
 
         <div class="hottravels">
