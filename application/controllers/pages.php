@@ -77,6 +77,44 @@ class pages extends MY_Controller
             $this->load->view('footer', $data);
         }
     }
+
+
+    //官方文档
+    public function doc($code)
+    {
+        $this->load->model('articles_model');
+
+        if (is_numeric($code)) {
+            $article = $this->articles_model->select(array(
+                'id' => $code
+            ));
+        } else {
+            $article = $this->articles_model->select(array(
+                'code' => $code
+            ));
+        }
+
+        $menu = $this->articles_model->select(array(
+            'type_id' => $article->type_id
+        ));
+
+        $data = array(
+            'title' => $article->name,
+            'css' => array(),
+            'js' => array(),
+            'menu' => $menu['data'],
+            'article' => $article
+        );
+
+        if (ENVIRONMENT === 'production') {
+            $this->load->view('about', $data);
+        } else {
+            $this->load->view('header', $data);
+            $this->load->view('pages/single', $data);
+            $this->load->view('copy_right', $data);
+            $this->load->view('footer', $data);
+        }
+    }
 }
 
 /* End of file */
