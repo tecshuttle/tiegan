@@ -50,6 +50,24 @@
         /* 将 .png_bg 改成你应用了透明PNG的CSS选择器 */
     </script>
     <![endif]-->
+
+    <style>
+        .mclb_dtwo {
+            text-indent: 0px;
+        }
+
+        .mclb_dthr {
+            clear: both;
+        }
+
+        .mclb_div {
+            margin: 15px 0px;
+        }
+
+        .mclb_done a {
+            width: auto;
+        }
+    </style>
 </head>
 <body style="background:#fff;">
 <!-- inner header start -->
@@ -97,10 +115,11 @@
                 <?php foreach ($articles as $article): ?>
                     <div class="mclb_div">
                         <div class="mclb_done">
-                            <span class="mcl_a2"><?= $cat->name ?></span>
+                            <span class="mcl_a2" style="width: 5px;"></span>
                             <a href="/pages/<?= $article->id ?>" target="_blank"><?= $article->name ?></a>
                         </div>
                         <div class="mclb_dtwo">
+                            <img src="<?= $article->cover ?>" style="width:275px;height: 185px;float: left;margin-right:20px;"/>
                             <?= $article->digest ?>
                             <a href="/pages/<?= $article->id ?>" target="_blank">[ 查看详细 ]</a>
                         </div>
@@ -166,7 +185,7 @@
                 <div class="mcr_hotbot">
                     <ul>
                         <?php foreach ($hot_articles as $a): ?>
-                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?=$a->id?>" target="_blank">[ 查看详细 ]</a></li>
+                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?= $a->id ?>" target="_blank">[ 查看详细 ]</a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>

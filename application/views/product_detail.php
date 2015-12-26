@@ -213,6 +213,10 @@
         .hezuo_box {
             background: #fff;
         }
+
+        .hezuo_box .hz_con {
+            padding-bottom: 20px;
+        }
     </style>
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="js/product_detail.js"></script>

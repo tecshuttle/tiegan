@@ -68,7 +68,6 @@ class articles extends MY_Controller
         }
 
 
-
         if (isset($_POST['id'])) {
             //$_POST['ctime'] = strtotime($_POST['ctime']);
             $_POST['mtime'] = time();
@@ -144,7 +143,9 @@ class articles extends MY_Controller
                 $a->content = $parse_down->text($a->content);
             }
 
-            $a->digest = mb_substr(strip_tags($a->content), 0, 370);
+            //$a->digest = mb_substr(strip_tags($a->content), 0, 370);
+
+            $a->digest = '<p>' . preg_replace('/\n/', '<p>', $a->desc);
         }
 
         //取分类信息

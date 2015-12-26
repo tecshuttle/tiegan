@@ -1,4 +1,4 @@
- ke_config = {
+ke_config = {
     value: '',
     resizable: {
         content: true
@@ -9,7 +9,19 @@
         "justifyFull", "insertUnorderedList", "insertOrderedList", "indent", "outdent", "createLink",
         "unlink", "insertImage", "subscript", "superscript", "createTable", "addRowAbove", "addRowBelow",
         "addColumnLeft", "addColumnRight", "deleteRow", "deleteColumn", "viewHtml", "formatting",
-        "cleanFormatting", "fontSize", "foreColor", "backColor", "print",
+        "cleanFormatting", "foreColor", "backColor", "print",
+        {
+            name: "fontSize",
+            items: [
+                {text: "1(8pt)", value: "8pt"},
+                {text: "2(10pt)", value: "10pt"},
+                {text: "3(12pt)", value: "12pt"},
+                {text: "4(14pt)", value: "14pt"},
+                {text: "5(18pt)", value: "18pt"},
+                {text: "6(24pt)", value: "24pt"},
+                {text: "7(36pt)", value: "36pt"}
+            ]
+        },
         {
             name: "fontName",
             items: [

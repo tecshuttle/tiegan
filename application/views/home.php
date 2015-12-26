@@ -299,7 +299,7 @@
                                     <div class="travel">
                                         <div class="photo">
                                             <a href="/pages/<?= $a->id ?>" target="_blank">
-                                                <img class="lazy" src="images/275x185_7.jpg" width="275" height="185">
+                                                <img class="lazy" src="<?= $a->cover ?>" width="275" height="185">
                                             </a>
 
                                             <div class="like"><i class="iconfont icon-xiangqu1" style="display: none;"></i> <?= $a->pv ?></div>
