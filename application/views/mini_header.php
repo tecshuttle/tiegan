@@ -13,7 +13,7 @@
     <!-- fun -->
     <div class="fun">
         <div class="service-phone"><i class="ico-phone"></i>400-601-4066</div>
-        <div id="userStatus" class="status">
+        <div id="userStatus" class="status" style="display:none;">
             <div class="login">
                 <a href="#">注册</a>
                 <a href="#">登录</a>

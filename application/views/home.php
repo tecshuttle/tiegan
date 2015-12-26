@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>首页</title>
+    <title>铁杆体育</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -64,18 +64,18 @@
                 <li class="nav-list"><a class="nav-span" href="/cat/225" title="荣归">荣归</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/223" title="旅行那些事">旅行那些事</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/227" title="天下足球">天下足球</a></li>
-                <!-- <li class="nav-list"><a class="nav-span" href="#" title="我是铁杆">我是铁杆</a></li> -->
+                <li class="nav-list"><a class="nav-span" href="/cat/233" title="我是铁杆">我是铁杆</a></li>
             </ul>
         </div>
         <div class="fun">
-            <div id="userStatus" class="status">
+            <div id="userStatus" class="status" style="display: none;">
                 <div class="login">
                     <a href="#">注册</a> |
                     <a href="#">登录</a>
                 </div>
             </div>
             <div class="service-phone h-service-phone"><i class="ico-phone"></i>400-601-4066</div>
-            <div class="qrcode">
+            <div class="qrcode" style="display: none;">
                 <img src="images/qrcode_qyer.png" width="80" height="80" alt=""/>
             </div>
         </div>
@@ -91,7 +91,7 @@
             <div class="hotlink">
                 <a href="#" target="_blank"></a>
             </div>
-            <div class="text">
+            <div class="text" style="display: none;">
                 <div class="text-panel">
                     <a href="#" target="_blank">
                         <p><i class="iconfont icon-jinnang"></i> <strong>穷游锦囊 | 渥太华</strong></p>
@@ -250,7 +250,7 @@
                                         </div>
                                         <div class="tag">
                                             <span><i class="iconfont icon-chengshi"></i></span>
-                                            <span class="bt">城市</span>
+                                            <span class="bt">球队</span>
                                         </div>
                                     </a>
                                 </div>
@@ -268,7 +268,7 @@
                                             <p class="ellipsis">行程概览：<?= $article->brief ?></p>
                                         </div>
                                         <div class="bottom">
-                                            <span class="fr">10703个人去过这里</span>
+                                            <span class="fr" style="display:none;">10703个人去过这里</span>
                                             <span class="f14 price"><b>¥<?= $article->price ?></b>起</span>
                                         </div>
                                     </a>
@@ -302,7 +302,7 @@
                                                 <img class="lazy" src="images/275x185_7.jpg" width="275" height="185">
                                             </a>
 
-                                            <div class="like"><i class="iconfont icon-xiangqu1"></i> 10</div>
+                                            <div class="like"><i class="iconfont icon-xiangqu1" style="display: none;"></i> <?= $a->pv ?></div>
                                         </div>
                                         <div class="inner">
                                             <div class="info">
@@ -324,7 +324,7 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <em class="tip">精华</em>
+                                        <em class="tip" style="display:none;">精华</em>
                                     </div>
                                 </li>
                             <?php endforeach; ?>
@@ -435,17 +435,15 @@
         <div class="footer-inner2">
             <div class="footer-copyright">
                 <a href="#" rel="nofollow">
-                    <img src="images/logo.png" width="auto" height="72" alt="穷游网">
+                    <img src="images/logo.png" width="auto" height="72">
                 </a>
 
-                <p>2004-2015 © 穷游网™ qyer.com All rights reserved. Version v5.57&nbsp;&nbsp;<a href="#" target="_blank"
-                                                                                              rel="nofollow">京ICP备12003524号</a>&nbsp;&nbsp;京公网安备11010502023470&nbsp;&nbsp;京ICP证140673号
+                <p>2015 © 铁杆体育™ tgsports.cn All rights reserved.&nbsp;&nbsp;
+                    <a href="#" target="_blank" rel="nofollow">京ICP备12003524号</a>
                 </p>
 
                 <p>
-                    <a href="#">穷游网</a>为<a href="#">旅行</a>者提供原创实用的<a href="#">出境游</a><a href="#">旅行指南</a>和<a href="#">旅游攻略</a>、<a
-                        href="#">旅行社区</a>和<a href="#">问答</a>交流平台，并提供<a href="#">签证</a>、<a href="#">保险</a>、<a
-                        href="#">机票</a>、<a href="#">酒店预订</a>、<a href="#">租车</a>等服务。
+                    铁杆体育——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界。
                 </p>
             </div>
         </div>
@@ -453,7 +451,7 @@
 </div>
 
 <!-- call 咨询框 start -->
-<div class="call" style="position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
+<div class="call" style="display: none;position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
     <a href="#"><img src="images/call.png" width="156" height="80" alt=""/></a>
 
     <div class="btn-close"

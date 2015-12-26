@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>朝圣(产品列表)</title>
+    <title>朝圣</title>
     <base href="/">
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -80,7 +80,7 @@
                     </div>
                     <div class="rs">
                         <span class="money"><span>¥<?= $m->price ?></span>起</span>
-                        <a href="/match/<?= $m->id ?>" title="预订">预订</a>
+                        <a href="/match/<?= $m->id ?>" title="详情">详情</a>
                     </div>
                 </li>
             <?php endforeach; ?>

@@ -33,6 +33,11 @@ class pages extends MY_Controller
             ));
         }
 
+        //取分类信息
+        $this->load->model('types_model');
+        $cat = $this->types_model->getByID($article->type_id);
+
+
         //markdown文章转义
         if ($article->editor === 'markdown') {
             $parse_down = new Parsedown();
@@ -43,15 +48,23 @@ class pages extends MY_Controller
         $this->articles_model->pv_inc($article->id);
 
         //取铁杆文章分类
-        $this->load->model('types_model');
-        $nav_menu = $this->types_model->get_nav_menu(234);
+        //$this->load->model('types_model');
+        //$nav_menu = $this->types_model->get_nav_menu(234);
+
+        //取热文
+        $hot_articles = $this->articles_model->select(array(
+            'sortBy' => 'pv',
+            'limit' => 5
+        ));
 
         $data = array(
             'title' => $article->name,
             'css' => array(),
             'js' => array(),
             'menu' => (isset($this->menu[$article->type_id]) ? $this->menu[$article->type_id] : ''),
-            'nav_menu' => $nav_menu,
+            //'nav_menu' => $nav_menu,
+            'cat' => $cat,
+            'hot_articles' => $hot_articles['data'],
             'article' => $article
         );
 

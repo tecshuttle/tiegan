@@ -4,7 +4,9 @@
             <div class="zw-footer-intro">
                 <p class="logo"><img src="images/foot-logo.png"></p>
 
-                <p class="text">铁杆体育——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界</p>
+                <p class="text">
+                    铁杆体育——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界。
+                </p>
             </div>
             <dl class="zw-footer-concerns">
                 <dt>关注我们</dt>
@@ -30,7 +32,7 @@
             </dl>
         </div>
         <div class="zw-footer-line2">
-            <div class="zw-footer-listlinks">2004-2015 © 铁杆体育 All rights reserved. Version v5.57 京ICP备12003524号
+            <div class="zw-footer-listlinks">2015 © 铁杆体育 tgsports.cn All rights reserved. 京ICP备12003524号
                 京公网安备11010502023470 京ICP证140673号
             </div>
         </div>

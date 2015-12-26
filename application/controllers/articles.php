@@ -150,6 +150,12 @@ class articles extends MY_Controller
         //取分类信息
         $cat = $this->types_model->getByID($cat_id);
 
+        //取热文
+        $hot_articles = $this->articles_model->select(array(
+            'sortBy' => 'pv',
+            'limit' => 5
+        ));
+
         $data = array(
             'title' => '文章列表',
             'css' => array(),
@@ -157,6 +163,7 @@ class articles extends MY_Controller
             'menu' => $this->menu[$cat_id],
             'cat' => $cat,
             'articles' => $articles['data'],
+            'hot_articles' => $hot_articles['data'],
             'pager' => build_pagebar($articles['total'], $per_page, $page, '/cat/' . $cat_id . '/__page__')
         );
 

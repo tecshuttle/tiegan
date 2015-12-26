@@ -42,7 +42,7 @@
     <!--搜索-->
     <div class="m_seach">
 
-        当前位置：<a href="/">首页</a> &gt; <a href="/cat/<?= $article->type_id ?>">文章列表</a> &gt; <?= $article->name ?>
+        当前位置：<a href="/">首页</a> &gt; <a href="/cat/<?= $article->type_id ?>"><?= $cat->name ?></a> &gt; <?= $article->name ?>
 
     </div>
     <!--搜索end-->
@@ -71,7 +71,7 @@
         <!--right-->
         <div class="mc_right">
             <!--专题-->
-            <div class="mcr_zt">
+            <div class="mcr_zt" style="display:none;">
                 <div class="mcr_ztop">热门专题</div>
                 <div class="mcr_ztbot">
                     <dl>
@@ -105,7 +105,7 @@
             </div>
             <!--专题end-->
 
-            <div class="mc_banner">
+            <div class="mc_banner" style="display:none;">
                 <a href='' style="width:100%; margin-bottom:10px;" class="fl clearfix">
                     <img src="images/qrcode_qyer.png" alt="" width="200" height="200"/>
                 </a>
@@ -116,11 +116,9 @@
                 <div class="mcr_ztop">热文排行</div>
                 <div class="mcr_hotbot">
                     <ul>
-                        <li>去澳大利亚看网球，为澳网加油！<a class="mcr_a1" href="#" target="_blank">[ 查看详细 ]</a></li>
-                        <li>[亚洲] 顺着湄公河的行走——绝美原始老挝<a class="mcr_a1" href="#" target="_blank">[ 查看详细 ]</a></li>
-                        <li>[欧洲] 阿姆斯特丹的疯狂之旅------四个人的毕业旅行<a class="mcr_a1" href="#" target="_blank">[ 查看详细 ]</a></li>
-                        <li>双十一，抢抢抢！【花生游体育旅行网】来给球迷朋友们送福利啦！<a class="mcr_a1" href="#" target="_blank">[ 查看详细 ]</a></li>
-                        <li>【亚冠决赛】让我们一起奔赴迪拜为恒大加油！<a class="mcr_a1" href="#" target="_blank">[ 查看详细 ]</a></li>
+                        <?php foreach ($hot_articles as $a): ?>
+                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?=$a->id?>" target="_blank">[ 查看详细 ]</a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
