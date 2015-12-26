@@ -11,10 +11,30 @@
     <link rel="stylesheet" href="css/base.css">
     <!-- style fontawesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- style bxslider -->
+	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
     <!-- style home -->
     <link rel="stylesheet" href="css/home.css">
     <!-- style layout -->
     <link rel="stylesheet" href="css/layout.css">
+	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+	<!-- jquery bxslider js -->
+	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+	<script>
+	  $(function(){
+		var slider = $('.bxslider');
+
+		slider.bxSlider({
+		  auto: true,
+		  controls: false,
+		  mode: 'fade',
+		  pager: true,
+		  onSlideAfter: function(){
+			slider.startAuto();
+		  }
+		});
+	  })
+	</script>
 </head>
 <body>
 <!-- 广告开始 -->
@@ -82,109 +102,15 @@
     </div>
 </div>
 <!-- banner -->
-<div id="qyer_banner" class="banner">
+<div id="qyer_banner" class="banner">	
+	<ul class="bxslider">
+		<li><img src="images/banner_1.jpg" width="100%" alt="" /></li>
+		<li><img src="images/banner_2.jpg" width="100%" alt="" /></li>
+		<li><img src="images/banner_3.jpg" width="100%" alt="" /></li>
+	</ul>
     <!-- <div id="bannerbg" class="blur">
         <img src="">
     </div> -->
-    <div id="carousel" class="carousel">
-        <div class="img" style="background-image: url(images/banner.jpg);">
-            <div class="hotlink">
-                <a href="#" target="_blank"></a>
-            </div>
-            <div class="text" style="display: none;">
-                <div class="text-panel">
-                    <a href="#" target="_blank">
-                        <p><i class="iconfont icon-jinnang"></i> <strong>穷游锦囊 | 渥太华</strong></p>
-
-                        <p>诡谲历史和惊艳风光中的低调首都</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <ul class="carousel-data">
-            <li>
-                <input class="bannerimg" type="hidden"
-                       value="http://pic.qyer.com/public/home/focus/2015/11/26/14485334378733?imageMogr2/interlace/1">
-                <input class="bannertext" type="hidden" value="渥太华">
-                <input class="bannerurl" type="hidden" value="http://place.qyer.com/ottawa/">
-                <input class="itemid" type="hidden" value="565">
-                <input class="bannerlink" type="hidden" value="http://guide.qyer.com/ottawa/">
-
-                <div class="text">
-                    <a href="#" target="_blank">
-                        <p><i class="iconfont icon-jinnang"></i> <strong>穷游锦囊 | 渥太华</strong></p>
-
-                        <p>诡谲历史和惊艳风光中的低调首都</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <input class="bannerimg" type="hidden"
-                       value="http://pic.qyer.com/public/home/focus/2015/11/25/14484359543999?imageMogr2/interlace/1">
-                <input class="bannertext" type="hidden" value="里约热内卢">
-                <input class="bannerurl" type="hidden" value="http://place.qyer.com/rio-de-janeiro/">
-                <input class="itemid" type="hidden" value="1392354">
-                <input class="bannerlink" type="hidden" value="http://bbs.qyer.com/thread-1392354-1.html">
-
-                <div class="text">
-                    <a href="#" target="_blank">
-                        <p><strong>里约热内卢：上帝之城七宗“最”</strong></p>
-
-                        <p>ChaseWang</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <input class="bannerimg" type="hidden"
-                       value="http://pic.qyer.com/public/home/focus/2015/11/26/14485333574999?imageMogr2/interlace/1">
-                <input class="bannertext" type="hidden" value="青森">
-                <input class="bannerurl" type="hidden" value="http://place.qyer.com/aomori/">
-                <input class="itemid" type="hidden" value="562">
-                <input class="bannerlink" type="hidden" value="http://guide.qyer.com/aomori/">
-
-                <div class="text">
-                    <a href="#" target="_blank">
-                        <p><i class="iconfont icon-jinnang"></i> <strong>穷游锦囊 | 青森</strong></p>
-
-                        <p>体验弘前樱花祭，探访白神山地</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <input class="bannerimg" type="hidden"
-                       value="http://pic.qyer.com/public/home/focus/2015/11/23/14482755187745?imageMogr2/interlace/1">
-                <input class="bannertext" type="hidden" value="维也纳">
-                <input class="bannerurl" type="hidden" value="http://place.qyer.com/vienna/">
-                <input class="itemid" type="hidden" value="1394533">
-                <input class="bannerlink" type="hidden" value="http://bbs.qyer.com/thread-1394533-1.html">
-
-                <div class="text">
-                    <a href="#" target="_blank">
-                        <p><strong>醉心的画卷——由维也纳展开，到布拉格合上</strong></p>
-
-                        <p>人字拖1小白</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <input class="bannerimg" type="hidden"
-                       value="http://pic.qyer.com/public/home/focus/2015/11/25/14484355957171?imageMogr2/interlace/1">
-                <input class="bannertext" type="hidden" value="美国">
-                <input class="bannerurl" type="hidden" value="http://place.qyer.com/usa/">
-                <input class="itemid" type="hidden" value="1391113">
-                <input class="bannerlink" type="hidden" value="http://bbs.qyer.com/thread-1391113-1.html">
-
-                <div class="text">
-                    <a href="#" target="_blank">
-                        <p><strong>南加州不下雨，狂野西部的16天</strong></p>
-
-                        <p>比利白</p>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
     <div id="search" class="search active-place">
         <div class="tab">
             <a class="tab-place" href="javascript:;">球队</a>

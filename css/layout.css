@@ -255,4 +255,6 @@ a:hover img { opacity: 1; }
 .mc_content img { max-width: 750px; }
 
 .mclb_done { border-left: 3px solid #f60; }
-.mclb_done a { padding-left: 16px;s }
+.mclb_done a { padding-left: 16px; }
+
+.banner { height: auto; }
