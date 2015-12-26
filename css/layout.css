@@ -163,7 +163,6 @@ body { background: #f5f5f5; }
 .header .fun{margin-top:20px;}
 .header .qrcode{top:74px;}
 .header .nav ul.nav-ul li.nav-list:hover a{color:#e50314;}
-.header .nav ul.nav-ul li.nav-list:hover:before{ background:#e50314; color:#e50314;}
 .footer .footer-line{background:#e50314;}
 .footer .footer-inner2{height:64px;}
 .footer .footer-copyright{padding-left:84px;}
@@ -196,7 +195,6 @@ body { background: #f5f5f5; }
 #bx-pager li a.active{background:#f60;}
 
 .mclb_done .mcl_a2{position:relative; background:#f60;}
-.mclb_done .mcl_a2:after{position:absolute; top:10px; right:-15px; display:block; content:''; width:0; height:0; border-style:dashed dashed dashed solid; border-width:10px; border-color:transparent transparent transparent #f60;}
 
 .q-layer-header .header-inner .nav,
 .q-layer-header .fun{margin-top:20px;}
@@ -224,3 +222,37 @@ body { background: #f5f5f5; }
 .c-view-more-2 { color: #777; }
 .hottravels .item .travel .tip { padding-bottom: 0; background: #e50314; }
 .hottravels .item .travel .tip:before { position: absolute; bottom: -9px; left: 0; display: block; content: ''; border-width: 6px 0 3px 6px; border-style: solid dashed dashed; border-color: #e50314 transparent transparent; }
+
+/*====================== 修改@12-26 style =======================*/
+.header .logo { margin-top: 30px; margin-left: 94px; width: 488px; height: 100px; }
+.header .nav { top: 60px; left: 354px; }
+.header .nav ul.nav-ul li.nav-list .nav-span { letter-spacing: 0.5px; }
+.header .nav ul.nav-ul li.nav-list:before { background: none; }
+.interest ul li .item .info .subtitle { letter-spacing: 0.5px; font-size: 19px; font-family: "Microsoft YaHei"; }
+.interest ul li .item .info .bottom .price b { font-size: 20px; }
+.mcc_a1 { font-size:	28px; }
+
+.q-layer-header { height: 100px; }
+.q-layer-header .nav ul.nav-ul li.nav-list .nav-span { font-size: 16px; }
+.q-layer-header .logo { margin-top: 14px; width: 86px; height: 80px; }
+.q-layer-header .header-inner .nav, .q-layer-header .fun { margin-top: 36px; }
+.header-inner a.header-inner-logo { float:left; display: block; margin-top: 14px; margin-left: 30px; width: 86px; height: 80px; background: url(../images/logo_inner.png) no-repeat; }
+.header-inner a.header-inner-logo:hover { background: url(../images/logo_inner_hover.png) no-repeat; }
+a:hover img { opacity: 1; }
+
+.mc_content h1,
+.mc_content h2,
+.mc_content h3,
+.mc_content h4,
+.mc_content h5 { font-weight: bold; color: #000; font-family: "Microsoft Yahei"; }
+.mc_content h1 { font-size: 18pt; }
+.mc_content h2 { font-size: 13pt; }
+.mc_content h3 { font-size: 10pt; }
+.mc_content h4 { font-size: 8px; }
+.mc_content h5 { font-size: 8px; }
+.mc_content p { font-size: 8pt; color: #000; }
+.mc_content b { font-weight: bold; }
+.mc_content img { max-width: 750px; }
+
+.mclb_done { border-left: 3px solid #f60; }
+.mclb_done a { padding-left: 16px;s }

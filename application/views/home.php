@@ -56,13 +56,13 @@
 <!-- header -->
 <div class="header">
     <div class="header-inner">
-        <a href="#"><img src="images/logo.png" alt="" class="logo" width="586" height="120"></a>
+        <a href="#"><img src="images/logo.png" alt="" class="logo" width="488" height="100"></a>
 
         <div class="nav">
             <ul class="nav-ul">
                 <li class="nav-list"><a class="nav-span" href="/equipments" title="朝圣">朝圣</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/225" title="荣归">荣归</a></li>
-                <li class="nav-list"><a class="nav-span" href="/cat/223" title="旅行那些事">旅行那些事</a></li>
+                <li class="nav-list"><a class="nav-span" href="/cat/223" title="旅行那些事儿">旅行那些事儿</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/227" title="天下足球">天下足球</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/233" title="我是铁杆">我是铁杆</a></li>
             </ul>
@@ -268,8 +268,8 @@
                                             <p class="ellipsis">行程概览：<?= $article->brief ?></p>
                                         </div>
                                         <div class="bottom">
-                                            <span class="fr" style="display:none;">10703个人去过这里</span>
-                                            <span class="f14 price"><b>¥<?= $article->price ?></b>起</span>
+                                            <!-- <span class="fr" style="display:none;">10703个人去过这里</span> -->
+                                            <span class="f14 fr price"><b>¥<?= $article->price ?></b>起</span>
                                         </div>
                                     </a>
                                 </div>
@@ -344,10 +344,10 @@
 <div class="section section-gray">
     <div class="wrapper clearfix">
         <div class="items-wrap">
-            <!-- 旅行那些事 strategy -->
+            <!-- 旅行那些事儿 strategy -->
             <div class="strategy items">
                 <div class="items-title clearfix">
-                    <span>旅行那些事</span>
+                    <span>旅行那些事儿</span>
                     <a href="/cat/<?= $nav_menu[1]->id ?>" class="view-more" target="_blank">更多&gt;&gt;</a>
                 </div>
                 <div class="items-list">
@@ -452,7 +452,7 @@
 
 <!-- call 咨询框 start -->
 <div class="call" style="display: none;position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
-    <a href="#"><img src="images/call.png" width="156" height="80" alt=""/></a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png" width="156" height="80" alt="" /></a>
 
     <div class="btn-close"
          style="position:absolute; top:2px; right:2px; z-index:10000; width:11px; height:11px; background:url(images/close.gif) no-repeat; cursor:pointer;"></div>
