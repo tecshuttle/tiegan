@@ -86,6 +86,8 @@ class equipments extends MY_Controller
         //取相关产品
         $match->relative_product = $this->equipments_model->getRelative($match->relative);
 
+        $match->seat_desc = '<p>' . preg_replace('/\n/', '<p>', $match->seat_desc);
+
         $data = array(
             'title' => '比赛',
             'css' => array(),

@@ -303,7 +303,7 @@ Ext.define('Color.admin.EditFormUI', {
                         emptyText: '示例: /uploads/14201863264972.jpg'
                     },
                     {
-                        xtype: 'htmleditor',
+                        xtype: 'textarea',
                         fieldLabel: '座位等级说明',
                         anchor: '100%',
                         name: 'seat_desc'

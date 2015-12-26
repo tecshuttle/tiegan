@@ -314,7 +314,10 @@
                         <div class="nr_list" tabrel="fwlb" id="fwlb">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>服务列表</div>
                             <div class="list_con">
-                                <?= $match->service_list ?>
+
+                                <p><?= $match->name ?>服务列表：
+
+                                <p>铁杆体育为不同需求的球迷，提供按照比赛等级和服务等级区分的多种服务。
 
                                 <table class="table" style="margin-top:10px;">
                                     <tbody>
@@ -361,17 +364,23 @@
                                     </tr>
                                     </tbody>
                                 </table>
+
+                                <?= $match->service_list ?>
+
                             </div>
                         </div>
                         <div class="nr_list" tabrel="sct" id="sct">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>赛程图</div>
                             <div class="list_con">
+                                <p>根据比赛对手强弱及比赛重要性，铁杆体育将比赛分为三个等级，不同等级赛事相关服务价格不同。</p>
                                 <?= $match->schedule ?>
                             </div>
                         </div>
                         <div class="nr_list" tabrel="qpwzjs" id="qpwzjs">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>球票位置介绍</div>
                             <div class="list_con">
+                                <p>铁杆体育根据球票所在的观赛座位区域不同，将球票服务做三个等级的区分。
+
                                 <table>
                                     <tbody>
                                     <tr>
@@ -442,6 +451,8 @@
                         <div class="nr_list accommodation" tabrel="zsjs" id="zsjs">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>住宿介绍</div>
                             <div class="list_con">
+                                <p> 铁杆体育根据住宿条件及环境，将住宿服务做三个等级的区分。
+
                                 <dl>
                                     <dt>屌丝级住宿服务安排（经济型旅舍&华人球迷之家）</dt>
                                     <dd class="clearfix">
