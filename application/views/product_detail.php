@@ -55,7 +55,13 @@
         }
 
         .wen_con .bs_data li strong {
+			font-size: 18px;
             color: #f00;
+        }
+
+        .wen_con .bs_data li strong i {
+			font-size: 12px;
+			font-style: normal;
         }
 
         .wen_con p {
@@ -247,7 +253,7 @@
                         <?php if (!empty($match->tag_id)) : ?>
                             <li><span>服务主题：</span><?= $match->tag_name ?></li>
                         <?php endif; ?>
-                        <li><span>价格：</span><strong><?= $match->price ?>元起</strong></li>
+                        <li><span>价格：</span><strong><i>￥</i><?= $match->price ?>元起</strong></li>
                     </ul>
                     <p>*铁杆体育根据不同球迷的需求将赛事按照影响力程度进行划分并提供不同服务等级的选择,价格因此随之改变。</p>
                     <dl class="ticket_sm">
