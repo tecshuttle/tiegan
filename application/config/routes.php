@@ -44,6 +44,7 @@ $route['404_override'] = '';
 
 //自定义路由
 $route['pages/(:any)'] = "pages/single/$1"; //单页文章
+$route['doc/(:any)'] = "pages/doc/$1"; //官方文档
 
 $route['cat/(:num)'] = "articles/cat/$1/1"; //文章分类列表
 $route['cat/(:num)/(:num)'] = "articles/cat/$1/$2"; //文章分类列表,带分页
