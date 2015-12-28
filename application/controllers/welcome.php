@@ -30,11 +30,10 @@ class Welcome extends MY_Controller
         $nav_menu = $this->types_model->get_nav_menu(234);
 
         //铁杆文章每分类取8篇
-
         foreach ($nav_menu as &$menu) {
-
             $articles = $this->articles_model->select(array(
                 'type_id' => $menu->id,
+                'sortBy' => 'ctime',
                 'limit' => ($menu->id == 225 ? 8 : 9)
             ));
 
