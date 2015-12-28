@@ -53,6 +53,7 @@ class articles extends MY_Controller
 
     public function save()
     {
+
         $cover = $this->upload_file('product_cover');
         $download = $this->upload_file('userfile');
 
@@ -86,30 +87,42 @@ class articles extends MY_Controller
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'gif|jpg|png|txt|doc|pdf';
         $config['max_size'] = '9000000'; //9MB
-        $config['max_width'] = '4096';
-        $config['max_height'] = '4096';
+        $config['max_width'] = '5096';
+        $config['max_height'] = '5096';
 
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload($name)) {
             $error = array('error' => $this->upload->display_errors());
+            //print_r($error);
             return '';
         }
 
         $data = array('upload_data' => $this->upload->data());
 
-        return $this->time_file_name($data['upload_data']['full_path']);
+        return $this->time_file_name($data['upload_data']['full_path'], $name);
     }
 
-    private function time_file_name($file_path)
+    private function time_file_name($file_path, $name = '')
     {
         $info = pathinfo($file_path);
 
-        $new_file_name = (strval((int)round(microtime(true) * 10000))) . '.' . $info['extension'];
+        $new_file_name = guid() . '.' . $info['extension'];
 
         $new_file_path = $info['dirname'] . '/' . $new_file_name;
 
-        rename($file_path, $new_file_path);
+        //rename($file_path, $new_file_path);
+
+        //resize image
+        if ($name === 'product_cover') {
+            include_once dirname(dirname(dirname(__FILE__))) . '/resizeImage.php';
+
+            $src_img = $file_path;
+            $dst_img = $new_file_path;
+            new resizeImage($src_img, "484", "272", "0", $dst_img);
+
+            unlink($file_path);
+        }
 
         return $new_file_name;
     }

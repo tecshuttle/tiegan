@@ -67,19 +67,49 @@ Ext.define('Color.admin.EditFormUI', {
                         layout: 'hbox',
                         items: [
                             {
-                                xtype: 'textfield',
-                                fieldLabel: '封面图',
+                                xtype: 'fieldcontainer',
+                                layout: 'hbox',
                                 flex: 1,
                                 margin: '0 10 0 0',
-                                name: 'cover',
-                                emptyText: '示例: /uploads/14201863264972.jpg'
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        fieldLabel: '封面图',
+                                        name: 'cover',
+                                        flex: 1,
+                                        emptyText: '示例: /uploads/14201863264972.jpg'
+                                    },
+                                    {
+                                        xtype: 'filefield',
+                                        buttonOnly: true,
+                                        hideLabel: true,
+                                        width: 100,
+                                        name: 'file_cover',
+                                        buttonText: '上传文件'
+                                    }
+                                ]
                             },
                             {
-                                xtype: 'textfield',
-                                fieldLabel: '球队海报1',
+                                xtype: 'fieldcontainer',
+                                layout: 'hbox',
                                 flex: 1,
-                                name: 'cover1',
-                                emptyText: '示例: /uploads/14201863264972.jpg'
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        fieldLabel: '球队海报1',
+                                        name: 'cover1',
+                                        flex: 1,
+                                        emptyText: '示例: /uploads/14201863264972.jpg'
+                                    },
+                                    {
+                                        xtype: 'filefield',
+                                        buttonOnly: true,
+                                        hideLabel: true,
+                                        width: 100,
+                                        name: 'file_cover1',
+                                        buttonText: '上传文件'
+                                    }
+                                ]
                             }
                         ]
                     },
@@ -88,19 +118,49 @@ Ext.define('Color.admin.EditFormUI', {
                         layout: 'hbox',
                         items: [
                             {
-                                xtype: 'textfield',
-                                fieldLabel: '球队海报2',
+                                xtype: 'fieldcontainer',
+                                layout: 'hbox',
                                 flex: 1,
                                 margin: '0 10 0 0',
-                                name: 'cover2',
-                                emptyText: '示例: /uploads/14201863264972.jpg'
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        fieldLabel: '球队海报2',
+                                        name: 'cover2',
+                                        flex: 1,
+                                        emptyText: '示例: /uploads/14201863264972.jpg'
+                                    },
+                                    {
+                                        xtype: 'filefield',
+                                        buttonOnly: true,
+                                        hideLabel: true,
+                                        width: 100,
+                                        name: 'file_cover2',
+                                        buttonText: '上传文件'
+                                    }
+                                ]
                             },
                             {
-                                xtype: 'textfield',
-                                fieldLabel: '球队海报3',
+                                xtype: 'fieldcontainer',
+                                layout: 'hbox',
                                 flex: 1,
-                                name: 'cover3',
-                                emptyText: '示例: /uploads/14201863264972.jpg'
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        fieldLabel: '球队海报3',
+                                        name: 'cover3',
+                                        flex: 1,
+                                        emptyText: '示例: /uploads/14201863264972.jpg'
+                                    },
+                                    {
+                                        xtype: 'filefield',
+                                        buttonOnly: true,
+                                        hideLabel: true,
+                                        width: 100,
+                                        name: 'file_cover3',
+                                        buttonText: '上传文件'
+                                    }
+                                ]
                             }
                         ]
                     },

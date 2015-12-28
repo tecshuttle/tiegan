@@ -108,10 +108,28 @@ class equipments extends MY_Controller
 
     public function save()
     {
-        $cover = $this->upload_product_cover();
+        $cover = $this->upload_product_cover('file_cover');
+        $_POST['cover'] = ($cover == '' ? '' : '/uploads/' . $cover);
+
+        $cover1 = $this->upload_product_cover('file_cover1');
+        $_POST['cover1'] = ($cover1 == '' ? '' : '/uploads/' . $cover1);
+
+        $cover2 = $this->upload_product_cover('file_cover2');
+        $_POST['cover2'] = ($cover2 == '' ? '' : '/uploads/' . $cover2);
+
+        $cover3 = $this->upload_product_cover('file_cover3');
+        $_POST['cover3'] = ($cover3 == '' ? '' : '/uploads/' . $cover3);
 
         if ($cover != '') {
             $_POST['cover'] = '/uploads/' . $cover;
+        }
+
+        foreach ($_POST as $key => $item) {
+            if ($key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
+
+            if (empty($_POST[$key])) {
+                unset($_POST[$key]);
+            }
         }
 
         if ($_POST['id'] == 0) {
@@ -141,25 +159,54 @@ class equipments extends MY_Controller
     }
 
 
-    private function upload_product_cover()
+    private function upload_product_cover($name)
     {
         $config['upload_path'] = './uploads/';
-        $config['allowed_types'] = 'gif|jpg|png';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
         $config['max_size'] = '9000000'; //9MB
-        $config['max_width'] = '1024';
-        $config['max_height'] = '1024';
+        $config['max_width'] = '5024';
+        $config['max_height'] = '5024';
 
         $this->load->library('upload', $config);
 
-        $file_name = '';
-        if (!$this->upload->do_upload('product_cover')) {
+        if (!$this->upload->do_upload($name)) {
             $error = array('error' => $this->upload->display_errors());
-        } else {
-            $data = array('upload_data' => $this->upload->data());
-            $file_name = $data['upload_data']['file_name'];
+            //print_r($error);
+            return '';
         }
 
-        return $file_name;
+        $data = array('upload_data' => $this->upload->data());
+
+        return $this->time_file_name($data['upload_data']['full_path'], $name);
+    }
+
+    private function time_file_name($file_path, $name = '')
+    {
+        $info = pathinfo($file_path);
+
+        $new_file_name = guid() . '.' . $info['extension'];
+
+        $new_file_path = $info['dirname'] . '/' . $new_file_name;
+
+        //resize image
+        if ($name === 'file_cover' or $name === 'file_cover1' or $name === 'file_cover2' or $name === 'file_cover3') {
+            include_once dirname(dirname(dirname(__FILE__))) . '/resizeImage.php';
+
+            $src_img = $file_path;
+            $dst_img = $new_file_path;
+
+            if ($name === 'file_cover') {
+                new resizeImage($src_img, "370", "224", "0", $dst_img);
+            }
+
+            if ($name === 'file_cover1' or $name === 'file_cover2' or $name === 'file_cover3') {
+                new resizeImage($src_img, "484", "272", "0", $dst_img);
+            }
+
+            unlink($file_path);
+        }
+
+        return $new_file_name;
     }
 
 
