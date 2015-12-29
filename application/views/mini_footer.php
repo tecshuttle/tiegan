@@ -32,8 +32,8 @@
             </dl>
         </div>
         <div class="zw-footer-line2">
-            <div class="zw-footer-listlinks">2015 © 铁杆体育 tgsports.cn All rights reserved. 京ICP备12003524号
-                京公网安备11010502023470 京ICP证140673号
+            <div class="zw-footer-listlinks">
+                2015 © 铁杆体育 tgsports.cn All rights reserved. 粤ICP备15114439号
             </div>
         </div>
     </div>

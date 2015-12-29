@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="/css/article_detail.css">
     <!--[if IE 6]>
     <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script src="/js/jquery.lazyload.min.js"></script>
     <script>
 
         /* EXAMPLE */
@@ -117,7 +118,7 @@
                 <div class="mcr_hotbot">
                     <ul>
                         <?php foreach ($hot_articles as $a): ?>
-                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?=$a->id?>" target="_blank">[ 查看详细 ]</a></li>
+                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?= $a->id ?>" target="_blank">[ 查看详细 ]</a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -132,5 +133,11 @@
 <!-- content end -->
 
 <?php $this->load->view('mini_footer') ?>
+
+<script>
+    $(function(){
+        $("img").lazyload();
+    });
+</script>
 </body>
 </html>

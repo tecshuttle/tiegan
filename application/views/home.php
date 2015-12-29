@@ -94,7 +94,7 @@
                     <a href="#">登录</a>
                 </div>
             </div>
-            <div class="service-phone h-service-phone"><i class="ico-phone"></i>400-601-4066</div>
+            <div class="service-phone h-service-phone"><i class="ico-phone"></i>400-188-6468</div>
             <div class="qrcode" style="display: none;">
                 <img src="images/qrcode_qyer.png" width="80" height="80" alt=""/>
             </div>
@@ -212,8 +212,9 @@
 <!-- 荣归 travel notes -->
 <div class="section section-green">
     <div class="wrapper">
-        <h2 class="title">荣归<a href="/cat/225"
-                               class="h-view-more c-view-more-2">查看更多&gt;&gt;</a><span>精选全球最优质酒店、球票等足球旅行产品</span></h2>
+        <h2 class="title">荣归<a href="/cat/225" class="h-view-more c-view-more-2">查看更多&gt;&gt;</a>
+            <span>精选全球最优质酒店、球票等足球旅行产品</span>
+        </h2>
 
         <div class="hottravels">
             <div class="slider slider-hottravels">
@@ -232,12 +233,12 @@
                                         </div>
                                         <div class="inner">
                                             <div class="info">
-                                            <span class="avatar">
+                                            <span class="avatar" style="visibility: hidden;">
                                                 <a href="/pages/<?= $a->id ?>" target="_blank">
                                                     <img class="lazy" src="images/17_avatar_big.jpg">
                                                 </a>
                                             </span>
-                                            <span class="txt">
+                                            <span class="txt" style="display:none;">
                                                 <a href="/pages/<?= $a->id ?>" target="_blank">SJ</a>
                                                 <span class="auth_avatar_q s">
 													<i class="icon member"></i>
@@ -245,7 +246,7 @@
                                             </span>
                                             </div>
                                             <a href="/pages/<?= $a->id ?>" target="_blank">
-                                                <div class="caption">
+                                                <div class="caption" style="padding-top: 0px;">
                                                     <?= $a->name ?>
                                                 </div>
                                             </a>
@@ -254,8 +255,6 @@
                                     </div>
                                 </li>
                             <?php endforeach; ?>
-
-
                         </ul>
                     </div>
                 </div>
@@ -279,8 +278,9 @@
                 <div class="items-list">
                     <ul>
                         <?php foreach ($nav_menu[1]->articles as $key => $a): ?>
-                            <li><em><?= ($key + 1) ?>.</em><a href="/pages/<?= $a->id ?>"
-                                                              target="_blank"><?= $a->name ?></a></li>
+                            <li><em><?= ($key + 1) ?>.</em>
+                                <a href="/pages/<?= $a->id ?>" target="_blank"><?= $a->name ?></a>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -331,10 +331,10 @@
                     <dl>
                         <dt>关于我们</dt>
                         <dd>
-                            <a href="html/about.html" target="_blank" rel="nofollow">了解我们</a>
+                            <a href="/doc/about" target="_blank" rel="nofollow">了解我们</a>
                         </dd>
                         <dd>
-                            <a href="html/contact.html" target="_blank" rel="nofollow">联系我们</a>
+                            <a href="/doc/contact" target="_blank" rel="nofollow">联系我们</a>
                         </dd>
                     </dl>
                 </li>
@@ -342,7 +342,7 @@
                     <dl>
                         <dt>帮助中心</dt>
                         <dd>
-                            <a href="html/questions.html" target="_blank" rel="nofollow">常见问题</a>
+                            <a href="/doc/questions" target="_blank" rel="nofollow">常见问题</a>
                         </dd>
                     </dl>
                 </li>
@@ -350,7 +350,7 @@
                     <dl>
                         <dt>达人招募</dt>
                         <dd>
-                            <a href="html/recruitment.html" target="_blank" rel="nofollow">招聘啦</a>
+                            <a href="/doc/recruitment" target="_blank" rel="nofollow">招聘啦</a>
                         </dd>
                     </dl>
                 </li>
@@ -365,7 +365,7 @@
                 </a>
 
                 <p>2015 © 铁杆体育™ tgsports.cn All rights reserved.&nbsp;&nbsp;
-                    <a href="#" target="_blank" rel="nofollow">京ICP备12003524号</a>
+                    <a href="#" target="_blank" rel="nofollow">粤ICP备15114439号</a>
                 </p>
 
                 <p>
