@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="/css/article_detail.css">
     <!--[if IE 6]>
     <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
-    <script src="/js/jquery.lazyload.min.js"></script>
     <script>
 
         /* EXAMPLE */
@@ -133,11 +132,5 @@
 <!-- content end -->
 
 <?php $this->load->view('mini_footer') ?>
-
-<script>
-    $(function(){
-        $("img").lazyload();
-    });
-</script>
 </body>
 </html>
