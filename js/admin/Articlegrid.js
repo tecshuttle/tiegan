@@ -65,9 +65,9 @@ Ext.define('MyApp.overrides.grid.column.Action', {
 });
 
 
-var articleStore= Ext.create('Ext.data.Store', {
+var articleStore = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'ctime', 'keywords', 'picture_gallery'],
     proxy: {
         type: 'ajax',
         url: '/articles/getList',
@@ -100,7 +100,19 @@ Ext.define('MyApp.view.main.Articlegrid', {
 
         },
         {
-            header: "URL短名", dataIndex: 'code'
+            header: "首页推荐", dataIndex: 'is_hot',
+            renderer: function (v, b, rec) {
+                if (v == 0) {
+                    return 'NO';
+                }
+
+                console.log(rec.data.tag);
+                if (rec.data.tag == null || rec.data.tag.trim() == '') {
+                    return '标签未设';
+                }
+
+                return rec.data.tag;
+            }
         },
         {
             header: "简介", dataIndex: 'desc'

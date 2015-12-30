@@ -90,6 +90,41 @@ Ext.define('MyApp.view.main.Articleform', {
                 ]
             },
             {
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'fieldcontainer',
+                        fieldLabel: '首页推荐',
+                        defaultType: 'radiofield',
+                        layout: 'hbox',
+                        flex: 1,
+                        margin: '0 10 0 0',
+                        items: [
+                            {
+                                boxLabel: '是',
+                                name: 'is_hot',
+                                margin: '0 20 0 0',
+                                inputValue: '1'
+                            },
+                            {
+                                boxLabel: '不是',
+                                name: 'is_hot',
+                                inputValue: '0'
+                            }
+                        ]
+
+                    },
+                    {
+                        xtype: 'textfield',
+                        fieldLabel: '推荐标签',
+                        flex: 1,
+                        name: 'tag',
+                        emptyText: '请输入…'
+                    }
+                ]
+            },
+            {
                 xtype: 'textarea',
                 fieldLabel: '简介',
                 anchor: '100%',

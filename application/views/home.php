@@ -11,30 +11,30 @@
     <link rel="stylesheet" href="css/base.css">
     <!-- style fontawesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-	<!-- style bxslider -->
-	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
+    <!-- style bxslider -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
     <!-- style home -->
     <link rel="stylesheet" href="css/home.css">
     <!-- style layout -->
     <link rel="stylesheet" href="css/layout.css">
-	<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-	<!-- jquery bxslider js -->
-	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
-	<script>
-	  $(function(){
-		var slider = $('.bxslider');
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <!-- jquery bxslider js -->
+    <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+    <script>
+        $(function () {
+            var slider = $('.bxslider');
 
-		slider.bxSlider({
-		  auto: true,
-		  controls: false,
-		  mode: 'fade',
-		  pager: true,
-		  onSlideAfter: function(){
-			slider.startAuto();
-		  }
-		});
-	  })
-	</script>
+            slider.bxSlider({
+                auto: true,
+                controls: false,
+                mode: 'fade',
+                pager: true,
+                onSlideAfter: function () {
+                    slider.startAuto();
+                }
+            });
+        })
+    </script>
 </head>
 <body>
 <!-- 广告开始 -->
@@ -94,7 +94,9 @@
                     <a href="#">登录</a>
                 </div>
             </div>
-            <div class="service-phone h-service-phone"><i class="ico-phone"></i>400-188-6468</div>
+            <div class="service-phone h-service-phone">
+                <i class="ico-phone"></i><span style="font-size: 26px;">400-188-6468</span>
+            </div>
             <div class="qrcode" style="display: none;">
                 <img src="images/qrcode_qyer.png" width="80" height="80" alt=""/>
             </div>
@@ -102,12 +104,12 @@
     </div>
 </div>
 <!-- banner -->
-<div id="qyer_banner" class="banner">	
-	<ul class="bxslider">
-		<li><img src="images/banner_1.jpg" width="100%" alt="" /></li>
-		<li><img src="images/banner_2.jpg" width="100%" alt="" /></li>
-		<li><img src="images/banner_3.jpg" width="100%" alt="" /></li>
-	</ul>
+<div id="qyer_banner" class="banner">
+    <ul class="bxslider">
+        <li><img src="images/banner_1.jpg" width="100%" alt=""/></li>
+        <li><img src="images/banner_2.jpg" width="100%" alt=""/></li>
+        <li><img src="images/banner_3.jpg" width="100%" alt=""/></li>
+    </ul>
     <!-- <div id="bannerbg" class="blur">
         <img src="">
     </div> -->
@@ -171,9 +173,10 @@
                                     <a href="/match/<?= $article->id ?>" target="_blank">
                                         <img class="lazy" src="<?= $article->cover ?>" width="370" height="224">
 
-                                        <div class="bg">
+                                        <div class="bg" style="display:none;">
                                             <div class="p"></div>
                                         </div>
+
                                         <div class="tag">
                                             <span><i class="iconfont icon-chengshi"></i></span>
                                             <span class="bt">球队</span>
@@ -213,7 +216,7 @@
 <div class="section section-green">
     <div class="wrapper">
         <h2 class="title">荣归<a href="/cat/225" class="h-view-more c-view-more-2">查看更多&gt;&gt;</a>
-            <span>精选全球最优质酒店、球票等足球旅行产品</span>
+            <span>精选球迷看球日记、旅行攻略等</span>
         </h2>
 
         <div class="hottravels">
@@ -221,7 +224,7 @@
                 <div class="slider-inner">
                     <div class="item">
                         <ul>
-                            <?php foreach ($nav_menu[0]->articles as $key => $a): ?>
+                            <?php foreach ($go_home as $key => $a): ?>
                                 <li>
                                     <div class="travel">
                                         <div class="photo">
@@ -251,7 +254,9 @@
                                                 </div>
                                             </a>
                                         </div>
-                                        <em class="tip" style="display:none;">精华</em>
+                                        <?php if (!empty($a->tag)): ?>
+                                            <em class="tip"><?= $a->tag ?></em>
+                                        <?php endif; ?>
                                     </div>
                                 </li>
                             <?php endforeach; ?>
@@ -294,8 +299,8 @@
                 <div class="items-list">
                     <ul>
                         <?php foreach ($nav_menu[2]->articles as $key => $a): ?>
-                            <li><em><?= ($key + 1) ?>.</em><a href="/pages/<?= $a->id ?>"
-                                                              target="_blank"><?= $a->name ?></a></li>
+                            <li><em><?= ($key + 1) ?>.</em>
+                                <a href="/pages/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -378,7 +383,7 @@
 
 <!-- call 咨询框 start -->
 <div class="call" style="position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
-    <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png" width="156" height="80" alt="" /></a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png" width="156" height="80" alt=""/></a>
 
     <div class="btn-close"
          style="position:absolute; top:2px; right:2px; z-index:10000; width:11px; height:11px; background:url(images/close.gif) no-repeat; cursor:pointer;"></div>

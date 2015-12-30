@@ -61,7 +61,7 @@ class articles extends MY_Controller
         $_POST['download'] = ($download == '' ? '' : $download);
 
         foreach ($_POST as $key => $item) {
-            if ($key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
+            if ($key === 'is_hot' || $key === 'tag' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
 
             if (empty($_POST[$key])) {
                 unset($_POST[$key]);

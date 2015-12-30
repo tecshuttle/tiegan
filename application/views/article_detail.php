@@ -54,7 +54,7 @@
         <div class="mc_left">
             <div class="mc_content">
                 <div class="mc_ctitle">
-                    <a href="#" class="mcc_a1"><?= $article->name ?></a>
+                    <span class="mcc_a1"><?= $article->name ?></span>
 
                     <div class="mcc_a2 jiathis_style">
                         <span class="mcc_a3">来源:铁杆社区 | <?= date('Y-m-d', $article->mtime) ?></span>
