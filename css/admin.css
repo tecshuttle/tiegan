@@ -96,3 +96,8 @@ div#trip_recommend-bodyEl div.x-form-trigger-wrap-default {
     background: white;
 }
 
+.k-editor .k-add-photo
+{
+    background: 50% 50% no-repeat url(/images/icons/add-photo-icon.png);
+}
+

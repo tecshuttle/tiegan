@@ -7,7 +7,26 @@ ke_config = {
     tools: [
         "bold", "italic", "underline", "strikethrough", "justifyLeft", "justifyCenter", "justifyRight",
         "justifyFull", "insertUnorderedList", "insertOrderedList", "indent", "outdent", "createLink",
-        "unlink", "insertImage", "subscript", "superscript", "createTable", "addRowAbove", "addRowBelow",
+        "unlink", "insertImage",
+        {
+            name: "add-photo",
+            tooltip: "Add Photo",
+            exec: function (e) {
+                var editor = $(this).data("kendoEditor");
+
+                var win = new Tomtalk.gallery.Picker({
+                    title: '选择图片',
+                    module: 'gallery',
+                    width: 955,
+                    height: 600,
+                    editor: editor,
+                    modal: true
+                });
+
+                win.show();
+            }
+        },
+        "subscript", "superscript", "createTable", "addRowAbove", "addRowBelow",
         "addColumnLeft", "addColumnRight", "deleteRow", "deleteColumn", "viewHtml", "formatting",
         "cleanFormatting", "foreColor", "backColor", "print",
         {

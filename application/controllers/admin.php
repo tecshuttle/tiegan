@@ -116,7 +116,8 @@ class admin extends MY_Controller
                 '/js/extjs6/build/MyApp-all.css',
                 '/styles/kendo.bootstrap.min.css',
                 '/styles/kendo.common-bootstrap.min.css',
-                '/css/admin.css'
+                '/css/admin.css',
+                '/css/gallery.css'
             ),
             'js' => array(
                 '/js/extjs6/ext-all.js',
@@ -124,6 +125,9 @@ class admin extends MY_Controller
                 '/js/admin/ke_config.js',
                 '/js/kendo.all.min.js',
                 '/js/moment.js',
+                '/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.js',
+                '/js/admin/gallery_picker_grid.js',
+                '/js/admin/gallery_picker.js',
                 '/js/admin/Articleform.js',
                 '/js/admin/Articlegrid.js',
                 '/js/admin/Articletypeinfo.js',
@@ -185,7 +189,8 @@ class admin extends MY_Controller
                 '/js/extjs6/build/MyApp-all.css',
                 '/styles/kendo.bootstrap.min.css',
                 '/styles/kendo.common-bootstrap.min.css',
-                '/css/admin.css'
+                '/css/admin.css',
+                '/css/gallery.css'
             ),
             'js' => array(
                 '/js/extjs6/ext-all.js',
@@ -193,6 +198,9 @@ class admin extends MY_Controller
                 '/js/kendo.all.min.js',
                 '/js/admin/ke_config.js',
                 '/js/moment.js',
+                '/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.js',
+                '/js/admin/gallery_picker_grid.js',
+                '/js/admin/gallery_picker.js',
                 '/js/admin/equipments_form.js',
                 '/js/admin/equipments.js',
                 '/js/admin/equipments_size.js'
