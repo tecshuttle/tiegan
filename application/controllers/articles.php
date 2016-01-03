@@ -6,6 +6,7 @@ class articles extends MY_Controller
     {
         parent::__construct(); // Call the Model constructor
         $this->load->model('articles_model');
+        $this->load->model('equipments_model');
         $this->load->model('types_model');
 
         $this->menu = array(
@@ -70,7 +71,7 @@ class articles extends MY_Controller
 
 
         if (isset($_POST['id'])) {
-            //$_POST['ctime'] = strtotime($_POST['ctime']);
+            $_POST['ctime'] = strtotime($_POST['ctime']);
             $_POST['mtime'] = time();
             $this->articles_model->update($_POST);
         } else {
@@ -166,8 +167,16 @@ class articles extends MY_Controller
 
         //取热文
         $hot_articles = $this->articles_model->select(array(
+            'type_id' => $cat_id,
             'sortBy' => 'pv',
-            'limit' => 5
+            'limit' => 10
+        ));
+
+        //取产品
+        $products = $this->equipments_model->select(array(
+            'sortBy' => 'order',
+            'sortDirection' => 'ASC',
+            'limit' => 9
         ));
 
         $data = array(
@@ -177,6 +186,7 @@ class articles extends MY_Controller
             'menu' => $this->menu[$cat_id],
             'cat' => $cat,
             'articles' => $articles['data'],
+            'products' => $products['data'],
             'hot_articles' => $hot_articles['data'],
             'pager' => build_pagebar($articles['total'], $per_page, $page, '/cat/' . $cat_id . '/__page__')
         );

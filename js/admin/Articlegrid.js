@@ -67,7 +67,7 @@ Ext.define('MyApp.overrides.grid.column.Action', {
 
 var articleStore = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'ctime', 'keywords', 'picture_gallery'],
+    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'mtime','ctime', 'keywords', 'picture_gallery'],
     proxy: {
         type: 'ajax',
         url: '/articles/getList',
@@ -124,13 +124,19 @@ Ext.define('MyApp.view.main.Articlegrid', {
             header: "封面图片", dataIndex: 'cover'
         },
         {
+            header: "生成时间", dataIndex: 'ctime',
+            renderer: function (v) {
+                var date = new Date(v * 1000);
+                return moment(date).format('YYYY-MM-DD');
+            }
+        },
+        {
             header: "最后编辑时间", dataIndex: 'mtime',
             renderer: function (v) {
                 var date = new Date(v * 1000);
                 return moment(date).format('YYYY-MM-DD');
             }
         },
-
         {
             header: "操作",
             dataIndex: 'id',

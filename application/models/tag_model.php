@@ -64,7 +64,7 @@ class tag_model extends CI_Model
 
     function getList($option)
     {
-        $this->db->order_by('id', 'DESC');
+        $this->db->order_by('order', 'ASC');
         $query = $this->db->get($this->table, $option['limit'], $option['start']);
 
         return (array('data' => $query->result(),

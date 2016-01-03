@@ -224,10 +224,12 @@ Ext.define('Color.admin.EditFormUI', {
                                 emptyText: '填写产品尖,示例: 23, 453, 21'
                             },
                             {
-                                xtype: 'displayfield',
+                                xtype: 'numberfield',
+                                fieldLabel: '显示顺序',
                                 flex: 1,
-                                value: ''
-                            }
+                                name: 'order',
+                                emptyText: '1 第一位   2 第二位'
+                            },
                         ]
                     }
                 ]

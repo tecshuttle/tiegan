@@ -183,12 +183,26 @@
                 <div class="mcr_hotbot">
                     <ul>
                         <?php foreach ($hot_articles as $a): ?>
-                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?= $a->id ?>" target="_blank">[ 查看详细 ]</a></li>
+                            <li><a class="mcr_a1" href="/pages/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
             <!--热文排行end-->
+
+            <!--产品排行-->
+            <div class="mcr_hot">
+                <div class="mcr_ztop">产品排行</div>
+                <div class="mcr_hotbot">
+                    <ul>
+                        <?php foreach ($products as $a): ?>
+                            <li><a class="mcr_a1" href="/match/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+            <!--产品排行end-->
+
         </div>
         <!--rightend-->
 

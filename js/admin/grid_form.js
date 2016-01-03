@@ -34,6 +34,13 @@ Ext.define('Tomtalk.grid.FormUI', {extend: 'Ext.form.Panel',
                     emptyText: '请输入…'
                 },
                 {
+                    xtype: 'numberfield',
+                    fieldLabel: '显示顺序',
+                    anchor: '50%',
+                    name: 'order',
+                    emptyText: '请输入…'
+                },
+                {
                     xtype: 'textfield',
                     fieldLabel: '说明',
                     anchor: '50%',

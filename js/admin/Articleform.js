@@ -125,6 +125,26 @@ Ext.define('MyApp.view.main.Articleform', {
                 ]
             },
             {
+                xtype: 'fieldcontainer',
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'datefield',
+                        fieldLabel: '生成日期',
+                        flex: 1,
+                        name: 'ctime',
+                        format: 'Y-m-d',
+                        value: new Date(),
+                        emptyText: '格式: 2015-12-30'
+                    },
+                    {
+                        xtype: 'displayfield',
+                        flex: 1,
+                        value: ''
+                    }
+                ]
+            },
+            {
                 xtype: 'textarea',
                 fieldLabel: '简介',
                 anchor: '100%',

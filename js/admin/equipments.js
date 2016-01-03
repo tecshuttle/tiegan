@@ -74,7 +74,7 @@ Ext.ns('Color.admin');
 
 var store = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'code', 'name', 'desc', 'relative', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+    fields: ['id', 'code', 'name', 'desc', 'order', 'relative', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
     autoLoad: true,
     proxy: {
         type: 'ajax',
@@ -107,6 +107,9 @@ Ext.define('Color.admin.GridUI', {
         me.columns = [
             {
                 header: "ID", dataIndex: 'id', hidden: true
+            },
+            {
+                header: "显示顺序", dataIndex: 'order'
             },
             {
                 header: "产品名称", dataIndex: 'name'

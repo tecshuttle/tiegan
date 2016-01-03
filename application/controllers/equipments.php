@@ -30,7 +30,7 @@ class equipments extends MY_Controller
         $matchs = $this->equipments_model->select($option);
 
         //取产品分类
-        $sql = 'select * from equipments_tag';
+        $sql = 'select * from equipments_tag order by `order` asc';
         $rows = $this->db->query($sql);
 
         $data = array(

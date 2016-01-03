@@ -1,6 +1,9 @@
 Ext.onReady(function () {
-    var fields = ['id', 'name', 'desc', 'mtime'];
+    var fields = ['id', 'name', 'order', 'desc', 'mtime'];
     var columns = [
+        {
+            header: "显示顺序", dataIndex: 'order'
+        },
         {
             header: "主题名称", dataIndex: 'name'
         },
