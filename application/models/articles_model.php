@@ -177,9 +177,9 @@ class articles_model extends CI_Model
         ));
     }
 
-    function pv_inc($id)
+    function pv_inc($id, $count = 1)
     {
-        $sql = "UPDATE articles SET pv = pv+1 WHERE id = $id";
+        $sql = "UPDATE articles SET pv = pv+{$count} WHERE id = $id";
         $this->db->query($sql);
     }
 
