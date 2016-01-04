@@ -19,12 +19,16 @@ class equipments extends MY_Controller
         $per_page = 10;
 
         $option = array(
+            'sortBy' => 'order',
+            'sortDirection' => 'ASC',
             'limit' => $per_page,
             'offset' => ($page - 1) * $per_page
         );
 
         if ($tag_id != 0) {
-            $option['tag_id'] = $tag_id;
+            $this->load->model('equipments_tagged_model');
+            $ids = $this->equipments_tagged_model->getTeamIDByTagID($tag_id);
+            $option['ids'] = $ids;
         }
 
         $matchs = $this->equipments_model->select($option);
@@ -108,6 +112,13 @@ class equipments extends MY_Controller
 
     public function save()
     {
+        //标签数组转换为字符串
+        if (isset($_POST['tag_id'])) {
+            $_POST['tag_id'] = implode(',', $_POST['tag_id']);
+        } else {
+            $_POST['tag_id'] = '';
+        }
+
         $cover = $this->upload_product_cover('file_cover');
         $_POST['cover'] = ($cover == '' ? '' : '/uploads/' . $cover);
 
@@ -125,7 +136,7 @@ class equipments extends MY_Controller
         }
 
         foreach ($_POST as $key => $item) {
-            if ($key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
+            if ($key === 'tag_id' || $key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
 
             if (empty($_POST[$key])) {
                 unset($_POST[$key]);
@@ -136,12 +147,35 @@ class equipments extends MY_Controller
             $_POST['ctime'] = time();
             $_POST['mtime'] = time();
             $this->equipments_model->insert($_POST);
+            $pid = $this->db->insert_id();
         } else {
+            $pid = $_POST['id'];
             $_POST['mtime'] = time();
             $this->equipments_model->update($_POST);
         }
 
+        //增加标签记录
+        $this->update_tagging($pid, $_POST['tag_id']);
+
         echo json_encode(array('success' => true));
+    }
+
+    private function update_tagging($id, $tag_id_str)
+    {
+        $this->load->model('equipments_tagged_model');
+        $this->equipments_tagged_model->deleteByPID($id);
+
+        if ($tag_id_str === '') return;
+
+        $tagging = explode(',', $tag_id_str);
+
+        foreach ($tagging as $tag_id) {
+
+            $this->equipments_tagged_model->insert(array(
+                'team_id' => $id,
+                'tag_id' => $tag_id
+            ));
+        }
     }
 
     public function size_save()

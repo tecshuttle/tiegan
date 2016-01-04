@@ -200,14 +200,14 @@ Ext.define('Color.admin.EditFormUI', {
                                 emptyText: '示例: 中国——巴黎——巴黎（购物）'
                             },
                             {
-                                xtype: 'combo',
+                                xtype: 'tagfield',
                                 fieldLabel: '相关主题',
                                 store: tag_store,
                                 flex: 1,
-                                name: 'tag_id',
+                                name: 'tag_id[]',
                                 displayField: 'name',
-                                valueField: 'id',
-                                typeAhead: true
+                                filterPickList: true,
+                                valueField: 'id'
                             }
                         ]
                     },
@@ -229,7 +229,7 @@ Ext.define('Color.admin.EditFormUI', {
                                 flex: 1,
                                 name: 'order',
                                 emptyText: '1 第一位   2 第二位'
-                            },
+                            }
                         ]
                     }
                 ]

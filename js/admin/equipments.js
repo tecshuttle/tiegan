@@ -269,7 +269,10 @@ Ext.define('Color.admin.GridAction', {
 
         me._showForm();
 
-        //record.raw.ctime = new Date(record.raw.ctime * 1000);
+        record.data['tag_id[]'] = record.data.tag_id.split(','); //给tag赋值，转一下格式
+
+        //console.log(record.data);
+
         form.setValues(record.data);
 
         if (me.ke.service_list) {

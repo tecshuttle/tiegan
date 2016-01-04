@@ -1,12 +1,11 @@
 <?php
-
 /**
  * Class products_model
  * 这个类和articles类是一样的，如果有修改，请同步更新到这里，有时间，重构时，合并成一个类。
  */
-class equipments_model extends CI_Model
+class equipments_tagged_model extends CI_Model
 {
-    var $table = 'equipments';
+    var $table = 'equipments_tagged';
 
     function __construct()
     {
@@ -28,54 +27,23 @@ class equipments_model extends CI_Model
         ));
     }
 
-    //后台grid调用
-    function getProduct($option)
-    {
-        $sql = "SELECT e.*, COUNT(s.id) AS classes, SUM(s.stock) AS stock "
-            . "FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
-            . "GROUP BY e.id ORDER BY e.order asc LIMIT {$option['start']}, 20";
-
-        $query = $this->db->query($sql);
-
-        return (array(
-            'data' => $query->result(),
-            'total' => $this->db->count_all_results($this->table)
-        ));
-    }
-
-    //后台grid调用
-    function getTagList()
-    {
-        $sql = "SELECT * FROM equipments_tag";
-
-        $query = $this->db->query($sql);
-
-        return (array(
-            'data' => $query->result(),
-            'total' => $this->db->count_all_results('equipments_tag')
-        ));
-    }
 
     //查询，统后用这个方法
     function select($options = array())
     {
-        $options = array_merge(array('sortDirection' => 'DESC'), $options);
+        $options = $this->_default(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
-        $qualificationArray = array('id', 'type_id', 'tag_id');
+        $qualificationArray = array('id', 'pid');
 
         foreach ($qualificationArray as $qualifier) {
             if (isset($options[$qualifier]))
                 $this->db->where($qualifier, $options[$qualifier]);
         }
 
-        if (isset($options['ids'])) {
-            $this->db->where_in('id', explode(',', $options['ids']));
-        }
-
         // If limit / offset are declared (usually for pagination) then we need to take them into account
-        $total = $this->db->count_all_results($this->table);
         if (isset($options['limit'])) {
+            $total = $this->db->count_all_results($this->table);
 
             //取得记录数据后，重新设置一下条件
             foreach ($qualificationArray as $qualifier) {
@@ -95,16 +63,14 @@ class equipments_model extends CI_Model
             $this->db->order_by($options['sortBy'], $options['sortDirection']);
         }
 
-        foreach ($qualificationArray as $qualifier) {
-            if (isset($options[$qualifier]))
-                $this->db->where($qualifier, $options[$qualifier]);
-        }
-
-        if (isset($options['ids'])) {
-            $this->db->where_in('id', explode(',', $options['ids']));
-        }
-
         $query = $this->db->get($this->table);
+
+        if ($query->num_rows() == 0) {
+            return array(
+                'data' => array(),
+                'total' => 0
+            );
+        }
 
         if (isset($options['id'])) {
             return $query->row(0);
@@ -157,18 +123,18 @@ class equipments_model extends CI_Model
         return $data;
     }
 
-
-    //前台调用
-    function getRelative($ids)
+    function getTeamIDByTagID($tag_id)
     {
-        if (empty($ids)) {
-            return array();
+        $query = $this->db->query("select team_id from $this->table where tag_id = $tag_id");
+        $rows = $query->result();
+
+        $ids = array();
+
+        foreach ($rows as $row) {
+            $ids[] = $row->team_id;
         }
 
-        $query = $this->db->query("select id, name from $this->table where id in ($ids)");
-        $data = $query->result();
-
-        return $data;
+        return implode(',', $ids);
     }
 
     function insert($data)
@@ -213,6 +179,11 @@ class equipments_model extends CI_Model
     function deleteByID($id)
     {
         $this->db->delete($this->table, array('id' => $id));
+    }
+
+    function deleteByPID($team_id)
+    {
+        $this->db->delete($this->table, array('team_id' => $team_id));
     }
 
     function clone_from_id($id)
