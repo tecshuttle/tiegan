@@ -17,9 +17,14 @@
     <link rel="stylesheet" href="css/home.css">
     <!-- style layout -->
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="/css/kendo.common-material.min.css">
+    <link rel="stylesheet" href="/css/kendo.material.min.css">
+
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <!-- jquery bxslider js -->
     <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="/js/kendo.all.min.js"></script>
+
     <script>
         $(function () {
             var slider = $('.bxslider');
@@ -31,6 +36,38 @@
                 pager: true,
                 onSlideAfter: function () {
                     slider.startAuto();
+                }
+            });
+
+            $("#search_home").kendoAutoComplete({
+                dataTextField: "name",
+                filter: "contains",
+                //minLength: 3,
+                dataSource: {
+                    serverFiltering: true,
+                    transport: {
+                        read: {
+                            url: "/equipments/search_home",
+                            type: "POST",
+                            dataType: "json"
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "id",
+                            fields: {
+                                id: {type: "id"},
+                                name: {type: "string"}
+                            }
+                        }
+                    }
+                },
+                select: function (e) {
+                    var item = e.item;
+                    var text = item.text();
+                    // Use the selected item or its text
+                    var dataItem = this.dataItem(e.item.index());
+                    window.location.href = '/match/' + dataItem.id;
                 }
             });
         })
@@ -127,8 +164,8 @@
                     <div class="place place_search_box">
                         <div class="input-control">
                             <form class="place_search_form" target="_blank" action="" method="post">
-                                <input class="txt placesearch_txt" type="text" placeholder="曼联" autofocus=""
-                                       autocomplete="off">
+                                <input class="txt placesearch_txt" type="text" placeholder="球队名: 曼联" autofocus=""
+                                       autocomplete="off" id="search_home">
                                 <button class="btn" type="submit">搜索</button>
                             </form>
                         </div>

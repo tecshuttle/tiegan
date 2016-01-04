@@ -1342,11 +1342,11 @@ em,i,strong {
 
 .banner .search .panel .panel-cont .input-control .txt {
     float: left!important;
-    border-radius: 3px 0 0 3px;
-    padding: 0 10px;
+    /*border-radius: 3px 0 0 3px;*/
+    /*padding: 0 10px;*/
     width: 489px;
-    height: 38px;
-    line-height: 38px\9;
+    height: 40px;
+    line-height: 40px\9;
     border: 1px solid transparent;
     border-right: 0;
     color: #323232;
@@ -1359,9 +1359,12 @@ em,i,strong {
     font-family: "Hiragino Sans GB","Microsoft YaHei",SimHei,SimSun,sans-serif
 }
 
-.banner .search .panel .panel-cont .input-control .txt:focus {
+.banner .search .panel .panel-cont  {
     border-color: #2ed483
 }
+
+
+
 
 .banner .search .panel .panel-cont .input-control .btn {
     float: left!important;

@@ -214,6 +214,15 @@ class equipments extends MY_Controller
         return $this->time_file_name($data['upload_data']['full_path'], $name);
     }
 
+    public function search_home()
+    {
+        $keyword = $_POST['filter']['filters'][0]['value'];
+
+        $rows = $this->equipments_model->search_home($keyword);
+
+        echo json_encode($rows);
+    }
+
     private function time_file_name($file_path, $name = '')
     {
         $info = pathinfo($file_path);

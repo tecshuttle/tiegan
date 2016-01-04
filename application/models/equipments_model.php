@@ -44,6 +44,17 @@ class equipments_model extends CI_Model
     }
 
     //后台grid调用
+    function search_home($keyword)
+    {
+        $sql = "SELECT id, name "
+            . "FROM $this->table where name like '%{$keyword}%'";
+
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
+    //后台grid调用
     function getTagList()
     {
         $sql = "SELECT * FROM equipments_tag";
