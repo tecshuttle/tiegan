@@ -1,6 +1,8 @@
 Ext.ns('Tomtalk.grid');
 
-Ext.define('Tomtalk.grid.FormUI', {extend: 'Ext.form.Panel',
+Ext.define('Tomtalk.grid.FormUI', {
+    extend: 'Ext.form.Panel',
+    autoScroll: true,
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
@@ -16,8 +18,6 @@ Ext.define('Tomtalk.grid.FormUI', {extend: 'Ext.form.Panel',
 
     initComponent: function () {
         var me = this;
-
-        console.log(me.module);
 
         if (me.module === 'tag') {
             me.items = [
@@ -69,23 +69,32 @@ Ext.define('Tomtalk.grid.FormUI', {extend: 'Ext.form.Panel',
                     value: 0
                 },
                 {
-                    xtype: 'textfield',
-                    fieldLabel: '参数名称',
-                    anchor: '50%',
-                    name: 'name',
-                    emptyText: '请输入…'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: '参数说明',
-                    anchor: '50%',
-                    name: 'desc',
-                    emptyText: '请输入…'
+                    xtype: 'fieldcontainer',
+                    layout: 'hbox',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: '参数名称',
+                            flex: 1,
+                            name: 'name',
+                            margin: '0 10 0 0',
+                            emptyText: '请输入…'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: '参数说明',
+                            flex: 1,
+                            name: 'desc',
+                            emptyText: '请输入…'
+                        }
+                    ]
                 },
                 {
                     xtype: 'textarea',
                     fieldLabel: '参数值',
-                    anchor: '50%',
+                    anchor: '100%',
+                    id: 'kendoeditor',
+                    height: 500,
                     name: 'value',
                     emptyText: '请输入…'
                 },
@@ -106,12 +115,12 @@ Ext.define('Tomtalk.grid.FormUI', {extend: 'Ext.form.Panel',
         }
 
 
-
         Tomtalk.grid.FormUI.superclass.initComponent.call(me);
     }
 });
 
-Ext.define('Tomtalk.grid.FormAction', {extend: 'Tomtalk.grid.FormUI',
+Ext.define('Tomtalk.grid.FormAction', {
+    extend: 'Tomtalk.grid.FormUI',
     constructor: function (config) {
         Tomtalk.grid.FormAction.superclass.constructor.call(this, config);
     },

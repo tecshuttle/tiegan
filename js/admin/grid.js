@@ -1,6 +1,7 @@
 Ext.ns('Tomtalk');
 
 Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
+    KE: false,
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
@@ -76,7 +77,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
 
         if (me.module == 'admins') {
             linkcolumn.push({
-                text: '编辑',
+                glyph: '编辑',
                 handler: function (grid, rowIndex, colIndex) {
                     var rec = grid.getStore().getAt(rowIndex);
                     me._edit(rec);
@@ -86,7 +87,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
 
         if (me.module == 'tag') {
             linkcolumn.push({
-                text: '编辑',
+                glyph: '编辑',
                 handler: function (grid, rowIndex, colIndex) {
                     var rec = grid.getStore().getAt(rowIndex);
                     me._edit(rec);
@@ -96,7 +97,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
 
         if (me.module == 'site_settings') {
             linkcolumn.push({
-                text: '编辑',
+                glyph: '编辑',
                 handler: function (grid, rowIndex, colIndex) {
                     var rec = grid.getStore().getAt(rowIndex);
                     me._edit(rec);
@@ -104,7 +105,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
             });
         } else {
             linkcolumn.push({
-                text: '删除',
+                glyph: '删除',
                 handler: function (grid, rowIndex, colIndex) {
                     var rec = grid.getStore().getAt(rowIndex);
                     me._delete(rec.get('id'));
@@ -116,7 +117,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
             header: "操作",
             dataIndex: 'id',
             align: 'left',
-            xtype: 'linkcolumn',
+            xtype: 'actioncolumn',
             name: 'opertation',
             items: linkcolumn
         });
@@ -218,14 +219,30 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         $c.grid.hide();
         $c.form.getForm().reset();
         $c.form.show();
+
+        var KE = this.KE;
+
+        if (KE) {
+            KE.data("kendoEditor").value('');
+        } else {
+            this.KE = $("#kendoeditor-inputEl").kendoEditor(ke_config);
+        }
     },
 
     _edit: function (rec) {
         var $c = this.COMPONENTS;
 
         $c.grid.hide();
-        $c.form.getForm().setValues(rec.raw);
+        $c.form.getForm().setValues(rec.data);
         $c.form.show();
+
+        var KE = this.KE;
+
+        if (KE) {
+            KE.data("kendoEditor").value(rec.data.value);
+        } else {
+            this.KE = $("#kendoeditor-inputEl").kendoEditor(ke_config);
+        }
     },
 
     _returnFrom: function () {

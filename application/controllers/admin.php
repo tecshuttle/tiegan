@@ -75,13 +75,14 @@ class admin extends MY_Controller
 
         if (isset($users[$name])) {
             if ($users[$name] == $password) {
-                echo json_encode(array(
-                    'success' => true
-                ));
                 $_SESSION['admin'] = $name;
 
                 $expire = time() + 30 * 86400; // 30 day
                 setcookie('admin', $name, $expire, '/');
+
+                echo json_encode(array(
+                    'success' => true
+                ));
             } else {
                 echo json_encode(array(
                     'success' => false,
@@ -121,6 +122,7 @@ class admin extends MY_Controller
             ),
             'js' => array(
                 '/js/extjs6/ext-all.js',
+                '/js/admin/common/columnAction.js',
                 '/js/jquery-1.9.1.min.js',
                 '/js/admin/ke_config.js',
                 '/js/kendo.all.min.js',
@@ -267,15 +269,22 @@ class admin extends MY_Controller
             'msg' => 'admin-' . __FUNCTION__,
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+                '/js/extjs6/build/MyApp-all.css',
+                '/styles/kendo.bootstrap.min.css',
+                '/styles/kendo.common-bootstrap.min.css',
+                '/css/admin.css',
+                '/css/gallery.css'
             ),
             'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
+                '/js/extjs6/ext-all.js',
+                '/js/admin/common/columnAction.js',
+                '/js/jquery-1.9.1.min.js',
+                '/js/admin/ke_config.js',
+                '/js/kendo.all.min.js',
+                '/js/moment.js',
+                '/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.js',
+                '/js/admin/gallery_picker_grid.js',
+                '/js/admin/gallery_picker.js',
                 '/js/admin/grid.js',
                 '/js/admin/grid_form.js',
                 '/js/admin/settings.js'
@@ -294,14 +303,13 @@ class admin extends MY_Controller
             'msg' => 'admin-' . __FUNCTION__,
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
+                '/js/extjs6/build/MyApp-all.css',
+                //'/js/extjs4/resources/css/ext-all.css',
                 '/css/admin.css'
             ),
             'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
+                '/js/extjs6/ext-all.js',
+                '/js/admin/common/columnAction.js',
                 '/js/moment.js',
                 '/js/admin/grid.js',
                 '/js/admin/grid_form.js',
@@ -319,15 +327,11 @@ class admin extends MY_Controller
             'msg' => 'admin-' . __FUNCTION__,
             'base_url' => $this->config->config['base_url'],
             'css' => array(
-                '/js/extjs4/resources/css/ext-all.css',
-                '/css/admin/themes/ijobs-v3/css/index.css',
-                '/css/admin/themes/ijobs-v3/css/ijobs.css'
+                '/js/extjs6/build/MyApp-all.css'
             ),
             'js' => array(
-                '/js/extjs4/bootstrap.js',
-                '/js/admin/common/common.js',
-                '/js/admin/common/utils.js',
-                '/js/admin/common/ux/LinkColumn.js',
+                '/js/extjs6/ext-all.js',
+                '/js/admin/common/columnAction.js',
                 '/js/admin/grid.js',
                 '/js/admin/grid_account_form.js',
                 '/js/admin/accounts.js'
@@ -342,7 +346,7 @@ class admin extends MY_Controller
     //根据module，返回相应grid数据
     public function getList()
     {
-        $option = $_POST;
+        $option = (empty($_POST) ? $_GET : $_POST);
         $model = $option['module'] . '_model';
 
         $this->load->model($model);

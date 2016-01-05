@@ -72,6 +72,11 @@ Docs.Menu = [
                 leaf: true
             },
             {
+                href: "/admin/scroll_img",
+                text: "滚动图",
+                leaf: true
+            },
+            {
                 href: "/admin/accounts",
                 text: "管理员帐号",
                 leaf: true
