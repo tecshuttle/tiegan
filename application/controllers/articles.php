@@ -141,14 +141,19 @@ class articles extends MY_Controller
     public function add_rand_pv()
     {
         $query = $this->db->query('select id, name, pv from articles');
-
         $articles = $query->result();
 
         foreach ($articles as $a) {
             $this->articles_model->pv_inc($a->id, rand(10, 100));
         }
 
-        echo 'add rand(10, 100) pv for each articles of (' . count($articles) . ').';
+        $log_file = dirname(dirname(dirname(__FILE__))) . DIRECTORY_SEPARATOR . 'add_rand_pv.log';
+
+        $log = '[' . date('Y-m-d H:i:s') . '] add rand(10, 100) pv for each articles of (' . count($articles) . ").\n";
+
+        file_put_contents($log_file, $log, FILE_APPEND);
+
+        echo $log;
     }
 
     public function cat($cat_id, $page)
