@@ -164,7 +164,7 @@
                     <div class="place place_search_box">
                         <div class="input-control">
                             <form class="place_search_form" target="_blank" action="" method="post">
-                                <input class="txt placesearch_txt" type="text" placeholder="球队名: 曼联" autofocus=""
+                                <input class="txt placesearch_txt" type="text" placeholder="请输入球队名称，比如曼联、皇马等" autofocus=""
                                        autocomplete="off" id="search_home">
                                 <button class="btn" type="submit">搜索</button>
                             </form>
