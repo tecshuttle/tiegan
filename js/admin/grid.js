@@ -6,7 +6,7 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
         var me = this;
         config = Ext.apply({
             border: false,
-            style: 'padding:10px',
+            style: 'padding:10px;background-color: white;',
             layout: 'anchor'
         }, config);
 
@@ -31,6 +31,16 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
         }
 
         if (me.module == 'tag') {
+            me.items.push(
+                Ext.create('Tomtalk.grid.Form', {
+                    id: me.id + '_form',
+                    module: me.module,
+                    hidden: true
+                })
+            );
+        }
+
+        if (me.module == 'scroll_img') {
             me.items.push(
                 Ext.create('Tomtalk.grid.Form', {
                     id: me.id + '_form',
@@ -86,6 +96,16 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
         }
 
         if (me.module == 'tag') {
+            linkcolumn.push({
+                glyph: '编辑',
+                handler: function (grid, rowIndex, colIndex) {
+                    var rec = grid.getStore().getAt(rowIndex);
+                    me._edit(rec);
+                }
+            });
+        }
+
+        if (me.module == 'scroll_img') {
             linkcolumn.push({
                 glyph: '编辑',
                 handler: function (grid, rowIndex, colIndex) {
@@ -213,20 +233,24 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         });
     },
 
-    _add: function() {
+    _add: function () {
         var $c = this.COMPONENTS;
 
         $c.grid.hide();
         $c.form.getForm().reset();
         $c.form.show();
 
-        var KE = this.KE;
+        if (this.module === 'site_settings') {
+            var KE = this.KE;
 
-        if (KE) {
-            KE.data("kendoEditor").value('');
-        } else {
-            this.KE = $("#kendoeditor-inputEl").kendoEditor(ke_config);
+            if (KE) {
+                KE.data("kendoEditor").value('');
+            } else {
+                this.KE = $("#kendoeditor-inputEl").kendoEditor(ke_config);
+            }
         }
+
+
     },
 
     _edit: function (rec) {
@@ -236,12 +260,14 @@ Tomtalk.IdcAction = Ext.extend(Tomtalk.IdcUI, {
         $c.form.getForm().setValues(rec.data);
         $c.form.show();
 
-        var KE = this.KE;
+        if (this.module === 'site_settings') {
+            var KE = this.KE;
 
-        if (KE) {
-            KE.data("kendoEditor").value(rec.data.value);
-        } else {
-            this.KE = $("#kendoeditor-inputEl").kendoEditor(ke_config);
+            if (KE) {
+                KE.data("kendoEditor").value(rec.data.value);
+            } else {
+                this.KE = $("#kendoeditor-inputEl").kendoEditor(ke_config);
+            }
         }
     },
 

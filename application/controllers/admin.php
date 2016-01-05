@@ -304,7 +304,6 @@ class admin extends MY_Controller
             'base_url' => $this->config->config['base_url'],
             'css' => array(
                 '/js/extjs6/build/MyApp-all.css',
-                //'/js/extjs4/resources/css/ext-all.css',
                 '/css/admin.css'
             ),
             'js' => array(
@@ -314,6 +313,30 @@ class admin extends MY_Controller
                 '/js/admin/grid.js',
                 '/js/admin/grid_form.js',
                 '/js/admin/tags.js'
+            )
+        );
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/script', $data);
+    }
+
+    //滚动图设置
+    public function scroll_img()
+    {
+        $data = array(
+            'msg' => 'admin-' . __FUNCTION__,
+            'base_url' => $this->config->config['base_url'],
+            'css' => array(
+                '/js/extjs6/build/MyApp-all.css',
+                '/css/admin.css'
+            ),
+            'js' => array(
+                '/js/extjs6/ext-all.js',
+                '/js/admin/common/columnAction.js',
+                '/js/moment.js',
+                '/js/admin/grid.js',
+                '/js/admin/grid_form.js',
+                '/js/admin/scroll_img.js'
             )
         );
 

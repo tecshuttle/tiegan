@@ -61,6 +61,95 @@ Ext.define('Tomtalk.grid.FormUI', {
                     width: 100
                 }
             ];
+        } else if (me.module === 'scroll_img') {
+            me.items = [
+                {
+                    xtype: 'hiddenfield',
+                    name: 'id',
+                    value: 0
+                },
+                {
+                    xtype: 'fieldcontainer',
+                    layout: 'hbox',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: '名称',
+                            flex: 1,
+                            margin: '0 10 0 0',
+                            name: 'name',
+                            emptyText: '请输入…'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: '所属模块',
+                            flex: 1,
+                            name: 'type_id',
+                            emptyText: '请输入…'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldcontainer',
+                    layout: 'hbox',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: '图片',
+                            flex: 1,
+                            margin: '0 10 0 0',
+                            name: 'img',
+                            emptyText: '请输入…'
+                        },
+                        {
+                            xtype: 'textfield',
+                            fieldLabel: '跳转URL',
+                            flex: 1,
+                            name: 'url',
+                            emptyText: '请输入…'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'fieldcontainer',
+                    layout: 'hbox',
+                    items: [
+                        {
+                            xtype: 'numberfield',
+                            fieldLabel: '显示顺序',
+                            flex: 1,
+                            name: 'order',
+                            margin: '0 10 0 0',
+                            emptyText: '请输入…'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            flex: 1,
+                            value: ''
+                        }
+                    ]
+                },
+                {
+                    xtype: 'textarea',
+                    fieldLabel: '文字说明',
+                    anchor: '100%',
+                    name: 'desc',
+                    emptyText: '请输入…'
+                },
+                {
+                    xtype: 'button',
+                    text: '保存',
+                    id: this.id + '_save',
+                    width: 100
+                },
+                {
+                    xtype: 'button',
+                    text: '返回',
+                    id: this.id + '_return',
+                    style: 'margin-left: 50px;',
+                    width: 100
+                }
+            ];
         } else {
             me.items = [
                 {
