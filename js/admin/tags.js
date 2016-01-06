@@ -19,11 +19,18 @@ Ext.onReady(function () {
         }
     ];
 
-    new Tomtalk.Idc({
-        module: 'tag',
-        fields: fields,
-        columns: columns,
-        renderTo: Ext.getBody()
+
+    new Ext.Viewport({
+        renderTo: Ext.getBody(),
+        layout: 'fit',
+        style: 'background-color: white;',
+        items: [
+            new Tomtalk.Idc({
+                module: 'tag',
+                fields: fields,
+                columns: columns
+            })
+        ]
     });
 });
 

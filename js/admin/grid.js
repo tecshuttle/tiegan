@@ -5,9 +5,8 @@ Tomtalk.IdcUI = Ext.extend(Ext.Panel, {
     constructor: function (config) {
         var me = this;
         config = Ext.apply({
-            border: false,
             style: 'padding:10px;background-color: white;',
-            layout: 'anchor'
+            border: false
         }, config);
 
         me.COMPONENTS = {};

@@ -90,7 +90,7 @@ var store = Ext.create('Ext.data.Store', {
 Ext.define('Color.admin.GridUI', {
     extend: 'Ext.grid.GridPanel',
     id: this.id + '_gridList',
-    title: '产品列表',
+    //title: '产品列表',
     columnLines: true,
     ke: {
         service_list: false,
@@ -109,22 +109,22 @@ Ext.define('Color.admin.GridUI', {
                 header: "ID", dataIndex: 'id', hidden: true
             },
             {
-                header: "显示顺序", dataIndex: 'order'
+                header: "显示顺序", dataIndex: 'order', width: 80
             },
             {
-                header: "产品名称", dataIndex: 'name'
+                header: "产品名称", dataIndex: 'name', width: 350
             },
             {
-                header: "规格数", dataIndex: 'classes'
+                header: "规格数", dataIndex: 'classes', hidden: true
             },
             {
-                header: "总库存数", dataIndex: 'stock',
+                header: "总库存数", dataIndex: 'stock', hidden: true,
                 renderer: function (v) {
                     return (v == null ? 0 : v);
                 }
             },
             {
-                header: "最后编辑时间", dataIndex: 'mtime',
+                header: "最后编辑时间", dataIndex: 'mtime', width: 150,
                 renderer: function (v) {
                     var date = new Date(v * 1000);
                     return moment(date).format('YYYY-MM-DD HH:mm:ss');
@@ -134,7 +134,7 @@ Ext.define('Color.admin.GridUI', {
                 header: "操作",
                 dataIndex: 'id',
                 align: 'center',
-                width: 130,
+                width: 170,
                 xtype: 'actioncolumn',
                 name: 'opertation',
                 items: [

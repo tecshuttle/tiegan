@@ -1,6 +1,6 @@
 var articleStore = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'mtime','ctime', 'keywords', 'picture_gallery'],
+    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'mtime', 'ctime', 'keywords', 'picture_gallery'],
     proxy: {
         type: 'ajax',
         url: '/articles/getList',
@@ -16,21 +16,19 @@ var articleStore = Ext.create('Ext.data.Store', {
 Ext.define('MyApp.view.main.Articlegrid', {
     extend: 'Ext.grid.GridPanel',
     id: 'article_grid',
-    title: '文章列表',
+    //title: '文章列表',
     xtype: 'articlegrid',
     requires: [],
-    border: false,
     COMPONENTS: {},
-    frame: true,
+    frame: false,
     columnLines: true,
     store: articleStore,
     columns: [
         {
-            header: "ID", dataIndex: 'id'
+            header: "ID", dataIndex: 'id', width: 70
         },
         {
-            header: "名称", dataIndex: 'name'
-
+            header: "名称", dataIndex: 'name', width: 400
         },
         {
             header: "首页推荐", dataIndex: 'is_hot',
@@ -48,13 +46,13 @@ Ext.define('MyApp.view.main.Articlegrid', {
             }
         },
         {
-            header: "简介", dataIndex: 'desc'
+            header: "简介", dataIndex: 'desc', hidden: true
         },
         {
-            header: "SEO Keywords", dataIndex: 'keywords'
+            header: "SEO Keywords", dataIndex: 'keywords', hidden: true
         },
         {
-            header: "封面图片", dataIndex: 'cover'
+            header: "封面图片", dataIndex: 'cover', hidden: true
         },
         {
             header: "生成时间", dataIndex: 'ctime',

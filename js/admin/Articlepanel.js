@@ -1,8 +1,8 @@
 Ext.define('MyApp.view.main.Articlepanel', {
     extend: 'Ext.panel.Panel',
     id: 'article_panel',
-
     xtype: 'layout-border-doc',
+    bodyStyle: 'background-color: white;',
     requires: [
     ],
     layout: 'border',
@@ -11,13 +11,13 @@ Ext.define('MyApp.view.main.Articlepanel', {
     },
     items: [
         {
-            title: '文章分类',
+            //title: '文章分类',
             region: 'west',
-            padding: '0 0 0 0',
+            margin: '0 10 0 0',
             width: 250,
             id: 'panel_west',
-            border: false,
-            frame: true,
+            //border: false,
+            frame: false,
             layout: 'fit',
             items: [
                 {
@@ -28,7 +28,7 @@ Ext.define('MyApp.view.main.Articlepanel', {
         {
             region: 'center',
             style: 'background-color: white;',
-            padding: '0 0 0 10',
+            padding: '0 0 0 0',
             scrollable: 'y',
             border: false,
             items: [

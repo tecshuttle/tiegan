@@ -1,5 +1,16 @@
 Ext.ns('Tomtalk.grid');
 
+var scroll_img_store = Ext.create('Ext.data.Store', {
+    fields: ['type_id', 'name'],
+    data: [
+        [0, '首页'],
+        [225, '荣归'],
+        [223, '旅行那些事儿'],
+        [227, '天下足球'],
+        [233, '我是铁杆']
+    ]
+});
+
 Ext.define('Tomtalk.grid.FormUI', {
     extend: 'Ext.form.Panel',
     autoScroll: true,
@@ -81,11 +92,17 @@ Ext.define('Tomtalk.grid.FormUI', {
                             emptyText: '请输入…'
                         },
                         {
-                            xtype: 'textfield',
+                            xtype: 'combobox',
                             fieldLabel: '所属模块',
                             flex: 1,
                             name: 'type_id',
-                            emptyText: '请输入…'
+                            emptyText: '请输入…',
+                            displayField: 'name',
+                            valueField: 'type_id',
+                            store: scroll_img_store,
+                            minChars: 0,
+                            queryMode: 'local',
+                            typeAhead: true
                         }
                     ]
                 },
@@ -94,12 +111,27 @@ Ext.define('Tomtalk.grid.FormUI', {
                     layout: 'hbox',
                     items: [
                         {
-                            xtype: 'textfield',
-                            fieldLabel: '图片',
+                            xtype: 'fieldcontainer',
+                            layout: 'hbox',
                             flex: 1,
                             margin: '0 10 0 0',
-                            name: 'img',
-                            emptyText: '请输入…'
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    fieldLabel: '图片',
+                                    name: 'img',
+                                    flex: 1,
+                                    emptyText: '示例: /uploads/14201863264972.jpg'
+                                },
+                                {
+                                    xtype: 'filefield',
+                                    buttonOnly: true,
+                                    hideLabel: true,
+                                    width: 74,
+                                    name: 'file_img',
+                                    buttonText: '上传文件'
+                                }
+                            ]
                         },
                         {
                             xtype: 'textfield',
@@ -163,7 +195,7 @@ Ext.define('Tomtalk.grid.FormUI', {
                     items: [
                         {
                             xtype: 'textfield',
-                            fieldLabel: '参数名称',
+                            fieldLabel: '名称',
                             flex: 1,
                             name: 'name',
                             margin: '0 10 0 0',
@@ -171,7 +203,7 @@ Ext.define('Tomtalk.grid.FormUI', {
                         },
                         {
                             xtype: 'textfield',
-                            fieldLabel: '参数说明',
+                            fieldLabel: '说明',
                             flex: 1,
                             name: 'desc',
                             emptyText: '请输入…'
@@ -180,10 +212,10 @@ Ext.define('Tomtalk.grid.FormUI', {
                 },
                 {
                     xtype: 'textarea',
-                    fieldLabel: '参数值',
+                    fieldLabel: '内容',
                     anchor: '100%',
                     id: 'kendoeditor',
-                    height: 500,
+                    height: 600,
                     name: 'value',
                     emptyText: '请输入…'
                 },

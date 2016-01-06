@@ -64,6 +64,7 @@ class scroll_img_model extends CI_Model
 
     function getList($option)
     {
+        $this->db->order_by('type_id', 'ASC');
         $this->db->order_by('order', 'ASC');
         $query = $this->db->get($this->table, $option['limit'], $option['start']);
 
