@@ -143,10 +143,11 @@
 <!-- banner -->
 <div id="qyer_banner" class="banner">
     <ul class="bxslider">
-        <li><img src="images/banner_1.jpg" width="100%" alt=""/></li>
-        <li><img src="images/banner_2.jpg" width="100%" alt=""/></li>
-        <li><img src="images/banner_3.jpg" width="100%" alt=""/></li>
+        <?php foreach ($scroll_img as $sc): ?>
+            <li><img src="<?= $sc->img ?>" width="100%" alt=""/></li>
+        <?php endforeach; ?>
     </ul>
+
     <!-- <div id="bannerbg" class="blur">
         <img src="">
     </div> -->
@@ -164,7 +165,8 @@
                     <div class="place place_search_box">
                         <div class="input-control">
                             <form class="place_search_form" target="_blank" action="" method="post">
-                                <input class="txt placesearch_txt" type="text" placeholder="请输入球队名称，比如曼联、皇马等" autofocus=""
+                                <input class="txt placesearch_txt" type="text" placeholder="请输入球队名称，比如曼联、皇马等"
+                                       autofocus=""
                                        autocomplete="off" id="search_home">
                                 <button class="btn" type="submit">搜索</button>
                             </form>
@@ -269,7 +271,8 @@
                                                 <img class="lazy" src="<?= $a->cover ?>" width="275" height="185">
                                             </a>
 
-                                            <div class="like"><i class="iconfont icon-xiangqu1" style="display: none;"></i> <?= $a->pv ?></div>
+                                            <div class="like"><i class="iconfont icon-xiangqu1"
+                                                                 style="display: none;"></i> <?= $a->pv ?></div>
                                         </div>
                                         <div class="inner">
                                             <div class="info">
@@ -420,7 +423,9 @@
 
 <!-- call 咨询框 start -->
 <div class="call" style="position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
-    <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png" width="156" height="80" alt=""/></a>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png"
+                                                                                             width="156" height="80"
+                                                                                             alt=""/></a>
 
     <div class="btn-close"
          style="position:absolute; top:2px; right:2px; z-index:10000; width:11px; height:11px; background:url(images/close.gif) no-repeat; cursor:pointer;"></div>

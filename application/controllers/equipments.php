@@ -92,12 +92,20 @@ class equipments extends MY_Controller
 
         $match->seat_desc = '<p>' . preg_replace('/\n/', '<p>', $match->seat_desc);
 
+        //取销售条件
+        $this->load->model('site_settings_model');
+        $terms = $this->site_settings_model->getValues(array(
+            'SALE_TERM_PAYMENT', 'SALE_TERM_BOOKING', 'SALE_TERM_CANCEL',
+            'SALE_TERM_BUY', 'SALE_TERM_DELIVERY'
+        ));
+
         $data = array(
             'title' => '比赛',
             'css' => array(),
             'js' => array(),
             'menu' => 'product',
-            'match' => $match
+            'match' => $match,
+            'terms' => $terms
         );
 
         if (ENVIRONMENT === 'production') {

@@ -494,58 +494,38 @@
                                 <?= $match->trip_recommend ?>
                             </div>
                         </div>
+
                         <div class="nr_list" tabrel="zffs" id="zffs">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>支付方式</div>
                             <div class="list_con">
-                                <p>目前只接受银行、支付宝转账的方式。</p>
+                                <?=$terms['SALE_TERM_PAYMENT']?>
                             </div>
                         </div>
+
                         <div class="nr_list" tabrel="yytk" id="yytk">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>预约条款</div>
                             <div class="list_con">
-                                <p>提前32天预订按照正常价格，同时享受赠送服务。</p>
-
-                                <p>提前15-31天预订加收25%</p>
-
-                                <p>提前7-15天预订加收50%</p>
-
-                                <p>比赛开始前一周之内不接受预订</p>
+                                <?=$terms['SALE_TERM_BOOKING']?>
                             </div>
                         </div>
+
                         <div class="nr_list" tabrel="qxtk" id="qxtk">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>取消条款</div>
                             <div class="list_con">
-                                <p>比赛日前32天取消，收取10%手续费，赠送物品不再退回</p>
-
-                                <p>比赛日前31日至15日取消，收取50%手续费</p>
-
-                                <p>比赛日前14日至当日取消，收取100%手续费</p>
+                                <?=$terms['SALE_TERM_CANCEL']?>
                             </div>
                         </div>
+
                         <div class="nr_list" tabrel="ydxz" id="ydxz">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>预订须知</div>
                             <div class="list_con">
-                                <p>1、比赛日期及时间以联赛官方公布时间为准，一般比赛前3-6周公布具体赛程时间；</p>
-
-                                <p>2、如遇不可抗力，如天气、赛事调整、自然灾害等导致赛程变更，已购买产品球迷希望退团，根据取消条款退还相关费用；</p>
-
-                                <p>3、球票预订无法提供准确看台号及座位号，仅提供座位区域；</p>
-
-                                <p>4、球票保证两两相连，三人及三人以上出行，我们尽力安排连坐，但不能保证；</p>
-
-                                <p>5、球场检票入场时可能需提供您的护照信息，请随身携带并妥善保管；</p>
-
-                                <p>6、球票可能为纸质票（包括电子票）或会员卡。如收到球票为会员卡，观看比赛后请将会员卡归还至酒店前台；如收到球票为纸质票，则无需归还；</p>
+                                <?=$terms['SALE_TERM_BUY']?>
                             </div>
                         </div>
                         <div class="nr_list" tabrel="spfs" id="spfs">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>送票方式</div>
                             <div class="list_con">
-                                <p>送票方式可能为两种：酒店前台或电子票；</p>
-
-                                <p>1、如为电子票，会在出发前14日通过邮件形式发送至邮箱；</p>
-
-                                <p>2、如为酒店前台取票，球票将在比赛前1日送至客户入住的酒店，客户持护照领取。</p>
+                                <?=$terms['SALE_TERM_DELIVERY']?>
                             </div>
                         </div>
                     </div>

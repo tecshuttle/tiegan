@@ -94,11 +94,16 @@
             <!--轮播-->
             <div class="mcl_lb">
                 <ul class="bxslider">
-                    <!-- <li><img src="images/20151110170034.jpg" width="810" height="390" alt=""/></li> -->
-                    <li><img src="images/20151110163919.jpg" width="810" height="390" alt=""/></li>
-                    <li><img src="images/20151110164142.jpg" width="810" height="390" alt=""/></li>
-                    <!-- <li><img src="images/20150914170950.jpg" width="810" height="390" alt=""/></li> -->
+                    <?php if (count($scroll_img) == 0): ?>
+                        <li><img src="images/20151110163919.jpg" width="810" height="390" alt=""/></li>
+                        <li><img src="images/20151110164142.jpg" width="810" height="390" alt=""/></li>
+                    <?php endif; ?>
+
+                    <?php foreach ($scroll_img as $sc): ?>
+                        <li><img src="<?= $sc->img ?>" width="810" height="390" alt=""/></li>
+                    <?php endforeach; ?>
                 </ul>
+
                 <div id="bx-pager">
                     <ul>
                         <li><a data-slide-index="0" href="">1</a></li>
@@ -117,7 +122,8 @@
                             <a href="/pages/<?= $article->id ?>" target="_blank"><?= $article->name ?></a>
                         </div>
                         <div class="mclb_dtwo">
-                            <img src="<?= $article->cover ?>" style="width:275px;height: 185px;float: left;margin-right:20px;"/>
+                            <img src="<?= $article->cover ?>"
+                                 style="width:275px;height: 185px;float: left;margin-right:20px;"/>
                             <?= $article->digest ?>
                             <a href="/pages/<?= $article->id ?>" target="_blank">[ 查看详细 ]</a>
                         </div>

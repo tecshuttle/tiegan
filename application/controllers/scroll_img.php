@@ -11,7 +11,7 @@ class scroll_img extends CI_Controller
     public function save()
     {
         $img = $this->upload_file('file_img');
-        $_POST['img'] = ($img == '' ? '' : '/uploads/' . $img);
+        $_POST['img'] = ($img == '' ? $_POST['img'] : '/uploads/' . $img);
 
         $_POST['mtime'] = time();
 

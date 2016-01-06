@@ -158,6 +158,14 @@ class articles extends MY_Controller
 
     public function cat($cat_id, $page)
     {
+        //取滚动图
+        $this->load->model('scroll_img_model');
+        $scroll_img = $this->scroll_img_model->get(array(
+            'sortBy' => 'order',
+            'sortDirection' => 'ASC',
+            'type_id' => $cat_id
+        ));
+
         //取文章内容
         $per_page = 10;
 
@@ -174,9 +182,7 @@ class articles extends MY_Controller
                 $parse_down = new Parsedown();
                 $a->content = $parse_down->text($a->content);
             }
-
             //$a->digest = mb_substr(strip_tags($a->content), 0, 370);
-
             $a->digest = '<p>' . preg_replace('/\n/', '<p>', $a->desc);
         }
 
@@ -203,6 +209,7 @@ class articles extends MY_Controller
             'js' => array(),
             'menu' => $this->menu[$cat_id],
             'cat' => $cat,
+            'scroll_img' => $scroll_img['data'],
             'articles' => $articles['data'],
             'products' => $products['data'],
             'hot_articles' => $hot_articles['data'],

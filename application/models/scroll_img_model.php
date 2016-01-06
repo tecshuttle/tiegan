@@ -16,7 +16,7 @@ class scroll_img_model extends CI_Model
         $options = array_merge(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
-        $qualificationArray = array('id', 'rec_id', 'module');
+        $qualificationArray = array('id', 'type_id');
 
         foreach ($qualificationArray as $qualifier) {
             if (isset($options[$qualifier]))

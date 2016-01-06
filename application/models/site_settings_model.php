@@ -28,6 +28,21 @@ class site_settings_model extends CI_Model
         return $data[0];
     }
 
+    function getValues($names)
+    {
+        $this->db->where_in('name', $names);
+        $query = $this->db->get($this->table);
+        $rows = $query->result();
+
+        $values = array();
+
+        foreach ($rows as $row) {
+            $values[$row->name] = $row->value;
+        }
+
+        return $values;
+    }
+
     function insert($data)
     {
         $this->db->insert($this->table, $data);

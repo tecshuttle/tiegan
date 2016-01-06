@@ -28,7 +28,6 @@ class Welcome extends MY_Controller
         //取铁杆文章分类
         $nav_menu = $this->types_model->get_nav_menu(234);
 
-
         //铁杆文章每分类取8篇
         foreach ($nav_menu as &$menu) {
             $articles = $this->articles_model->select(array(
@@ -39,6 +38,14 @@ class Welcome extends MY_Controller
 
             $menu->articles = $articles['data'];
         }
+
+        //取滚动图
+        $this->load->model('scroll_img_model');
+        $scroll_img = $this->scroll_img_model->get(array(
+            'sortBy' => 'order',
+            'sortDirection' => 'ASC',
+            'type_id' => 0
+        ));
 
         //取产品
         $products = $this->equipments_model->select(array(
@@ -62,6 +69,7 @@ class Welcome extends MY_Controller
             'js' => array(),
             'menu' => 'home',
             'nav_menu' => $nav_menu,
+            'scroll_img' => $scroll_img['data'],
             'products' => $products['data'],
             'go_home' => $go_home['data'],
             'doc' => $doc
