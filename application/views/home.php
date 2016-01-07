@@ -220,8 +220,15 @@
                                         </div>
 
                                         <div class="tag">
-                                            <span><i class="iconfont icon-chengshi"></i></span>
-                                            <span class="bt">球队</span>
+                                            <span>
+                                                <?php if (empty($article->logo)) : ?>
+                                                    <i class="iconfont icon-chengshi"></i>
+                                                <?php else: ?>
+                                                    <img src="<?= $article->logo ?>"/>
+                                                <?php endif; ?>
+                                            </span>
+
+                                            <span class="bt"><?= (empty($article->team) ? '球队' : $article->team) ?></span>
                                         </div>
                                     </a>
                                 </div>

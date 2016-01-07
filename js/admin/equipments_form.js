@@ -67,6 +67,43 @@ Ext.define('Color.admin.EditFormUI', {
                         layout: 'hbox',
                         items: [
                             {
+                                xtype: 'textfield',
+                                fieldLabel: '球队名称',
+                                allowBlank: false,
+                                flex: 1,
+                                margin: '0 10 0 0',
+                                name: 'team',
+                                emptyText: '请输入…'
+                            },
+                            {
+                                xtype: 'fieldcontainer',
+                                layout: 'hbox',
+                                flex: 1,
+                                items: [
+                                    {
+                                        xtype: 'textfield',
+                                        fieldLabel: '球队logo',
+                                        name: 'logo',
+                                        flex: 1,
+                                        emptyText: '示例: /uploads/14201863264972.jpg'
+                                    },
+                                    {
+                                        xtype: 'filefield',
+                                        buttonOnly: true,
+                                        hideLabel: true,
+                                        width: 100,
+                                        name: 'file_logo',
+                                        buttonText: '上传文件'
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'fieldcontainer',
+                        layout: 'hbox',
+                        items: [
+                            {
                                 xtype: 'fieldcontainer',
                                 layout: 'hbox',
                                 flex: 1,

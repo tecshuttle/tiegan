@@ -127,6 +127,9 @@ class equipments extends MY_Controller
             $_POST['tag_id'] = '';
         }
 
+        $logo = $this->upload_product_cover('file_logo');
+        $_POST['logo'] = ($logo == '' ? $_POST['logo'] : '/uploads/' . $logo);
+
         $cover = $this->upload_product_cover('file_cover');
         $_POST['cover'] = ($cover == '' ? '' : '/uploads/' . $cover);
 
@@ -255,6 +258,8 @@ class equipments extends MY_Controller
             }
 
             unlink($file_path);
+        } else {
+            rename($file_path, $new_file_path);
         }
 
         return $new_file_name;

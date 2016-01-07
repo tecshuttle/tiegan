@@ -123,6 +123,8 @@ class articles extends MY_Controller
             new resizeImage($src_img, "484", "272", "0", $dst_img);
 
             unlink($file_path);
+        } else {
+            rename($file_path, $new_file_path);
         }
 
         return $new_file_name;
