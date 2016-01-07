@@ -113,10 +113,11 @@
 <!-- header -->
 <div class="header">
     <div class="header-inner">
-        <a href="#"><img src="images/logo.png" alt="" class="logo" width="488" height="100"></a>
+        <a href="#"><img src="images/logo_2.png" alt="" class="logo" width="226" height="60"></a>
 
         <div class="nav">
             <ul class="nav-ul">
+                <li class="nav-list"><a class="nav-span" href="#" title="首页">首页</a></li>
                 <li class="nav-list"><a class="nav-span" href="/equipments" title="朝圣">朝圣</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/225" title="荣归">荣归</a></li>
                 <li class="nav-list"><a class="nav-span" href="/cat/223" title="旅行那些事儿">旅行那些事儿</a></li>
@@ -124,7 +125,8 @@
                 <li class="nav-list"><a class="nav-span" href="/cat/233" title="我是铁杆">我是铁杆</a></li>
             </ul>
         </div>
-        <div class="fun">
+		<div class="service-phone"><i class="ico-phone"></i>400-188-6468</div>
+        <!-- <div class="fun">
             <div id="userStatus" class="status" style="display: none;">
                 <div class="login">
                     <a href="#">注册</a> |
@@ -137,7 +139,7 @@
             <div class="qrcode" style="display: none;">
                 <img src="images/qrcode_qyer.png" width="80" height="80" alt=""/>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <!-- banner -->
@@ -153,19 +155,20 @@
     </div> -->
     <div id="search" class="search active-place">
         <div class="tab">
-            <a class="tab-place" href="javascript:;">球队</a>
+            <h3>朝圣,梦想!</h3>
+            <!-- <a class="tab-place" href="javascript:;">球队</a>
             <a class="tab-plan" href="javascript:;">联赛</a>
-            <a class="tab-z" href="javascript:;">时间</a>
+            <a class="tab-z" href="javascript:;">时间</a> -->
         </div>
         <div class="panel">
-            <em class="arrow"></em>
+            <!-- <em class="arrow"></em> -->
 
             <div class="panel-inner">
                 <div class="panel-cont">
                     <div class="place place_search_box">
                         <div class="input-control">
                             <form class="place_search_form" target="_blank" action="" method="post">
-                                <input class="txt placesearch_txt" type="text" placeholder="请输入球队名称，比如曼联、皇马等"
+                                <input class="txt placesearch_txt" type="text" placeholder="搜索球队、联赛、时间"
                                        autofocus=""
                                        autocomplete="off" id="search_home">
                                 <button class="btn" type="submit">搜索</button>
@@ -353,7 +356,7 @@
     <div class="footer-line"></div>
     <div class="footer-wrap">
         <div class="footer-inner">
-            <div class="footer-partner">
+            <!-- <div class="footer-partner">
                 <img src="images/partner.png" width="500" height="130">
                 <a class="link-ali" href="#" target="_blank" rel="nofollow" title="阿里旅行·去啊">
                     <span>阿里旅行·去啊</span>
@@ -370,37 +373,59 @@
                 <a class="link-aig" href="#" target="_blank" rel="nofollow" title="境外旅游保险">
                     <span>境外旅游保险</span>
                 </a>
-            </div>
+            </div> -->
             <ul class="footer-about">
                 <li>
                     <dl>
-                        <dt>关于我们</dt>
-                        <dd>
-                            <a href="/doc/about" target="_blank" rel="nofollow">了解我们</a>
+                        <dt><a href="#">了解我们</a></dt>
+                        <!-- <dd>
+                        	<a href="about.html" target="_blank" rel="nofollow">了解我们</a>
                         </dd>
                         <dd>
-                            <a href="/doc/contact" target="_blank" rel="nofollow">联系我们</a>
-                        </dd>
+                        	<a href="contact.html" target="_blank" rel="nofollow">联系我们</a>
+                        </dd> -->
                     </dl>
                 </li>
                 <li>
                     <dl>
-                        <dt>帮助中心</dt>
-                        <dd>
-                            <a href="/doc/questions" target="_blank" rel="nofollow">常见问题</a>
-                        </dd>
+                        <dt><a href="#">常见问题</a></dt>
+                        <!-- <dd>
+                        	<a href="questions.html" target="_blank" rel="nofollow">常见问题</a>
+                        </dd> -->
                     </dl>
                 </li>
                 <li>
                     <dl>
-                        <dt>达人招募</dt>
-                        <dd>
-                            <a href="/doc/recruitment" target="_blank" rel="nofollow">招聘啦</a>
-                        </dd>
+                        <dt><a href="#">达人招募</a></dt>
+                        <!-- <dd>
+                            <a href="recruitment.html" target="_blank" rel="nofollow">招聘啦</a>
+                        </dd> -->
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt><a href="#">联系我们</a></dt>
+                        <!-- <dd>
+                            <a href="recruitment.html" target="_blank" rel="nofollow">招聘啦</a>
+                        </dd> -->
                     </dl>
                 </li>
             </ul>
         </div>
+		
+			<div class="ft-partner">
+				<div class="ft-partner-inner clearfix">
+					<em>我们的合作伙伴：</em>
+					<ul>
+						<li><a href="#"><img src="images/partner_sina.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/partner_zhibo8.png" alt="" /></a></li>
+						<li class="part-pingan"><a href="#"><img src="images/partner_pingan.png" alt="" /></a></li>
+						<li class="part-booking"><a href="#"><img src="images/partner_booking.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/partner_unionpay.png" alt="" /></a></li>
+						<li><a href="#"><img src="images/partner_airasia.png" alt="" /></a></li>
+					</ul>
+				</div>
+			</div>
     </div>
     <div class="footer-wrap-black">
         <div class="footer-inner2">
@@ -422,14 +447,23 @@
 </div>
 
 <!-- call 咨询框 start -->
-<div class="call" style="position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
+<!-- <div class="call" style="position:fixed; top:50%; right:10px; z-index:9999; margin-top:-40px;">
     <a target="_blank" href="http://wpa.qq.com/msgrd?v=1&uin=11877803&site=qq&menu=yes"><img src="images/call.png"
                                                                                              width="156" height="80"
                                                                                              alt=""/></a>
 
     <div class="btn-close"
          style="position:absolute; top:2px; right:2px; z-index:10000; width:11px; height:11px; background:url(images/close.gif) no-repeat; cursor:pointer;"></div>
-</div>
+</div> -->
 <!-- call 咨询框 end -->
+
+<div class="window">
+	<ul>
+		<li><a href="#" class="win-item-call"></a></li>
+		<li><a href="#" class="win-item-weixin"></a></li>
+		<li><a href="#" class="win-item-weibo"></a></li>
+		<li><a href="#" class="win-item-users"></a></li>
+	</ul>
+</div>
 </body>
 </html>

@@ -278,3 +278,43 @@ a:hover img { opacity: 1; }
 
 /*====================== 修改@2016-1-4 style =======================*/
 .mc_content strong { font-weight: normal; }
+
+
+/*====================== 修改@2016-1-6 style =======================*/
+.header { height: 72px; background: rgba(0,0,0,.4); }
+.header .header-inner { width: 1200px; height: 72px; margin: 0 auto; }
+.header .logo { margin-top: 6px; margin-left: 0; width: 226px; height: 60px; }
+.header .nav { position: relative; top: inherit; left: inherit; margin-left: 100px; }
+.header .nav ul.nav-ul li.nav-list { margin-left: 20px; }
+.header .nav ul.nav-ul li.nav-list .nav-span { font-weight: normal; font-size: 16px; }
+.service-phone { float: right; line-height: 72px; font-size: 24px; color: #fff; font-family: "Microsoft Yahei"; }
+.service-phone .ico-phone { display: inline-block; vertical-align: middle; margin-right: 6px; width: 31px; height: 31px; background: url(../images/icon_phone.png) no-repeat; }
+.tab h3 { margin: 0 auto; width: 488px; height: 72px; background: url(../images/bg_tit.png) no-repeat; text-indent: -999em; }
+
+.interest ul { margin-left: -25px; }
+.interest ul li { margin-left: 25px; width: 370px; }
+.interest ul li .item .img { width: 370px; height: 220px; }
+.section .title { height: 32px; line-height: 32px; font-size: 24px; }
+.section .title span { font-size: 12px; }
+.h-view-more { top: 0; margin-top: 6px; font-size: 12px; }
+
+.ft-partner { background: #0f3982; }
+.ft-partner-inner { width: 1260px; margin: 0 auto; padding: 10px 0; }
+.ft-partner-inner em { float: left; display: block; margin-top: 30px; font-size: 15px; color: #fff; }
+.ft-partner-inner ul { float: left; }
+.ft-partner-inner li { float: left; margin-left: 20px; }
+.part-pingan { margin-top: 10px; }
+.part-booking { margin-top: 16px; }
+.footer .footer-inner-black, .footer .footer-wrap-black { background: #c9cacb; }
+.footer .footer-copyright,
+.footer .footer-inner2 a { color: #595755; }
+.footer .footer-inner2 { height: 60px; }
+.footer .footer-inner { padding: 20px 0; }
+
+.window { position: fixed; top: 50%; right: 0; z-index: 999; margin-top: -106px; }
+.window li { margin-top: 1px; width: 52px; height: 52px; }
+.window li a { display: block; width: 52px; height: 52px; background-repeat: no-repeat; background-position: center center; }
+.win-item-call { background-image: url(../images/icon_football.png) }
+.win-item-weixin { background-image: url(../images/icon_weixin.png) }
+.win-item-weibo { background-image: url(../images/icon_weibo.png) }
+.win-item-users { background-image: url(../images/icon_users.png) }
