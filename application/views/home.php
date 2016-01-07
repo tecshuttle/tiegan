@@ -431,7 +431,7 @@
         <div class="footer-inner2">
             <div class="footer-copyright">
                 <a href="#" rel="nofollow">
-                    <img src="images/logo.png" width="auto" height="72">
+                    <img src="images/logo_1.png" width="232" height="60">
                 </a>
 
                 <p>2015 © 铁杆体育™ tgsports.cn All rights reserved.&nbsp;&nbsp;
