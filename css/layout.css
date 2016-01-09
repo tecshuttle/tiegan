@@ -333,5 +333,5 @@ a:hover img { opacity: 1; }
 .bxslider li h3 { position: absolute; bottom: 0; left: 0; width: 100%; height: 42px; line-height: 42px; text-align: left; background: rgba(0,0,0,.65); text-indent: 2em; font-size: 16px; color: #fff; }
 .hottravels .item .travel .inner { height: inherit; padding: 10px 15px; }
 .hottravels .slider .slider-inner { height: 530px; }
-.hottravels .item { height: 548px; }
+.hottravels .item { height: 530px; }
 .hottravels .item ul li { height: 253px; }
