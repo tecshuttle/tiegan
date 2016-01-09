@@ -157,7 +157,7 @@
 <div id="qyer_banner" class="banner">
     <ul class="bxslider">
         <?php foreach ($scroll_img as $sc): ?>
-            <li><img src="<?= $sc->img ?>" width="100%" alt=""/></li>
+            <li><a href="#"><img src="<?= $sc->img ?>" width="100%" alt=""/></a></li>
         <?php endforeach; ?>
     </ul>
 
