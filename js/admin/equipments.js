@@ -146,6 +146,13 @@ Ext.define('Color.admin.GridUI', {
                         }
                     },
                     {
+                        glyph: '图库',
+                        handler: function (grid, rowIndex, colIndex) {
+                            var record = grid.getStore().getAt(rowIndex);
+                            me._gallery(record);
+                        }
+                    },
+                    {
                         glyph: '规格',
                         handler: function (grid, rowIndex, colIndex) {
                             var record = grid.getStore().getAt(rowIndex);
@@ -314,6 +321,18 @@ Ext.define('Color.admin.GridAction', {
     _editSize: function (record) {
         var me = this;
         me._showSizeGrid(record.id);
+    },
+
+    _gallery: function (record) {
+        var win = new Tomtalk.equipments.Gallery({
+            title: '产品图库',
+            width: 955,
+            height: 600,
+            product_id: record.id,
+            modal: true
+        });
+
+        win.show();
     },
 
     _showSizeForm: function () {
