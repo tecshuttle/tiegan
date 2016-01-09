@@ -123,7 +123,7 @@
                     <?php endif; ?>
 
                     <?php foreach ($scroll_img as $sc): ?>
-                        <li><img src="<?= $sc->img ?>" width="810" height="390" alt=""/></li>
+                        <li><a href="#"><img src="<?= $sc->img ?>" width="810" height="390" alt=""/><h3>标题</h3></a></li>
                     <?php endforeach; ?>
                 </ul>
 
