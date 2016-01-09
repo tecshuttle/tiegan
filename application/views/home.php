@@ -379,26 +379,6 @@
     </div>
     <div class="footer-line"></div>
     <div class="footer-wrap">
-        <div class="footer-inner">
-            <!-- <div class="footer-partner">
-                <img src="images/partner.png" width="500" height="130">
-                <a class="link-ali" href="#" target="_blank" rel="nofollow" title="阿里旅行·去啊">
-                    <span>阿里旅行·去啊</span>
-                </a>
-                <a class="link-air" href="#" target="_blank" rel="nofollow" title="亚航">
-                    <span>亚航</span>
-                </a>
-                <a class="link-booking" href="#" target="_blank" rel="nofollow" title="Booking">
-                    <span>Booking</span>
-                </a>
-                <a class="link-up" href="#" target="_blank" rel="nofollow" title="境外使用银联卡">
-                    <span>境外使用银联卡</span>
-                </a>
-                <a class="link-aig" href="#" target="_blank" rel="nofollow" title="境外旅游保险">
-                    <span>境外旅游保险</span>
-                </a>
-            </div> -->
-        </div>
 		
 			<div class="ft-partner">
 				<div class="ft-partner-inner clearfix">
