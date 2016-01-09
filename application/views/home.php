@@ -296,7 +296,7 @@
                                                                  style="display: none;"></i> <?= $a->pv ?></div>
                                         </div>
                                         <div class="inner">
-                                            <div class="info">
+                                            <!-- <div class="info">
                                             <span class="avatar" style="visibility: hidden;">
                                                 <a href="/pages/<?= $a->id ?>" target="_blank">
                                                     <img class="lazy" src="images/17_avatar_big.jpg">
@@ -308,7 +308,7 @@
 													<i class="icon member"></i>
 												</span>
                                             </span>
-                                            </div>
+                                            </div> -->
                                             <a href="/pages/<?= $a->id ?>" target="_blank">
                                                 <div class="caption" style="padding-top: 0px;">
                                                     <?= $a->name ?>
