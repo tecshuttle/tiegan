@@ -32,7 +32,7 @@
             slider.bxSlider({
                 auto: true,
                 controls: false,
-				speed: 6000,
+				pause: 6000,
                 mode: 'fade',
                 pager: true,
                 onSlideAfter: function () {

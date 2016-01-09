@@ -25,6 +25,7 @@
             slider.bxSlider({
                 auto: true,
                 controls: false,
+				pause: 6000,
                 pager: true,
                 pagerCustom: '#bx-pager',
                 onSlideAfter: function () {
@@ -95,8 +96,30 @@
             <div class="mcl_lb">
                 <ul class="bxslider">
                     <?php if (count($scroll_img) == 0): ?>
-                        <li><img src="images/20151110163919.jpg" width="810" height="390" alt=""/></li>
-                        <li><img src="images/20151110164142.jpg" width="810" height="390" alt=""/></li>
+                        <li>
+							<a href="#">
+								<img src="images/20151110163919.jpg" width="810" height="390" alt=""/>								
+								<h3>标题一</h3>
+							</a>
+						</li>
+                        <li>
+							<a href="#">
+								<img src="images/20151110164142.jpg" width="810" height="390" alt=""/>								
+								<h3>标题二</h3>
+							</a>
+						</li>
+                        <li>
+							<a href="#">
+								<img src="images/20151110163919.jpg" width="810" height="390" alt=""/>								
+								<h3>标题三</h3>
+							</a>
+						</li>
+                        <li>
+							<a href="#">
+								<img src="images/20151110164142.jpg" width="810" height="390" alt=""/>								
+								<h3>标题四</h3>
+							</a>
+						</li>
                     <?php endif; ?>
 
                     <?php foreach ($scroll_img as $sc): ?>
@@ -106,8 +129,10 @@
 
                 <div id="bx-pager">
                     <ul>
-                        <li><a data-slide-index="0" href="">1</a></li>
-                        <li><a data-slide-index="1" href="">2</a></li>
+					  <li><a data-slide-index="0" href=""></a></li>
+					  <li><a data-slide-index="1" href=""></a></li>
+					  <li><a data-slide-index="2" href=""></a></li>
+					  <li><a data-slide-index="3" href=""></a></li>
                     </ul>
                 </div>
             </div>

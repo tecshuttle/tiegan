@@ -8,7 +8,7 @@
                     铁杆体育——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界。
                 </p>
             </div>
-            <dl class="zw-footer-concerns">
+            <!-- <dl class="zw-footer-concerns">
                 <dt>关注我们</dt>
                 <dd class="wechat">
                     <p class="icons"><span class="fa fa-weixin"></span></p>
@@ -29,7 +29,7 @@
                         </div>
                     </div>
                 </dd>
-            </dl>
+            </dl> -->
         </div>
         <div class="zw-footer-line2">
             <div class="zw-footer-listlinks">
