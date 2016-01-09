@@ -159,8 +159,8 @@ class admin extends MY_Controller
             ),
             'js' => array(
                 '/js/extjs6/ext-all.js',
-                '/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.js',
-                '/js/MyApp/ext/packages/ux/classic/src/DataView/LabelEditor.js',
+                '/js/extjs6/ux/classic/src/DataView/DragSelector.js',
+                '/js/extjs6/ux/classic/src/DataView/LabelEditor.js',
                 //'/js/extjs6/ux.js',
                 //'/js/extjs4/bootstrap.js',
                 //'/js/admin/common/common.js',
