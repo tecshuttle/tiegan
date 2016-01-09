@@ -32,12 +32,23 @@
             slider.bxSlider({
                 auto: true,
                 controls: false,
+				speed: 6000,
                 mode: 'fade',
                 pager: true,
                 onSlideAfter: function () {
                     slider.startAuto();
                 }
             });
+
+			var aLink = $('.window dt');
+			aLink.each(function () {
+				var _this = $(this);
+				_this.hover(function () {
+					_this.next().show();
+				}, function () {
+					_this.next().hide();
+				});
+			});
 
             $("#search_home").kendoAutoComplete({
                 dataTextField: "name",
@@ -360,6 +371,12 @@
 </div>
 <!-- footer -->
 <div class="footer">
+    <div class="footer-about">
+        <a href="#">了解我们</a> |
+        <a href="#">常见问题</a> |
+        <a href="#">达人招募</a> |
+        <a href="#">联系我们</a>
+    </div>
     <div class="footer-line"></div>
     <div class="footer-wrap">
         <div class="footer-inner">
@@ -381,55 +398,18 @@
                     <span>境外旅游保险</span>
                 </a>
             </div> -->
-            <ul class="footer-about">
-                <li>
-                    <dl>
-                        <dt><a href="#">了解我们</a></dt>
-                        <!-- <dd>
-                        	<a href="about.html" target="_blank" rel="nofollow">了解我们</a>
-                        </dd>
-                        <dd>
-                        	<a href="contact.html" target="_blank" rel="nofollow">联系我们</a>
-                        </dd> -->
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt><a href="#">常见问题</a></dt>
-                        <!-- <dd>
-                        	<a href="questions.html" target="_blank" rel="nofollow">常见问题</a>
-                        </dd> -->
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt><a href="#">达人招募</a></dt>
-                        <!-- <dd>
-                            <a href="recruitment.html" target="_blank" rel="nofollow">招聘啦</a>
-                        </dd> -->
-                    </dl>
-                </li>
-                <li>
-                    <dl>
-                        <dt><a href="#">联系我们</a></dt>
-                        <!-- <dd>
-                            <a href="recruitment.html" target="_blank" rel="nofollow">招聘啦</a>
-                        </dd> -->
-                    </dl>
-                </li>
-            </ul>
         </div>
 		
 			<div class="ft-partner">
 				<div class="ft-partner-inner clearfix">
 					<em>我们的合作伙伴：</em>
 					<ul>
-						<li><a href="#"><img src="images/partner_sina.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/partner_zhibo8.png" alt="" /></a></li>
-						<li class="part-pingan"><a href="#"><img src="images/partner_pingan.png" alt="" /></a></li>
-						<li class="part-booking"><a href="#"><img src="images/partner_booking.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/partner_unionpay.png" alt="" /></a></li>
-						<li><a href="#"><img src="images/partner_airasia.png" alt="" /></a></li>
+						<li><a target="_blank" href="sports.sina.com.cn"><img src="images/partner_sina.png" width="200" alt="" /></a></li>
+						<li class="part-zhibo8"><a target="_blank" href="zhibo8.cc"><img src="images/partner_zhibo8.png" width="160" alt="" /></a></li>
+						<li class="part-pingan"><a target="_blank" href="www.pingan.com"><img src="images/partner_pingan.png" width="90" alt="" /></a></li>
+						<li class="part-booking"><a target="_blank" href="www.booking.com"><img src="images/partner_booking.png" width="180" alt="" /></a></li>
+						<li><a target="_blank" href="cn.unionpay.com"><img src="images/partner_unionpay.png" width="92" alt="" /></a></li>
+						<li><a target="_blank" href="www.airasia.com"><img src="images/partner_airasia.png" width="120" alt="" /></a></li>
 					</ul>
 				</div>
 			</div>
@@ -465,12 +445,30 @@
 <!-- call 咨询框 end -->
 
 <div class="window">
-	<ul>
-		<li><a href="#" class="win-item-call"></a></li>
-		<li><a href="#" class="win-item-weixin"></a></li>
-		<li><a href="#" class="win-item-weibo"></a></li>
-		<li><a href="#" class="win-item-users"></a></li>
-	</ul>
+    <dl>
+        <dt>
+            <a href="tencent://message/?uin=2371483950&Site=test315.nesky.cn&Menu=yes" class="win-item-call"></a>
+        </dt>
+        <dd>点击咨询</dd>
+    </dl>
+    <dl>
+        <dt>
+            <a href="javascript:;" class="win-item-weixin"></a>
+        </dt>
+        <dd>微信公众号</dd>
+    </dl>
+    <dl>
+        <dt>
+            <a href="javascript:;" class="win-item-weibo"></a>
+        </dt>
+        <dd>@铁杆体育</dd>
+    </dl>
+    <dl>
+        <dt>
+            <a href="javascript:;" class="win-item-users"></a>
+        </dt>
+        <dd></dd>
+    </dl>
 </div>
 </body>
 </html>

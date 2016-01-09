@@ -185,7 +185,6 @@ body { background: #f5f5f5; }
 .view-more:hover, .items-list li a:hover{color:#e50314;}
 
 .header-inner .fun .h-service-phone{margin-top:14px;}
-.footer .footer-about dl{background:url(../images/line_footer.png) no-repeat left 4px;}
 
 .filter_options{padding-bottom:14px;}
 .filter_options dl dd.options a{margin-bottom:0;}
@@ -299,12 +298,13 @@ a:hover img { opacity: 1; }
 .h-view-more { top: 0; margin-top: 6px; font-size: 12px; }
 
 .ft-partner { background: #0f3982; }
-.ft-partner-inner { width: 1260px; margin: 0 auto; padding: 10px 0; }
-.ft-partner-inner em { float: left; display: block; margin-top: 30px; font-size: 15px; color: #fff; }
+.ft-partner-inner { width: 1160px; margin: 0 auto; padding: 10px 0; }
+.ft-partner-inner em { float: left; display: block; margin-top: 22px; font-size: 15px; color: #fff; }
 .ft-partner-inner ul { float: left; }
-.ft-partner-inner li { float: left; margin-left: 20px; }
+.ft-partner-inner li { float: left; margin-left: 32px; }
 .part-pingan { margin-top: 10px; }
-.part-booking { margin-top: 16px; }
+.part-booking { margin-top: 12px; }
+.part-zhibo8 { margin-top: 4px; }
 .footer .footer-inner-black, .footer .footer-wrap-black { background: #c9cacb; }
 .footer .footer-copyright,
 .footer .footer-inner2 a { color: #595755; }
@@ -312,9 +312,20 @@ a:hover img { opacity: 1; }
 .footer .footer-inner { padding: 20px 0; }
 
 .window { position: fixed; top: 50%; right: 0; z-index: 999; margin-top: -106px; }
-.window li { margin-top: 1px; width: 52px; height: 52px; }
-.window li a { display: block; width: 52px; height: 52px; background-repeat: no-repeat; background-position: center center; }
+.window dl { position: relative; margin-top: 1px; width: 52px; height: 52px; }
+.window dt a { display: block; width: 52px; height: 52px; background-repeat: no-repeat; background-position: center center; }
 .win-item-call { background-image: url(../images/icon_football.png) }
 .win-item-weixin { background-image: url(../images/icon_weixin.png) }
 .win-item-weibo { background-image: url(../images/icon_weibo.png) }
 .win-item-users { background-image: url(../images/icon_users.png) }
+.window dd { display: none; position: absolute; left: -96px; top: 0; width: 92px; height: 52px; line-height: 52px; text-align: center; background: #fff; font-size: 13px; color: #000; font-weight: bold; }
+
+
+/*====================== 修改@2016-1-9 style =======================*/
+.section.section-gray { border: 0; }
+.footer { background: transparent; }
+.footer-about { margin-top: 20px; text-align: center; padding: 20px 0; }
+.footer-about a,
+.footer-about { font-size: 14px; color: #595757; }
+.footer-about a { margin: 0 4px; }
+.interest ul li { height: 368px; }
