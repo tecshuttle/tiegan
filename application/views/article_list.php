@@ -14,6 +14,7 @@
     <!-- style bxslider -->
     <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
     <!-- style layout -->
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <!-- jquery bxslider js -->
@@ -25,7 +26,7 @@
             slider.bxSlider({
                 auto: true,
                 controls: false,
-				pause: 6000,
+                pause: 6000,
                 pager: true,
                 pagerCustom: '#bx-pager',
                 onSlideAfter: function () {
@@ -95,44 +96,22 @@
             <!--轮播-->
             <div class="mcl_lb">
                 <ul class="bxslider">
-                    <?php if (count($scroll_img) == 0): ?>
-                        <li>
-							<a href="#">
-								<img src="images/20151110163919.jpg" width="810" height="390" alt=""/>								
-								<h3>标题一</h3>
-							</a>
-						</li>
-                        <li>
-							<a href="#">
-								<img src="images/20151110164142.jpg" width="810" height="390" alt=""/>								
-								<h3>标题二</h3>
-							</a>
-						</li>
-                        <li>
-							<a href="#">
-								<img src="images/20151110163919.jpg" width="810" height="390" alt=""/>								
-								<h3>标题三</h3>
-							</a>
-						</li>
-                        <li>
-							<a href="#">
-								<img src="images/20151110164142.jpg" width="810" height="390" alt=""/>								
-								<h3>标题四</h3>
-							</a>
-						</li>
-                    <?php endif; ?>
-
                     <?php foreach ($scroll_img as $sc): ?>
-                        <li><a href="#"><img src="<?= $sc->img ?>" width="810" height="390" alt=""/><h3>标题111</h3></a></li>
+                        <li>
+                            <a href="<?= $sc->url ?>">
+                                <img src="<?= $sc->img ?>" width="810" height="390" alt=""/>
+
+                                <h3><?= $sc->desc ?></h3>
+                            </a>
+                        </li>
                     <?php endforeach; ?>
                 </ul>
 
                 <div id="bx-pager">
                     <ul>
-					  <li><a data-slide-index="0" href=""></a></li>
-					  <li><a data-slide-index="1" href=""></a></li>
-					  <li><a data-slide-index="2" href=""></a></li>
-					  <li><a data-slide-index="3" href=""></a></li>
+                        <?php foreach ($scroll_img as $key => $sc): ?>
+                            <li><a data-slide-index="<?= $key ?>" href="<?= $sc->url ?>"></a></li>
+                        <?php endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -146,12 +125,17 @@
                             <!-- <span class="mcl_a2" style="width: 5px;"></span> -->
                             <a href="/pages/<?= $article->id ?>" target="_blank"><?= $article->name ?></a>
                         </div>
+
                         <div class="mclb_dtwo">
-                            <img src="<?= $article->cover ?>"
-                                 style="width:275px;height: 185px;float: left;margin-right:20px;"/>
+                            <a href="/pages/<?= $article->id ?>" target="_blank">
+                                <img src="<?= $article->cover ?>"
+                                     style="width:275px;height: 185px;float: left;margin-right:20px;"/>
+                            </a>
                             <?= $article->digest ?>
+
                             <a href="/pages/<?= $article->id ?>" target="_blank">[ 查看详细 ]</a>
                         </div>
+
                         <div class="mclb_dthr">
                             <span><?= date('Y-m-d H:i:s', $article->mtime) ?> 更新</span>
 

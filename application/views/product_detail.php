@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link href="css/floatmenu.css" type="text/css" rel="stylesheet">
     <!-- style layout -->
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <style>
@@ -253,7 +254,7 @@
                         <?php if (!empty($match->tag_id)) : ?>
                             <li><span>服务主题：</span><?= $match->tag_name ?></li>
                         <?php endif; ?>
-                        <li><span>价格：</span><strong><i>￥</i><?= $match->price ?>起</strong></li>
+                        <li><span>价格：</span>低至 <strong><i>￥</i><?= $match->price ?></strong></li>
                     </ul>
                     <p>*铁杆体育根据不同球迷的需求将赛事按照影响力程度进行划分并提供不同服务等级的选择,价格因此随之改变。</p>
                     <dl class="ticket_sm">

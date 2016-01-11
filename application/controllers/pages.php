@@ -12,6 +12,7 @@ class pages extends MY_Controller
             227 => 'news',
             233 => 'fan',
         );
+
     }
 
     public function index()
@@ -58,6 +59,14 @@ class pages extends MY_Controller
             'limit' => 10
         ));
 
+        //取产品
+        $this->load->model('equipments_model');
+        $products = $this->equipments_model->select(array(
+            'sortBy' => 'order',
+            'sortDirection' => 'ASC',
+            'limit' => 9
+        ));
+
         $data = array(
             'title' => $article->name,
             'css' => array(),
@@ -65,6 +74,7 @@ class pages extends MY_Controller
             'menu' => (isset($this->menu[$article->type_id]) ? $this->menu[$article->type_id] : ''),
             //'nav_menu' => $nav_menu,
             'cat' => $cat,
+            'products' => $products['data'],
             'hot_articles' => $hot_articles['data'],
             'article' => $article
         );

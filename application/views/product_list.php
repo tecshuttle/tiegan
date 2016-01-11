@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/moule.css">
     <!-- style layout -->
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <!--[if IE 6]>
     <script src="js/DD_belatedPNG_0.0.8a-min.js"></script>
@@ -66,12 +67,12 @@
         <ul class="resultList" id="htmlcontent">
             <?php foreach ($matchs['data'] as $m): ?>
                 <li class="clearfix">
-                    <a href="/match/<?= $m->id ?>" class="l">
+                    <a href="/match/<?= $m->id ?>" class="l" target="_blank">
                         <img src="<?= $m->cover ?>">
                     </a>
 
                     <div class="details">
-                        <h1><a href="/match/<?= $m->id ?>"><?= $m->name ?></a></h1>
+                        <h1><a href="/match/<?= $m->id ?>" target="_blank"><?= $m->name ?></a></h1>
                         行程天数：<?= $m->travel_long ?><br>
                         出发日期：<?= $m->travel_begin ?><br>
                         行程概览：<?= $m->brief ?><br>
@@ -79,8 +80,8 @@
                         <div class="firTitle clearfix"></div>
                     </div>
                     <div class="rs">
-                        <span class="money"><span>¥<?= $m->price ?></span>起</span>
-                        <a href="/match/<?= $m->id ?>" title="详情">详情</a>
+                        <span class="money">低至 <span>¥<?= $m->price ?></span></span>
+                        <a href="/match/<?= $m->id ?>" title="详情" target="_blank">详情</a>
                     </div>
                 </li>
             <?php endforeach; ?>

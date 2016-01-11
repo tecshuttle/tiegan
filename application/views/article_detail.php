@@ -14,6 +14,7 @@
     <!-- style bxslider -->
     <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css">
     <!-- style layout -->
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="/css/article_detail.css">
     <!--[if IE 6]>
@@ -57,7 +58,7 @@
                     <span class="mcc_a1"><?= $article->name ?></span>
 
                     <div class="mcc_a2 jiathis_style">
-                        <span class="mcc_a3">来源:铁杆社区 | <?= date('Y-m-d', $article->mtime) ?></span>
+                        <span class="mcc_a3">来源:铁杆社区 | <?= date('Y-m-d', $article->ctime) ?></span>
                     </div>
                 </div>
                 <div class="mcc_a5">
@@ -123,6 +124,20 @@
                 </div>
             </div>
             <!--热文排行end-->
+
+            <!--产品排行-->
+            <div class="mcr_hot">
+                <div class="mcr_ztop">产品排行</div>
+                <div class="mcr_hotbot">
+                    <ul>
+                        <?php foreach ($products as $a): ?>
+                            <li><a class="mcr_a1" href="/match/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
+            </div>
+            <!--产品排行end-->
+
         </div>
         <!--rightend-->
 
