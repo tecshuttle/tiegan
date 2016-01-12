@@ -323,6 +323,14 @@ class equipments extends MY_Controller
         //取相关产品
         $match->relative_product = $this->equipments_model->getRelative($match->relative);
 
+
+        //取产品排行
+        $products = $this->equipments_model->select(array(
+            'sortBy' => 'order',
+            'sortDirection' => 'ASC',
+            'limit' => 9
+        ));
+
         $match->seat_desc = '<p>' . preg_replace('/\n/', '<p>', $match->seat_desc);
 
         //取销售条件
@@ -332,12 +340,16 @@ class equipments extends MY_Controller
             'SALE_TERM_BUY', 'SALE_TERM_DELIVERY'
         ));
 
+
+
+
         $data = array(
             'title' => '比赛',
             'css' => array(),
             'js' => array(),
             'menu' => 'product',
             'match' => $match,
+            'products' => $products['data'],
             'terms' => $terms
         );
 

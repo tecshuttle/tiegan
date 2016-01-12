@@ -34,7 +34,7 @@
                 </p>
 
                 <p>
-                    铁杆体育——从一张机票、一家酒店的订购，到一次暖心的接机服务、一张轻松融入当地的交通卡，让我们带你探索这个世界。
+                    你需要的只是去实现朝圣梦想的那一点点勇气，省时、省钱、省心、这点破事丢给铁杆就O了。
                 </p>
             </div>
         </div>
@@ -44,7 +44,7 @@
 <div class="window">
     <dl>
         <dt>
-            <a href="tencent://message/?uin=2371483950&Site=test315.nesky.cn&Menu=yes" class="win-item-call"></a>
+            <a href="tencent://message/?uin=3247883594&Site=test315.nesky.cn&Menu=yes" class="win-item-call"></a>
         </dt>
         <dd>点击咨询</dd>
     </dl>

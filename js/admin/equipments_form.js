@@ -69,7 +69,7 @@ Ext.define('Color.admin.EditFormUI', {
                             {
                                 xtype: 'textfield',
                                 fieldLabel: '球队名称',
-                                allowBlank: false,
+                                //allowBlank: false,
                                 flex: 1,
                                 margin: '0 10 0 0',
                                 name: 'team',
@@ -214,13 +214,11 @@ Ext.define('Color.admin.EditFormUI', {
                                 emptyText: '示例: 7天5晚'
                             },
                             {
-                                xtype: 'datefield',
+                                xtype: 'textfield',
                                 fieldLabel: '出发日期',
                                 flex: 1,
                                 name: 'travel_begin',
-                                format: 'Y-m-d',
-                                value: new Date(),
-                                emptyText: '格式: 2015-12-30'
+                                emptyText: '请输入…'
                             }
                         ]
                     },

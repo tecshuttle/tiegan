@@ -56,13 +56,13 @@
         }
 
         .wen_con .bs_data li strong {
-			font-size: 18px;
+            font-size: 18px;
             color: #f00;
         }
 
         .wen_con .bs_data li strong i {
-			font-size: 12px;
-			font-style: normal;
+            font-size: 12px;
+            font-style: normal;
         }
 
         .wen_con p {
@@ -254,7 +254,7 @@
                         <?php if (!empty($match->tag_id)) : ?>
                             <li><span>服务主题：</span><?= $match->tag_name ?></li>
                         <?php endif; ?>
-                        <li><span>价格：</span>低至 <strong><i>￥</i><?= $match->price ?></strong></li>
+                        <li>低至 <strong><i>￥</i><?= $match->price ?></strong></li>
                     </ul>
                     <p>*铁杆体育根据不同球迷的需求将赛事按照影响力程度进行划分并提供不同服务等级的选择,价格因此随之改变。</p>
                     <dl class="ticket_sm">
@@ -499,34 +499,34 @@
                         <div class="nr_list" tabrel="zffs" id="zffs">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>支付方式</div>
                             <div class="list_con">
-                                <?=$terms['SALE_TERM_PAYMENT']?>
+                                <?= $terms['SALE_TERM_PAYMENT'] ?>
                             </div>
                         </div>
 
                         <div class="nr_list" tabrel="yytk" id="yytk">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>预约条款</div>
                             <div class="list_con">
-                                <?=$terms['SALE_TERM_BOOKING']?>
+                                <?= $terms['SALE_TERM_BOOKING'] ?>
                             </div>
                         </div>
 
                         <div class="nr_list" tabrel="qxtk" id="qxtk">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>取消条款</div>
                             <div class="list_con">
-                                <?=$terms['SALE_TERM_CANCEL']?>
+                                <?= $terms['SALE_TERM_CANCEL'] ?>
                             </div>
                         </div>
 
                         <div class="nr_list" tabrel="ydxz" id="ydxz">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>预订须知</div>
                             <div class="list_con">
-                                <?=$terms['SALE_TERM_BUY']?>
+                                <?= $terms['SALE_TERM_BUY'] ?>
                             </div>
                         </div>
                         <div class="nr_list" tabrel="spfs" id="spfs">
                             <div class="list_tit"><i class="fa fa-paper-plane"></i>送票方式</div>
                             <div class="list_con">
-                                <?=$terms['SALE_TERM_DELIVERY']?>
+                                <?= $terms['SALE_TERM_DELIVERY'] ?>
                             </div>
                         </div>
                     </div>
@@ -534,20 +534,20 @@
             </div>
             <!-- side -->
             <div class="show_sidle">
-                <?php if (count($match->relative_product) > 0): ?>
+                <?php if (count($products) > 0): ?>
                     <div class="xg_sidle_box">
                         <div class="xg_tit">
                             <h3>热门赛事门票推荐</h3>
                         </div>
                         <div class="txt_con">
                             <ul>
-                                <?php foreach ($match->relative_product as $r): ?>
+                                <?php foreach ($products as $r): ?>
                                     <li>
                                         <p>
                                             <a href="/match/<?= $r->id ?>" target="_blank"><?= $r->name ?></a>
-                                            <span>日期：2015年12月21日 20:00:00</span>
-                                            <span>地点：英格兰 | 伦敦 | 酋长球场</span>
-                                            <em><b>¥2420</b>起</em>
+                                            <span>出发日期：<?= $r->travel_begin ?></span>
+                                            <span>行程概览：<?= $r->brief ?></span>
+                                            <em>低至 <b>¥<?= $r->price ?></b></em>
                                         </p>
                                     </li>
                                 <?php endforeach; ?>

@@ -215,7 +215,7 @@
     <div class="wrapper">
         <h2 class="title">
             朝圣<a href="/equipments" class="h-view-more c-view-more-1">查看更多俱乐部&gt;&gt;</a>
-            <span>精选全球最优质酒店、球票等足球旅行产品</span>
+            <span>你需要的只是去实现朝圣梦想的那一点点勇气，省时、省钱、省心、这点破事丢给铁杆就O了</span>
         </h2>
 
         <div id="interest" class="interest">
@@ -278,7 +278,7 @@
 <div class="section section-green">
     <div class="wrapper">
         <h2 class="title">荣归<a href="/cat/225" class="h-view-more c-view-more-2">查看更多&gt;&gt;</a>
-            <span>精选球迷看球日记、旅行攻略等</span>
+            <span>精选先行者的朝圣体验与感悟</span>
         </h2>
 
         <div class="hottravels">
