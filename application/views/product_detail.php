@@ -267,34 +267,48 @@
                         </dd>
                     </dl>
                 </div>
-                <div class="proSlide clearfix">
-                    <div class="gy-image fl">
+                <div class="proSlide">
+                    <div class="gy-image">
                         <img src="<?= $match->cover1 ?>" width="484" height="272" alt="">
                     </div>
-                    <div class="gy-nav fr">
+                    <div class="gy-nav">
+						<div class="gy-back"></div>
                         <div class="gy-thumbs">
                             <ul class="gy-thumb-list">
-                                <input type="hidden" id="p_length" value="3">
+                                <input type="hidden" id="p_length" value="5">
                                 <li>
                                     <a href="javascript:void(0);" id="p_1">
-                                        <img src="<?= $match->cover1 ?>" width="128" height="84"
+                                        <img src="<?= $match->cover1 ?>" width="108" height="65"
                                              data-num="0">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);" id="p_2">
-                                        <img src="<?= $match->cover2 ?>" width="128" height="84"
+                                        <img src="<?= $match->cover2 ?>" width="108" height="65"
                                              data-num="1">
                                     </a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0);" id="p_3">
-                                        <img src="<?= $match->cover3 ?>" width="128" height="84"
+                                        <img src="<?= $match->cover3 ?>" width="108" height="65"
                                              data-num="2">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" id="p_4">
+                                        <img src="<?= $match->cover3 ?>" width="108" height="65"
+                                             data-num="3">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" id="p_5">
+                                        <img src="<?= $match->cover3 ?>" width="108" height="65"
+                                             data-num="4">
                                     </a>
                                 </li>
                             </ul>
                         </div>
+						<div class="gy-forward"></div>
                     </div>
                 </div>
             </div>

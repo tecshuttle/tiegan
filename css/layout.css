@@ -335,3 +335,17 @@ a:hover img { opacity: 1; }
 .hottravels .slider .slider-inner { height: 530px; }
 .hottravels .item { height: 530px; }
 .hottravels .item ul li { height: 253px; }
+
+
+/*====================== 修改@2016-1-13 style =======================*/
+.interest ul li .item { position: relative; -webkit-transition: all .2s ease-in-out; -moz-transition: all .2s ease-in-out; -ms-transition: all .2s ease-in-out; -o-transition: all .2s ease-in-out; transition: all .2s ease-in-out; }
+.interest ul li .item .img img { vertical-align: top; width: 100%; height: 100%; -webkit-transition: all 1.2s ease; -moz-transition: all 1.2s ease; -ms-transition: all 1.2s ease; -o-transition: all 1.2s ease; transition: all 1.2s ease; }
+.interest ul li .item:hover .img img { transform: scale(1.1); }
+
+.proSlide { width: 594px !important; }
+.gy-nav { margin-top: 5px; width: 595px; height: 65px; position: relative; }
+.gy-thumbs { float: left; width: 560px; }
+.gy-back, .gy-forward { float: left; width: 15px; height: 65px; background: url(../images/sildes2.jpg) no-repeat; cursor: pointer; }
+.gy-forward { position: absolute; right: 0; top: 0; float: none; }
+.gy-forward { background: url(../images/sildes8.jpg) no-repeat; }
+.gy-thumbs ul li { float: left; margin-left: 4px; display: inline; width: 108px; height: 65px; }
