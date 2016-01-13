@@ -49,6 +49,13 @@
                     _this.next().hide();
                 });
             });
+		
+			$('.win-item-weixin').on('click', function () {
+				$('.mask, .popup').show();
+			});
+			$('.mask').on('click', function () {
+				$('.mask, .popup').hide();
+			});
 
             $("#search_home").kendoAutoComplete({
                 dataTextField: "name",

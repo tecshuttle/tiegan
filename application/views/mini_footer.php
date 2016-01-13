@@ -46,7 +46,7 @@
         <dt>
             <a href="tencent://message/?uin=3247883594&Site=test315.nesky.cn&Menu=yes" class="win-item-call"></a>
         </dt>
-        <dd>点击咨询</dd>
+        <dd>QQ咨询</dd>
     </dl>
     <dl>
         <dt>
@@ -62,8 +62,13 @@
     </dl>
     <dl>
         <dt>
-            <a href="javascript:;" class="win-item-users"></a>
+            <a href="tencent://message/?uin=3247883594&Site=test315.nesky.cn&Menu=yes" class="win-item-users"></a>
         </dt>
-        <dd></dd>
+        <dd>QQ咨询</dd>
     </dl>
+</div>
+<!-- code -->
+<div class="mask"></div>
+<div class="popup code">
+	<img src="images/code.jpg" width="344" height="344" />
 </div>
