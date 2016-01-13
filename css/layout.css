@@ -264,8 +264,7 @@ a:hover img { opacity: 1; }
 
 /*====================== 修改@2016-1-3 style =======================*/
 .tab h3 { text-align: center; font-size: 38px; color: #fff; font-family: "Microsoft Yahei"; }
-.banner { position: relative; height: 382px; }
-.banner img { height: 382px; }
+.banner { position: relative; }
 .banner .search { top: 200px; }
 .section .title { height: 40px; line-height: 40px; }
 .section { padding: 12px 0; }
