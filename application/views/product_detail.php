@@ -329,7 +329,7 @@
                         <span rel="yytk">预约条款</span>
                         <span rel="qxtk">取消条款</span>
                         <span rel="ydxz">预定须知</span>
-                        <span rel="spfs">送票方式</span>
+                        <span rel="spfs">其他方式</span>
                     </div>
                     <div class="nr_con" id="tab_content">
                         <div class="nr_list" tabrel="fwlb" id="fwlb">
@@ -538,7 +538,7 @@
                             </div>
                         </div>
                         <div class="nr_list" tabrel="spfs" id="spfs">
-                            <div class="list_tit"><i class="fa fa-paper-plane"></i>送票方式</div>
+                            <div class="list_tit"><i class="fa fa-paper-plane"></i>其他方式</div>
                             <div class="list_con">
                                 <?= $terms['SALE_TERM_DELIVERY'] ?>
                             </div>
