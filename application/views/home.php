@@ -49,7 +49,7 @@
                     _this.next().hide();
                 });
             });
-		
+		    // code
 			$('.win-item-weixin').on('click', function () {
 				$('.mask, .popup').show();
 			});

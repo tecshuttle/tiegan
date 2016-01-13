@@ -70,5 +70,5 @@
 <!-- code -->
 <div class="mask"></div>
 <div class="popup code">
-	<img src="images/code.jpg" width="344" height="344" />
+	<img src="images/code.jpg" width="344" height="344" alt="" />
 </div>
