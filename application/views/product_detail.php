@@ -269,7 +269,7 @@
                 </div>
                 <div class="proSlide">
                     <div class="gy-image">
-                        <img src="<?= $match->cover1 ?>" width="484" height="272" alt="">
+                        <img src="<?= $match->cover1 ?>" width="595" height="360" alt="">
                     </div>
                     <div class="gy-nav">
 						<div class="gy-back"></div>
