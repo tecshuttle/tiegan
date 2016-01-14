@@ -313,6 +313,12 @@ class equipments extends MY_Controller
             'id' => $id
         ));
 
+        //取产品图库
+        $this->load->model('equipments_gallery_model');
+        $galleries = $this->equipments_gallery_model->get(array(
+            'pid' => $id
+        ));
+
         //取产品分类
         if (!empty($match->tag_id)) {
             $this->load->model('tag_model');
@@ -341,8 +347,6 @@ class equipments extends MY_Controller
         ));
 
 
-
-
         $data = array(
             'title' => '比赛',
             'css' => array(),
@@ -350,6 +354,7 @@ class equipments extends MY_Controller
             'menu' => 'product',
             'match' => $match,
             'products' => $products['data'],
+            'galleries' => $galleries['data'],
             'terms' => $terms
         );
 

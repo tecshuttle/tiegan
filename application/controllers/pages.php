@@ -113,7 +113,8 @@ class pages extends MY_Controller
             'title' => $article->name,
             'css' => array(),
             'js' => array(),
-            'menu' => $menu['data'],
+            'menu' => ($code == 'about' ? 'fan' : ''),
+            'side_menu' => $menu['data'],
             'article' => $article
         );
 

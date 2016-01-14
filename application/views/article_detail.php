@@ -27,7 +27,10 @@
         /* 将 .png_bg 改成你应用了透明PNG的CSS选择器 */
     </script>
     <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body style="background:#fff;">
 
 
@@ -43,7 +46,8 @@
     <!--搜索-->
     <div class="m_seach">
 
-        当前位置：<a href="/">首页</a> &gt; <a href="/cat/<?= $article->type_id ?>"><?= $cat->name ?></a> &gt; <?= $article->name ?>
+        当前位置：<a href="/">首页</a> &gt; <a href="/cat/<?= $article->type_id ?>"><?= $cat->name ?></a>
+        &gt; <?= $article->name ?>
 
     </div>
     <!--搜索end-->
@@ -118,7 +122,7 @@
                 <div class="mcr_hotbot">
                     <ul>
                         <?php foreach ($hot_articles as $a): ?>
-                            <li><?= $a->name ?> <a class="mcr_a1" href="/pages/<?= $a->id ?>" target="_blank">[ 查看详细 ]</a></li>
+                            <li><a class="mcr_a1" href="/pages/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -127,19 +131,16 @@
 
             <!--产品排行-->
             <div class="mcr_hot">
-                <div class="mcr_ztop">产品排行</div>
-                <div class="mcr_hotbot">
-                    <ul>
-                        <?php foreach ($products as $a): ?>
-                            <li><a class="mcr_a1" href="/match/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+
             </div>
             <!--产品排行end-->
 
         </div>
         <!--rightend-->
+
+        <div class="show_sidle">
+            <?php $this->load->view('product_hot_list', $products) ?>
+        </div>
 
     </div>
     <!--内容end-->

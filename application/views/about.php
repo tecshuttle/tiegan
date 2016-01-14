@@ -43,7 +43,7 @@
     <div class="help_page">
         <div class="help_left">
             <ul>
-                <?php foreach ($menu as $m): ?>
+                <?php foreach ($side_menu as $m): ?>
                     <li <?= ($m->id == $article->id ? 'class="active"' : '') ?>>
                         <a href="/doc/<?= $m->code ?>"><?= $m->name ?></a>
                     </li>

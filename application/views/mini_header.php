@@ -8,7 +8,7 @@
             <li class="nav-list <?= ($menu == 'back' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/225" title="荣归">荣归</a></li>
             <li class="nav-list <?= ($menu == 'travel' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/223" title="旅行那些事儿">旅行那些事儿</a></li>
             <li class="nav-list <?= ($menu == 'news' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/227" title="天下足球">天下足球</a></li>
-            <li class="nav-list <?= ($menu == 'fan' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/cat/233" title="我是铁杆">我是铁杆</a></li>
+            <li class="nav-list <?= ($menu == 'fan' ? 'nav-list-selected' : '') ?>"><a class="nav-span" href="/doc/about" title="我是铁杆">我是铁杆</a></li>
         </ul>
     </div>
     <!-- fun -->

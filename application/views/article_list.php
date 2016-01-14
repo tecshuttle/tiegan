@@ -16,6 +16,8 @@
     <!-- style layout -->
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
     <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
     <!-- jquery bxslider js -->
     <script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
@@ -205,21 +207,12 @@
             </div>
             <!--热文排行end-->
 
-            <!--产品排行-->
-            <div class="mcr_hot">
-                <div class="mcr_ztop">产品排行</div>
-                <div class="mcr_hotbot">
-                    <ul>
-                        <?php foreach ($products as $a): ?>
-                            <li><a class="mcr_a1" href="/match/<?= $a->id ?>" target="_blank"><?= $a->name ?></a></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
-            </div>
-            <!--产品排行end-->
-
         </div>
         <!--rightend-->
+
+        <div class="show_sidle">
+            <?php $this->load->view('product_hot_list', $products) ?>
+        </div>
 
     </div>
     <!--内容end-->
