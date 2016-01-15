@@ -5,9 +5,30 @@
  */
 $(function(){
 	// 产品封面
+	var itemLi = $('.gy-thumb-list li');
+	var iNow = 0;
 	$('.gy-thumb-list li a img').click(function(){
 		var srcImg = $(this).attr('src');
 		$('.gy-image img').attr('src', srcImg);
+	});
+	$('.gy-thumb-list').css('width', itemLi.length*(itemLi.width()+4));
+	$('.gy-forward').on('click', function(){
+		iNow++;
+		if (iNow >= itemLi.length - 5) {
+			
+			iNow = itemLi.length - 5;
+			
+		}
+		$('.gy-thumb-list').css({'left': -iNow*(itemLi.width()+4)});
+	});
+	$('.gy-back').on('click', function(){
+		iNow--;
+		if (iNow <= 0) {
+			
+			iNow = 0;
+			
+		}
+		$('.gy-thumb-list').css({'left': -iNow*(itemLi.width()+4)});
 	});
 
 	// 滚动监听
