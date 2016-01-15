@@ -12,7 +12,7 @@ $(function(){
 		$('.gy-image img').attr('src', srcImg);
 	});
 	$('.gy-thumb-list').css('width', itemLi.length*(itemLi.width()+4));
-	$('.gy-forward').on('click', function(){
+	$('.gy-forward').on('click', function(){ // next
 		iNow++;
 		if (iNow >= itemLi.length - 5) {
 			
@@ -21,7 +21,7 @@ $(function(){
 		}
 		$('.gy-thumb-list').css({'left': -iNow*(itemLi.width()+4)});
 	});
-	$('.gy-back').on('click', function(){
+	$('.gy-back').on('click', function(){ // prev
 		iNow--;
 		if (iNow <= 0) {
 			

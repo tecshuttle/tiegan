@@ -347,7 +347,7 @@ a:hover img { opacity: 1; }
 .gy-back, .gy-forward { float: left; width: 15px; height: 65px; background: url(../images/sildes2.jpg) no-repeat; cursor: pointer; }
 .gy-forward { position: absolute; right: 0; top: 0; float: none; }
 .gy-forward { background: url(../images/sildes8.jpg) no-repeat; }
-.gy-thumbs ul { position: absolute; left: 0; }
+.gy-thumbs ul { position: absolute; left: 0; /**/}
 .gy-thumbs ul li { float: left; margin-left: 4px; display: inline; width: 108px; height: 65px; }
 
 .mask, .popup {display: none; }
