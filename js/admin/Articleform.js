@@ -133,13 +133,16 @@ Ext.define('MyApp.view.main.Articleform', {
                         flex: 1,
                         name: 'ctime',
                         format: 'Y-m-d',
+                        margin: '0 10 0 0',
                         value: new Date(),
                         emptyText: '格式: 2015-12-30'
                     },
                     {
-                        xtype: 'displayfield',
+                        xtype: 'textfield',
+                        fieldLabel: '页面浏览数',
                         flex: 1,
-                        value: ''
+                        name: 'pv',
+                        emptyText: '请输入…'
                     }
                 ]
             },

@@ -20,7 +20,7 @@ class articles_model extends CI_Model
     function get($option)
     {
         $this->db->where('type_id', $option['type_id']);
-        $this->db->order_by('ctime', 'DESC');
+        $this->db->order_by('mtime', 'DESC');
         $query = $this->db->get('articles', 20, $option['start']);
 
         $this->db->where('type_id', $option['type_id']); //取记录数条件

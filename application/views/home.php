@@ -119,6 +119,8 @@
         margin-left: 420px;
         margin-top: -15px;
     }
+
+
 </style>
 
 <div id="zpui-head-ad" class="zpui-head-ad" style="display: none;">
@@ -240,7 +242,7 @@
                                         </div>
 
                                         <div class="tag">
-                                            <span>
+                                            <span style="display: none;">
                                                 <?php if (empty($article->logo)) : ?>
                                                     <i class="iconfont icon-chengshi"></i>
                                                 <?php else: ?>
@@ -248,7 +250,7 @@
                                                 <?php endif; ?>
                                             </span>
 
-                                            <span class="bt"><?= (empty($article->team) ? '球队' : $article->team) ?></span>
+                                            <span class=""><?= (empty($article->team) ? '球队' : $article->team) ?></span>
                                         </div>
                                     </a>
                                 </div>

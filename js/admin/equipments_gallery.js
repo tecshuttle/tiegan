@@ -32,6 +32,18 @@ Ext.define('Tomtalk.gallery.GridUI', {
                 },
                 {
                     xtype: 'button',
+                    text: '向前排序',
+                    disabled: true,
+                    id: this.id + '_btn_front'
+                },
+                {
+                    xtype: 'button',
+                    text: '向后排序',
+                    disabled: true,
+                    id: this.id + '_btn_back'
+                },
+                {
+                    xtype: 'button',
                     text: '删除',
                     disabled: true,
                     id: this.id + '_btn_del'
@@ -148,6 +160,8 @@ Ext.define('Tomtalk.gallery.GridAction', {
         Ext.apply(this.COMPONENTS, {
             grid: Ext.getCmp('images-view'),
             uploadBtn: Ext.getCmp(this.id + '_upload'),
+            frontBtn: Ext.getCmp(this.id + '_btn_front'),
+            backBtn: Ext.getCmp(this.id + '_btn_back'),
             delBtn: Ext.getCmp(this.id + '_btn_del'),
             tips: Ext.getCmp(this.id + '_num_selected')
         });
@@ -159,8 +173,11 @@ Ext.define('Tomtalk.gallery.GridAction', {
 
         Tomtalk.gallery.GridAction.superclass.initEvents.call(me);
 
-        $c.delBtn.on('click', me._del, me);
         $c.uploadBtn.on('click', me._upload, me);
+        $c.frontBtn.on('click', me._move_front, me);
+        $c.backBtn.on('click', me._move_back, me);
+        $c.delBtn.on('click', me._del, me);
+
         $c.grid.on('selectionchange', me._selectionchange, me);
     },
 
@@ -170,9 +187,13 @@ Ext.define('Tomtalk.gallery.GridAction', {
 
 
         if (nodes.length === 0) {
+            $c.frontBtn.setDisabled(true);
+            $c.backBtn.setDisabled(true);
             $c.delBtn.setDisabled(true);
             $c.tips.setData('');
         } else {
+            $c.frontBtn.enable();
+            $c.backBtn.enable();
             $c.delBtn.enable();
             $c.tips.setData('已选择 ' + nodes.length + ' 张图片');
         }
@@ -181,6 +202,37 @@ Ext.define('Tomtalk.gallery.GridAction', {
     //取图库的store
     getStore: function () {
         return this.COMPONENTS.grid.getStore();
+    },
+
+    _move_front: function () {
+        this._move(-1);
+    },
+
+    _move_back: function () {
+        this._move(2);
+    },
+
+    _move: function (direct) {
+        var $c = this.COMPONENTS;
+        var store = $c.grid.getStore();
+
+        var recs = $c.grid.getSelectionModel().getSelection();
+        var rec = store.getByInternalId(recs[0].internalId);
+
+        var index = store.indexOf(rec) + direct;
+
+        if (index < 0) {
+            return;
+        }
+
+        store.insert(index, rec); //向前或向后移动位置
+
+        //保守排序
+        $.post("/equipments/orderGalleryByids", {
+            ids: store.getData().getValues('id')
+        }, function (result) {
+            console.log(result);
+        }, 'json')
     },
 
     _del: function () {

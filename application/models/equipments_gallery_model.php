@@ -19,7 +19,7 @@ class equipments_gallery_model extends CI_Model
     function get($option)
     {
         $this->db->where('pid', $option['pid']);
-        $this->db->order_by('id', 'DESC');
+        $this->db->order_by('weight', 'ASC');
         $query = $this->db->get($this->table);
 
         $this->db->where('pid', $option['pid']); //取记录数条件
@@ -35,9 +35,9 @@ class equipments_gallery_model extends CI_Model
         $this->db->insert($this->table, $data);
     }
 
-    function update()
+    function update($data)
     {
-        $this->db->update($this->table, $_POST, array('id' => $_POST['id']));
+        $this->db->update($this->table, $data, array('id' => $data['id']));
     }
 
     function get_menu($type_id)

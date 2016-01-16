@@ -549,6 +549,23 @@ class equipments extends MY_Controller
         echo json_encode($data);
     }
 
+    public function orderGalleryByids()
+    {
+        $this->load->model('equipments_gallery_model');
+
+        $ids = $_POST['ids'];
+
+        //print_r($ids);
+
+        foreach ($ids as $weight => $id) {
+            $this->equipments_gallery_model->update(array(
+                'id' => $id,
+                'weight' => $weight
+            ));
+        }
+
+    }
+
     public function deleteGalleryByids()
     {
         $this->load->model('equipments_gallery_model');
