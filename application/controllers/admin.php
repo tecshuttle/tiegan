@@ -127,7 +127,7 @@ class admin extends MY_Controller
                 '/js/admin/ke_config.js',
                 '/js/kendo.all.min.js',
                 '/js/moment.js',
-                '/js/MyApp/ext/packages/ux/classic/src/DataView/DragSelector.js',
+                '/js/extjs6/ux/classic/src/DataView/DragSelector.js',
                 '/js/admin/gallery_picker_grid.js',
                 '/js/admin/gallery_picker.js',
                 '/js/admin/Articleform.js',

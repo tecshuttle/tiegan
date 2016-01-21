@@ -1,7 +1,7 @@
 Ext.ns('Tomtalk');
 
 /************************ 图库显示dataview *************************/
-Ext.define('Tomtalk.gallery.GridUI', {
+Ext.define('Tomtalk.equipment.gallery.GridUI', {
     extend: 'Ext.Panel',
     autoScroll: true,
     //border: false,
@@ -13,7 +13,7 @@ Ext.define('Tomtalk.gallery.GridUI', {
 
         me.COMPONENTS = {};
 
-        Tomtalk.gallery.GridUI.superclass.constructor.call(me, config);
+        Tomtalk.equipment.gallery.GridUI.superclass.constructor.call(me, config);
     },
 
     initComponent: function () {
@@ -57,7 +57,7 @@ Ext.define('Tomtalk.gallery.GridUI', {
         };
 
 
-        Tomtalk.gallery.GridUI.superclass.initComponent.call(me);
+        Tomtalk.equipment.gallery.GridUI.superclass.initComponent.call(me);
     },
 
     _grid: function () {
@@ -148,14 +148,14 @@ Ext.define('Tomtalk.gallery.GridUI', {
     }
 });
 
-Ext.define('Tomtalk.gallery.GridAction', {
-    extend: 'Tomtalk.gallery.GridUI',
+Ext.define('Tomtalk.equipment.gallery.GridAction', {
+    extend: 'Tomtalk.equipment.gallery.GridUI',
     constructor: function (config) {
-        Tomtalk.gallery.GridAction.superclass.constructor.call(this, config);
+        Tomtalk.equipment.gallery.GridAction.superclass.constructor.call(this, config);
     },
 
     initComponent: function () {
-        Tomtalk.gallery.GridAction.superclass.initComponent.call(this);
+        Tomtalk.equipment.gallery.GridAction.superclass.initComponent.call(this);
 
         Ext.apply(this.COMPONENTS, {
             grid: Ext.getCmp('images-view'),
@@ -171,7 +171,7 @@ Ext.define('Tomtalk.gallery.GridAction', {
         var me = this;
         var $c = this.COMPONENTS;
 
-        Tomtalk.gallery.GridAction.superclass.initEvents.call(me);
+        Tomtalk.equipment.gallery.GridAction.superclass.initEvents.call(me);
 
         $c.uploadBtn.on('click', me._upload, me);
         $c.frontBtn.on('click', me._move_front, me);
@@ -267,7 +267,7 @@ Ext.define('Tomtalk.gallery.GridAction', {
 
 });
 
-Tomtalk.gallery.Grid = Tomtalk.gallery.GridAction;
+Tomtalk.equipment.gallery.Grid = Tomtalk.equipment.gallery.GridAction;
 
 
 /*********************** 图库上传 ****************************/
@@ -420,7 +420,7 @@ Tomtalk.equipments.GalleryUI = Ext.extend(Ext.Window, {
     },
 
     _galleryGrid: function () {
-        var grid = Ext.create('Tomtalk.gallery.Grid', {
+        var grid = Ext.create('Tomtalk.equipment.gallery.Grid', {
             module: this.module,
             product_id: this.product_id,
             id: this.id + '_gridList'
