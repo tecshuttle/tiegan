@@ -49,6 +49,7 @@ class Welcome extends MY_Controller
 
         //取产品
         $products = $this->equipments_model->select(array(
+            'type_id' => 0,
             'sortBy' => 'order',
             'sortDirection' => 'ASC',
             'limit' => 9

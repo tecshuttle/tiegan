@@ -28,6 +28,11 @@ Ext.define('Color.admin.EditFormUI', {
         me.items = [
             {
                 xtype: 'hiddenfield',
+                name: 'type_id',
+                value: 0 // 0 球队   1 出游
+            },
+            {
+                xtype: 'hiddenfield',
                 name: 'id',
                 value: 0
             },
@@ -127,77 +132,11 @@ Ext.define('Color.admin.EditFormUI', {
                                 ]
                             },
                             {
-                                xtype: 'fieldcontainer',
-                                layout: 'hbox',
+                                xtype: 'numberfield',
+                                fieldLabel: '显示顺序',
                                 flex: 1,
-                                items: [
-                                    {
-                                        xtype: 'textfield',
-                                        fieldLabel: '球队海报1',
-                                        name: 'cover1',
-                                        flex: 1,
-                                        emptyText: '示例: /uploads/14201863264972.jpg'
-                                    },
-                                    {
-                                        xtype: 'filefield',
-                                        buttonOnly: true,
-                                        hideLabel: true,
-                                        width: 100,
-                                        name: 'file_cover1',
-                                        buttonText: '上传文件'
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        xtype: 'fieldcontainer',
-                        layout: 'hbox',
-                        items: [
-                            {
-                                xtype: 'fieldcontainer',
-                                layout: 'hbox',
-                                flex: 1,
-                                margin: '0 10 0 0',
-                                items: [
-                                    {
-                                        xtype: 'textfield',
-                                        fieldLabel: '球队海报2',
-                                        name: 'cover2',
-                                        flex: 1,
-                                        emptyText: '示例: /uploads/14201863264972.jpg'
-                                    },
-                                    {
-                                        xtype: 'filefield',
-                                        buttonOnly: true,
-                                        hideLabel: true,
-                                        width: 100,
-                                        name: 'file_cover2',
-                                        buttonText: '上传文件'
-                                    }
-                                ]
-                            },
-                            {
-                                xtype: 'fieldcontainer',
-                                layout: 'hbox',
-                                flex: 1,
-                                items: [
-                                    {
-                                        xtype: 'textfield',
-                                        fieldLabel: '球队海报3',
-                                        name: 'cover3',
-                                        flex: 1,
-                                        emptyText: '示例: /uploads/14201863264972.jpg'
-                                    },
-                                    {
-                                        xtype: 'filefield',
-                                        buttonOnly: true,
-                                        hideLabel: true,
-                                        width: 100,
-                                        name: 'file_cover3',
-                                        buttonText: '上传文件'
-                                    }
-                                ]
+                                name: 'order',
+                                emptyText: '1 第一位   2 第二位'
                             }
                         ]
                     },
@@ -259,11 +198,9 @@ Ext.define('Color.admin.EditFormUI', {
                                 emptyText: '填写产品尖,示例: 23, 453, 21'
                             },
                             {
-                                xtype: 'numberfield',
-                                fieldLabel: '显示顺序',
+                                xtype: 'displayfield',
                                 flex: 1,
-                                name: 'order',
-                                emptyText: '1 第一位   2 第二位'
+                                value: ''
                             }
                         ]
                     }
@@ -288,6 +225,7 @@ Ext.define('Color.admin.EditFormUI', {
                         combineErrors: true,
                         msgTarget: 'under',
                         layout: 'hbox',
+                        id: this.id + '_price_table_header',
                         defaults: {
                             hideLabel: true,
                             width: 60,
@@ -305,6 +243,7 @@ Ext.define('Color.admin.EditFormUI', {
                         combineErrors: true,
                         msgTarget: 'under',
                         layout: 'hbox',
+                        id: this.id + '_price_table_row1',
                         defaults: {
                             hideLabel: true,
                             width: 80,
@@ -325,6 +264,7 @@ Ext.define('Color.admin.EditFormUI', {
                         combineErrors: true,
                         msgTarget: 'under',
                         layout: 'hbox',
+                        id: this.id + '_price_table_row2',
                         defaults: {
                             hideLabel: true,
                             width: 80,
@@ -345,6 +285,7 @@ Ext.define('Color.admin.EditFormUI', {
                         combineErrors: true,
                         msgTarget: 'under',
                         layout: 'hbox',
+                        id: this.id + '_price_table_row3',
                         defaults: {
                             hideLabel: true,
                             width: 80,
@@ -411,6 +352,7 @@ Ext.define('Color.admin.EditFormUI', {
                         msgTarget: 'under',
                         fieldLabel: '土豪级座位视野',
                         layout: 'hbox',
+                        id: this.id + '_seat_table_row1',
                         defaults: {
                             hideLabel: true,
                             flex: 1,
@@ -428,6 +370,7 @@ Ext.define('Color.admin.EditFormUI', {
                         msgTarget: 'under',
                         fieldLabel: '小资级座位视野',
                         layout: 'hbox',
+                        id: this.id + '_seat_table_row2',
                         defaults: {
                             hideLabel: true,
                             flex: 1,
@@ -445,6 +388,7 @@ Ext.define('Color.admin.EditFormUI', {
                         msgTarget: 'under',
                         fieldLabel: '屌丝级座位视野',
                         layout: 'hbox',
+                        id: this.id + '_seat_table_row3',
                         defaults: {
                             hideLabel: true,
                             flex: 1,
@@ -479,6 +423,7 @@ Ext.define('Color.admin.EditFormUI', {
                         msgTarget: 'under',
                         fieldLabel: '屌丝酒店图',
                         layout: 'hbox',
+                        id: this.id + '_hotel_table_row1',
                         defaults: {
                             hideLabel: true,
                             flex: 1,
@@ -496,6 +441,7 @@ Ext.define('Color.admin.EditFormUI', {
                         msgTarget: 'under',
                         fieldLabel: '小资酒店图',
                         layout: 'hbox',
+                        id: this.id + '_hotel_table_row2',
                         defaults: {
                             hideLabel: true,
                             flex: 1,
@@ -513,6 +459,7 @@ Ext.define('Color.admin.EditFormUI', {
                         msgTarget: 'under',
                         fieldLabel: '土豪酒店图',
                         layout: 'hbox',
+                        id: this.id + '_hotel_table_row3',
                         defaults: {
                             hideLabel: true,
                             flex: 1,
@@ -578,6 +525,21 @@ Ext.define('Color.admin.EditFormAction', {
         Color.admin.EditFormAction.superclass.initComponent.call(this);
 
         Ext.apply(this.COMPONENTS, {
+            typeIDTxt: this.down('hiddenfield[name=type_id]'),
+
+            priceTableHeader: Ext.getCmp(this.id + '_price_table_header'),
+            priceTableRow1: Ext.getCmp(this.id + '_price_table_row1'),
+            priceTableRow2: Ext.getCmp(this.id + '_price_table_row2'),
+            priceTableRow3: Ext.getCmp(this.id + '_price_table_row3'),
+
+            seatTableRow1: Ext.getCmp(this.id + '_seat_table_row1'),
+            seatTableRow2: Ext.getCmp(this.id + '_seat_table_row2'),
+            seatTableRow3: Ext.getCmp(this.id + '_seat_table_row3'),
+
+            hotelTableRow1: Ext.getCmp(this.id + '_hotel_table_row1'),
+            hotelTableRow2: Ext.getCmp(this.id + '_hotel_table_row2'),
+            hotelTableRow3: Ext.getCmp(this.id + '_hotel_table_row3'),
+
             saveBtn: Ext.getCmp(this.id + '_save'),
             returnBtn: Ext.getCmp(this.id + '_return')
         });
@@ -598,6 +560,43 @@ Ext.define('Color.admin.EditFormAction', {
 
         if (this.up().up()) {
             this.up().up()._returnFrom();
+        }
+    },
+
+    _switch_panel: function (panel_name) {
+        var $c = this.COMPONENTS;
+
+        if (panel_name == 'team') {
+            $c.typeIDTxt.setValue(0);
+            $c.priceTableHeader.show();
+            $c.priceTableRow1.show();
+            $c.priceTableRow2.show();
+            $c.priceTableRow3.show();
+
+            $c.seatTableRow1.show();
+            $c.seatTableRow2.show();
+            $c.seatTableRow3.show();
+
+            $c.hotelTableRow1.show();
+            $c.hotelTableRow2.show();
+            $c.hotelTableRow3.show();
+        }
+
+        if (panel_name == 'tour') {
+            $c.typeIDTxt.setValue(1);
+
+            $c.priceTableHeader.hide();
+            $c.priceTableRow1.hide();
+            $c.priceTableRow2.hide();
+            $c.priceTableRow3.hide();
+
+            $c.seatTableRow1.hide();
+            $c.seatTableRow2.hide();
+            $c.seatTableRow3.hide();
+
+            $c.hotelTableRow1.hide();
+            $c.hotelTableRow2.hide();
+            $c.hotelTableRow3.hide();
         }
     },
 

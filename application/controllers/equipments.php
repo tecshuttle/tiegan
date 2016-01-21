@@ -252,8 +252,10 @@ class equipments extends MY_Controller
         $per_page = 10;
 
         $option = array(
-            'sortBy' => 'order',
-            'sortDirection' => 'ASC',
+            'sortBy' => array(
+                array('sortBy' => 'type_id', 'sortDirection' => 'DESC'),
+                array('sortBy' => 'order', 'sortDirection' => 'ASC')
+            ),
             'limit' => $per_page,
             'offset' => ($page - 1) * $per_page
         );
@@ -397,7 +399,7 @@ class equipments extends MY_Controller
         }
 
         foreach ($_POST as $key => $item) {
-            if ($key === 'tag_id' || $key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
+            if ($key === 'type_id' || $key === 'id' || $key === 'tag_id' || $key === 'is_hot' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
 
             if (empty($_POST[$key])) {
                 unset($_POST[$key]);

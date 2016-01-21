@@ -325,7 +325,9 @@ body {
 <div class="nr_nav" id="detail-tab" style="position:static; z-index:999;">
     <span rel="fwlb" class="on">服务列表</span>
     <span rel="sct">赛程图</span>
-    <span rel="qpwzjs">球票位置介绍</span>
+    <?php if ($match->type_id == '0'): ?>
+        <span rel="qpwzjs">球票位置介绍</span>
+    <?php endif; ?>
     <span rel="zsjs">住宿介绍</span>
     <span rel="tjxc">推荐行程</span>
     <span rel="zffs">支付方式</span>
@@ -338,56 +340,57 @@ body {
 <div class="nr_list" tabrel="fwlb" id="fwlb">
     <div class="list_tit"><i class="fa fa-paper-plane"></i>服务列表</div>
     <div class="list_con">
+        <?php if ($match->type_id == '0'): ?>
+            <p><?= $match->name ?>服务列表：
 
-        <p><?= $match->name ?>服务列表：
+            <p>铁杆体育为不同需求的球迷，提供按照比赛等级和服务等级区分的多种服务。</p>
 
-        <p>铁杆体育为不同需求的球迷，提供按照比赛等级和服务等级区分的多种服务。
-
-        <table class="table" style="margin-top:10px;">
-            <tbody>
-            <tr>
-                <td rowspan="2"></td>
-                <td colspan="2">土豪</td>
-                <td colspan="2">小资</td>
-                <td colspan="2">屌丝</td>
-            </tr>
-            <tr>
-                <td>双人出游</td>
-                <td>单房差</td>
-                <td>双人出游</td>
-                <td>单房差</td>
-                <td>双人出游</td>
-                <td>单房差</td>
-            </tr>
-            <tr>
-                <td>S级赛事</td>
-                <td><?= $match->prices1 ?>元/人</td>
-                <td><?= $match->prices2 ?>元/人</td>
-                <td><?= $match->prices3 ?>元/人</td>
-                <td><?= $match->prices4 ?>元/人</td>
-                <td><?= $match->prices5 ?>元/人</td>
-                <td><?= $match->prices6 ?>元/人</td>
-            </tr>
-            <tr>
-                <td>A级赛事</td>
-                <td><?= $match->pricea1 ?>元/人</td>
-                <td><?= $match->pricea2 ?>元/人</td>
-                <td><?= $match->pricea3 ?>元/人</td>
-                <td><?= $match->pricea4 ?>元/人</td>
-                <td><?= $match->pricea5 ?>元/人</td>
-                <td><?= $match->pricea6 ?>元/人</td>
-            </tr>
-            <tr>
-                <td>B级赛事</td>
-                <td><?= $match->priceb1 ?>元/人</td>
-                <td><?= $match->priceb2 ?>元/人</td>
-                <td><?= $match->priceb3 ?>元/人</td>
-                <td><?= $match->priceb4 ?>元/人</td>
-                <td><?= $match->priceb5 ?>元/人</td>
-                <td><?= $match->priceb6 ?>元/人</td>
-            </tr>
-            </tbody>
-        </table>
+            <table class="table" style="margin-top:10px;">
+                <tbody>
+                <tr>
+                    <td rowspan="2"></td>
+                    <td colspan="2">土豪</td>
+                    <td colspan="2">小资</td>
+                    <td colspan="2">屌丝</td>
+                </tr>
+                <tr>
+                    <td>双人出游</td>
+                    <td>单房差</td>
+                    <td>双人出游</td>
+                    <td>单房差</td>
+                    <td>双人出游</td>
+                    <td>单房差</td>
+                </tr>
+                <tr>
+                    <td>S级赛事</td>
+                    <td><?= $match->prices1 ?>元/人</td>
+                    <td><?= $match->prices2 ?>元/人</td>
+                    <td><?= $match->prices3 ?>元/人</td>
+                    <td><?= $match->prices4 ?>元/人</td>
+                    <td><?= $match->prices5 ?>元/人</td>
+                    <td><?= $match->prices6 ?>元/人</td>
+                </tr>
+                <tr>
+                    <td>A级赛事</td>
+                    <td><?= $match->pricea1 ?>元/人</td>
+                    <td><?= $match->pricea2 ?>元/人</td>
+                    <td><?= $match->pricea3 ?>元/人</td>
+                    <td><?= $match->pricea4 ?>元/人</td>
+                    <td><?= $match->pricea5 ?>元/人</td>
+                    <td><?= $match->pricea6 ?>元/人</td>
+                </tr>
+                <tr>
+                    <td>B级赛事</td>
+                    <td><?= $match->priceb1 ?>元/人</td>
+                    <td><?= $match->priceb2 ?>元/人</td>
+                    <td><?= $match->priceb3 ?>元/人</td>
+                    <td><?= $match->priceb4 ?>元/人</td>
+                    <td><?= $match->priceb5 ?>元/人</td>
+                    <td><?= $match->priceb6 ?>元/人</td>
+                </tr>
+                </tbody>
+            </table>
+        <?php endif; ?>
 
         <?= $match->service_list ?>
 
@@ -396,112 +399,122 @@ body {
 <div class="nr_list" tabrel="sct" id="sct">
     <div class="list_tit"><i class="fa fa-paper-plane"></i>赛程图</div>
     <div class="list_con">
-        <p>根据比赛对手强弱及比赛重要性，铁杆体育将比赛分为三个等级，不同等级赛事相关服务价格不同。</p>
+        <?php if ($match->type_id == '0'): ?>
+            <p>根据比赛对手强弱及比赛重要性，铁杆体育将比赛分为三个等级，不同等级赛事相关服务价格不同。</p>
+        <?php endif; ?>
+
         <?= $match->schedule ?>
     </div>
 </div>
-<div class="nr_list" tabrel="qpwzjs" id="qpwzjs">
-    <div class="list_tit"><i class="fa fa-paper-plane"></i>球票位置介绍</div>
-    <div class="list_con">
-        <p>铁杆体育根据球票所在的观赛座位区域不同，将球票服务做三个等级的区分。
 
-        <table>
-            <tbody>
-            <tr>
-                <td rowspan="6">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td><img alt="" src="<?= $match->seat0 ?>" width="340"/></td>
-                        </tr>
-                        <tr>
-                            <td><?= $match->seat_desc ?></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </td>
-                <td width="10"></td>
-                <td>土豪级座位视野</td>
-                <td width="10"></td>
-                <td></td>
-                <td width="10"></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat1 ?>" width="150"/></td>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat2 ?>" width="150"/></td>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat3 ?>" width="150"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>小资级座位视野</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat4 ?>" width="150"/></td>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat5 ?>" width="150"/></td>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat6 ?>" width="150"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>屌丝级座位视野</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat7 ?>" width="150"/></td>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat8 ?>" width="150"/></td>
-                <td></td>
-                <td><img alt="" src="<?= $match->seat9 ?>" width="150"/></td>
-            </tr>
-            </tbody>
-        </table>
-        <?= $match->seat_position ?>
+<?php if ($match->type_id == '0'): ?>
+    <div class="nr_list" tabrel="qpwzjs" id="qpwzjs">
+        <div class="list_tit"><i class="fa fa-paper-plane"></i>球票位置介绍</div>
+        <div class="list_con">
+            <p>铁杆体育根据球票所在的观赛座位区域不同，将球票服务做三个等级的区分。</p>
+
+            <table>
+                <tbody>
+                <tr>
+                    <td rowspan="6">
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td><img alt="" src="<?= $match->seat0 ?>" width="340"/></td>
+                            </tr>
+                            <tr>
+                                <td><?= $match->seat_desc ?></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td width="10"></td>
+                    <td>土豪级座位视野</td>
+                    <td width="10"></td>
+                    <td></td>
+                    <td width="10"></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat1 ?>" width="150"/></td>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat2 ?>" width="150"/></td>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat3 ?>" width="150"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>小资级座位视野</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat4 ?>" width="150"/></td>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat5 ?>" width="150"/></td>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat6 ?>" width="150"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>屌丝级座位视野</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat7 ?>" width="150"/></td>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat8 ?>" width="150"/></td>
+                    <td></td>
+                    <td><img alt="" src="<?= $match->seat9 ?>" width="150"/></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <?= $match->seat_position ?>
+        </div>
     </div>
-</div>
+<?php endif; ?>
+
 <div class="nr_list accommodation" tabrel="zsjs" id="zsjs">
     <div class="list_tit"><i class="fa fa-paper-plane"></i>住宿介绍</div>
     <div class="list_con">
-        <p> 铁杆体育根据住宿条件及环境，将住宿服务做三个等级的区分。
+        <?php if ($match->type_id == '0'): ?>
+            <p> 铁杆体育根据住宿条件及环境，将住宿服务做三个等级的区分。
 
-        <dl>
-            <dt>屌丝级住宿服务安排（经济型旅舍&华人球迷之家）</dt>
-            <dd class="clearfix">
-                <img src="<?= $match->hotel1 ?>" width="267" alt=""/>
-                <img src="<?= $match->hotel2 ?>" width="267" alt=""/>
-                <img src="<?= $match->hotel3 ?>" width="267" alt=""/>
-            </dd>
-        </dl>
-        <dl>
-            <dt>小资级住宿服务安排（三星级或国际连锁品牌酒店）</dt>
-            <dd class="clearfix">
-                <img src="<?= $match->hotel4 ?>" width="267" alt=""/>
-                <img src="<?= $match->hotel5 ?>" width="267" alt=""/>
-                <img src="<?= $match->hotel6 ?>" width="267" alt=""/>
-            </dd>
-        </dl>
-        <dl>
-            <dt>土豪级住宿服务安排（国际四星级或以上品牌酒店）</dt>
-            <dd class="clearfix">
-                <img src="<?= $match->hotel7 ?>" width="267" alt=""/>
-                <img src="<?= $match->hotel8 ?>" width="267" alt=""/>
-                <img src="<?= $match->hotel9 ?>" width="267" alt=""/>
-            </dd>
-        </dl>
-        <p style="margin-top:6px;">*具体酒店名字不可指定</p>
+            <dl>
+                <dt>屌丝级住宿服务安排（经济型旅舍&华人球迷之家）</dt>
+                <dd class="clearfix">
+                    <img src="<?= $match->hotel1 ?>" width="267" alt=""/>
+                    <img src="<?= $match->hotel2 ?>" width="267" alt=""/>
+                    <img src="<?= $match->hotel3 ?>" width="267" alt=""/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>小资级住宿服务安排（三星级或国际连锁品牌酒店）</dt>
+                <dd class="clearfix">
+                    <img src="<?= $match->hotel4 ?>" width="267" alt=""/>
+                    <img src="<?= $match->hotel5 ?>" width="267" alt=""/>
+                    <img src="<?= $match->hotel6 ?>" width="267" alt=""/>
+                </dd>
+            </dl>
+            <dl>
+                <dt>土豪级住宿服务安排（国际四星级或以上品牌酒店）</dt>
+                <dd class="clearfix">
+                    <img src="<?= $match->hotel7 ?>" width="267" alt=""/>
+                    <img src="<?= $match->hotel8 ?>" width="267" alt=""/>
+                    <img src="<?= $match->hotel9 ?>" width="267" alt=""/>
+                </dd>
+            </dl>
+            <p style="margin-top:6px;">*具体酒店名字不可指定</p>
+        <?php endif; ?>
 
         <?= $match->hotel_condition ?>
     </div>

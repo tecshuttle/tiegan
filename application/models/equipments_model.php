@@ -33,7 +33,7 @@ class equipments_model extends CI_Model
     {
         $sql = "SELECT e.*, COUNT(s.id) AS classes, SUM(s.stock) AS stock "
             . "FROM $this->table AS e LEFT JOIN equipments_size AS s ON (e.id = s.pid) "
-            . "GROUP BY e.id ORDER BY e.order asc LIMIT {$option['start']}, 20";
+            . "GROUP BY e.id ORDER BY e.type_id desc, e.order asc LIMIT {$option['start']}, 20";
 
         $query = $this->db->query($sql);
 
@@ -103,7 +103,13 @@ class equipments_model extends CI_Model
 
         // sort
         if (isset($options['sortBy'])) {
-            $this->db->order_by($options['sortBy'], $options['sortDirection']);
+            if (is_array($options['sortBy'])) {
+                foreach ($options['sortBy'] as $sb) {
+                    $this->db->order_by($sb['sortBy'], $sb['sortDirection']);
+                }
+            } else {
+                $this->db->order_by($options['sortBy'], $options['sortDirection']);
+            }
         }
 
         foreach ($qualificationArray as $qualifier) {

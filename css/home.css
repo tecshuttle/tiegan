@@ -4426,4 +4426,6 @@ em,i,strong {
 div.interest ul li .item .img div.tag span {
     width:3em;
     white-space:normal;
+    height: 45px;
+    line-height: 45px;
 }

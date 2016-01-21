@@ -74,7 +74,11 @@ Ext.ns('Color.admin');
 
 var store = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'code', 'name', 'desc', 'order', 'relative', 'cover', 'content', 'download', 'is_hot', 'ctime', 'keywords', 'picture_gallery'],
+    fields: [
+        'id', 'type_id', 'code', 'name', 'desc', 'order',
+        'relative', 'cover', 'content', 'download', 'is_hot',
+        'ctime', 'keywords', 'picture_gallery'
+    ],
     autoLoad: true,
     proxy: {
         type: 'ajax',
@@ -110,6 +114,12 @@ Ext.define('Color.admin.GridUI', {
             },
             {
                 header: "显示顺序", dataIndex: 'order', width: 80
+            },
+            {
+                header: "类型", dataIndex: 'type_id', width: 80,
+                renderer: function (v) {
+                    return (v == 0 ? '球队' : '出游团');
+                }
             },
             {
                 header: "产品名称", dataIndex: 'name', width: 350
@@ -180,8 +190,12 @@ Ext.define('Color.admin.GridUI', {
                 xtype: 'toolbar',
                 items: [
                     {
-                        text: '新增产品',
+                        text: '新增球队',
                         id: this.id + '_add'
+                    },
+                    {
+                        text: '新增出游团',
+                        id: this.id + '_add_tour'
                     }
                 ]
             }
@@ -218,7 +232,8 @@ Ext.define('Color.admin.GridAction', {
         Color.admin.GridAction.superclass.initComponent.call(this);
 
         Ext.apply(this.COMPONENTS, {
-            addBtn: Ext.getCmp(this.id + '_add')
+            addBtn: Ext.getCmp(this.id + '_add'),
+            addTourBtn: Ext.getCmp(this.id + '_add_tour')
         });
     },
 
@@ -229,6 +244,7 @@ Ext.define('Color.admin.GridAction', {
         Color.admin.GridAction.superclass.initEvents.call(me);
 
         $c.addBtn.on('click', me._showForm, me);
+        $c.addTourBtn.on('click', me._showTourForm, me);
     },
 
     _showForm: function () {
@@ -237,6 +253,24 @@ Ext.define('Color.admin.GridAction', {
 
         $c.grid.hide();
         $c.productForm.show();
+        $c.productForm._switch_panel('team');
+
+        me._set_ke_config();
+    },
+
+    _showTourForm: function () {
+        var me = this;
+        var $c = me.up().up().COMPONENTS;
+
+        $c.grid.hide();
+        $c.productForm.show();
+        $c.productForm._switch_panel('tour');
+
+        me._set_ke_config();
+    },
+
+    _set_ke_config: function () {
+        var me = this;
 
         if (me.ke.service_list) {
             me.ke.service_list.data("kendoEditor").value('');
@@ -271,14 +305,18 @@ Ext.define('Color.admin.GridAction', {
 
     _edit: function (record) {
         var me = this;
-
+        var productForm = me.up().up().COMPONENTS.productForm;
         var form = me.up().up().COMPONENTS.productForm.getForm();
 
         me._showForm();
 
         record.data['tag_id[]'] = record.data.tag_id.split(','); //给tag赋值，转一下格式
 
-        //console.log(record.data);
+        if (record.data.type_id == 0) {
+            productForm._switch_panel('team');
+        } else {
+            productForm._switch_panel('tour');
+        }
 
         form.setValues(record.data);
 
