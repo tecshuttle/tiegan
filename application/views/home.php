@@ -167,7 +167,7 @@
     <ul class="bxslider">
         <?php foreach ($scroll_img as $sc): ?>
             <li>
-                <a href="<?= $sc->url ?>"><img src="<?= $sc->img ?>" width="100%" alt=""/></a>
+                <a href="<?= $sc->url ?>" target="_blank"><img src="<?= $sc->img ?>" width="100%" alt=""/></a>
             </li>
         <?php endforeach; ?>
     </ul>
@@ -235,7 +235,7 @@
                             <div class="item">
                                 <div class="img">
                                     <a href="/match/<?= $article->id ?>" target="_blank">
-                                        <img class="lazy" src="<?= $article->cover ?>" width="370" height="224">
+                                        <img class="lazy" src="<?= $article->cover ?>" width="370" height="220">
 
                                         <div class="bg" style="display:none;">
                                             <div class="p"></div>
