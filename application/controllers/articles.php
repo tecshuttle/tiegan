@@ -62,17 +62,23 @@ class articles extends MY_Controller
         $_POST['download'] = ($download == '' ? '' : $download);
 
         foreach ($_POST as $key => $item) {
-            if ($key === 'is_hot' || $key === 'tag' || $key === 'desc' || $key === 'keywords') continue; //指定允许空值的字段
+            if ($key === 'is_draft' || $key === 'is_hot' || $key === 'tag' ||
+                $key === 'desc' || $key === 'keywords'
+            ) continue; //指定允许空值的字段
 
             if (empty($_POST[$key])) {
                 unset($_POST[$key]);
             }
         }
 
-
         if (isset($_POST['id'])) {
-            $_POST['ctime'] = strtotime($_POST['ctime']);
-            $_POST['mtime'] = time();
+            if (isset($_POST['is_draft'])) {
+                //不设置时间
+            } else {
+                $_POST['ctime'] = strtotime($_POST['ctime']);
+                $_POST['mtime'] = time();
+            }
+
             $this->articles_model->update($_POST);
         } else {
             $_POST['ctime'] = time();
@@ -173,6 +179,7 @@ class articles extends MY_Controller
 
         $articles = $this->articles_model->select(array(
             'type_id' => $cat_id,
+            'is_draft' => 0,
             'sortBy' => 'ctime',
             'limit' => $per_page,
             'offset' => ($page - 1) * $per_page
@@ -194,6 +201,7 @@ class articles extends MY_Controller
         //取热文
         $hot_articles = $this->articles_model->select(array(
             'type_id' => $cat_id,
+            'is_draft' => 0,
             'sortBy' => 'pv',
             'limit' => 10
         ));

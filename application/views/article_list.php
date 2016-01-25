@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title><?= $cat->name ?></title>
     <base href="/">
+    <link rel="shortcut icon" href="/images/favicon.png">
     <meta name="keywords" content="">
     <meta name="description" content="">
     <!-- style base -->

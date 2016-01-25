@@ -6,7 +6,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <!-- <link rel="shortcut icon" href="images/favicon.ico"> -->
+    <link rel="shortcut icon" href="/images/favicon.png">
     <!-- style base -->
     <link rel="stylesheet" href="css/base.css">
     <!-- style fontawesome -->

@@ -37,7 +37,7 @@ class articles_model extends CI_Model
         $options = $this->_default(array('sortDirection' => 'DESC'), $options);
 
         // Add where clauses to query
-        $qualificationArray = array('id', 'type_id', 'ctime', 'code');
+        $qualificationArray = array('id', 'is_draft', 'type_id', 'ctime', 'code');
 
         foreach ($qualificationArray as $qualifier) {
             if (isset($options[$qualifier]))

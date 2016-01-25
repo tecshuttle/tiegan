@@ -32,6 +32,7 @@ class Welcome extends MY_Controller
         foreach ($nav_menu as &$menu) {
             $articles = $this->articles_model->select(array(
                 'type_id' => $menu->id,
+                'is_draft' => 0,
                 'sortBy' => 'ctime',
                 'limit' => ($menu->id == 225 ? 8 : 9)
             ));
@@ -58,6 +59,7 @@ class Welcome extends MY_Controller
         //取荣归
         $go_home = $this->articles_model->select(array(
             'type_id' => 225,
+            'is_draft' => '0',
             'sortBy' => 'is_hot',
             'limit' => 8
         ));

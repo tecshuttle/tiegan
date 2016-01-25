@@ -55,6 +55,7 @@ class pages extends MY_Controller
         //取热文
         $hot_articles = $this->articles_model->select(array(
             'type_id' => $article->type_id,
+            'is_draft' => 0,
             'sortBy' => 'pv',
             'limit' => 10
         ));

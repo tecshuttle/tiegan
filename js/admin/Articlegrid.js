@@ -1,6 +1,6 @@
 var articleStore = Ext.create('Ext.data.Store', {
     pageSize: 20,
-    fields: ['id', 'name', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'mtime', 'ctime', 'keywords', 'picture_gallery'],
+    fields: ['id', 'name', 'is_draft', 'code', 'desc', 'cover', 'content', 'download', 'is_hot', 'tag', 'mtime', 'ctime', 'keywords', 'picture_gallery'],
     proxy: {
         type: 'ajax',
         url: '/articles/getList',
@@ -18,6 +18,9 @@ Ext.define('MyApp.view.main.Articlegrid', {
     id: 'article_grid',
     //title: '文章列表',
     xtype: 'articlegrid',
+    plugins: [new Ext.grid.plugin.CellEditing({
+        clicksToEdit: 1
+    })],
     requires: [],
     COMPONENTS: {},
     frame: false,
@@ -37,13 +40,45 @@ Ext.define('MyApp.view.main.Articlegrid', {
                     return 'NO';
                 }
 
-                console.log(rec.data.tag);
                 if (rec.data.tag == null || rec.data.tag.trim() == '') {
                     return '标签未设';
                 }
 
                 return rec.data.tag;
             }
+        },
+        {
+            header: '发布状态',
+            dataIndex: 'is_draft',
+            width: 130,
+            renderer: function (v) {
+                return (v == '0' ? '发布' : '不发布');
+            },
+            editor: new Ext.form.field.ComboBox({
+                typeAhead: true,
+                triggerAction: 'all',
+                store: [
+                    ['0', '发布'],
+                    ['1', '不发布']
+                ],
+                listeners: {
+                    change: function (thisCmb, newValue, oldValue) {
+                        console.log(thisCmb.up().up().up().selection.data.id, newValue, oldValue);
+
+                        var id = thisCmb.up().up().up().selection.data.id;
+
+                        $.post("/articles/save", {
+                            id: id,
+                            is_draft: newValue
+                        }, function (result) {
+                            //console.log(result);
+                        }, 'json');
+
+                        thisCmb.up().up().up().getStore().reload();
+
+                    }
+                }
+            })
         },
         {
             header: "简介", dataIndex: 'desc', hidden: true
