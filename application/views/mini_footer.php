@@ -12,10 +12,12 @@
             <div class="ft-partner-inner clearfix">
                 <em>我们的合作伙伴：</em>
                 <ul>
-                    <li><a target="_blank" href="//sports.sina.com.cn"><img src="images/partner_sina.png" width="200" alt="" /></a></li>
-                    <li class="part-zhibo8"><a target="_blank" href="//www.ctssports.cn"><img src="images/cts_logo.png" width="160" alt="" /></a></li>
+                    <li><a target="_blank" href="//sports.sina.com.cn"><img src="images/partner_sina.png" width="160" alt="" /></a></li>
+                    <li><a target="_blank" href="//www.eachtravel.com"><img src="images/logo_eachtravel.png" width="120" alt="" /></a></li>
+                    <li><a target="_blank" href="//www.qhlly.com"><img src="images/logo_qhlly.png" width="160" alt="" /></a></li>
+                    <li class="part-zhibo8"><a target="_blank" href="//www.ctssports.cn"><img src="images/cts_logo.png" width="140" alt="" /></a></li>
                     <li class="part-pingan"><a target="_blank" href="//www.pingan.com"><img src="images/partner_pingan.png" width="90" alt="" /></a></li>
-                    <li class="part-booking"><a target="_blank" href="//www.booking.com"><img src="images/partner_booking.png" width="180" alt="" /></a></li>
+                    <li class="part-booking"><a target="_blank" href="//www.booking.com"><img src="images/partner_booking.png" width="140" alt="" /></a></li>
                     <li><a target="_blank" href="//cn.unionpay.com"><img src="images/partner_unionpay.png" width="92" alt="" /></a></li>
                     <li><a target="_blank" href="//www.airasia.com"><img src="images/partner_airasia.png" width="120" alt="" /></a></li>
                 </ul>

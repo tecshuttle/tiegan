@@ -298,9 +298,9 @@ a:hover img { opacity: 1; }
 
 .ft-partner { background: #0f3982; }
 .ft-partner-inner { width: 1160px; margin: 0 auto; padding: 10px 0; }
-.ft-partner-inner em { float: left; display: block; margin-top: 22px; font-size: 15px; color: #fff; }
+.ft-partner-inner em { float: left; display: block; margin-top: 10px; margin-bottom: 10px;font-size: 15px; color: #fff; }
 .ft-partner-inner ul { float: left; }
-.ft-partner-inner li { float: left; margin-left: 32px; }
+.ft-partner-inner li { float: left; margin-left: 15px; }
 .part-pingan { margin-top: 10px; }
 .part-booking { margin-top: 12px; }
 .part-zhibo8 { margin-top: 4px; }
