@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title><?= $match->name ?></title>
-<base href="/">
+<base href="http://www.tgsports.cn">
 <link rel="shortcut icon" href="/images/favicon.png">
 <!-- style base -->
 <link rel="stylesheet" href="css/base.css">
