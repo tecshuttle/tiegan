@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title><?= $article->name ?></title>
-<base href="/">
+<base href="http://www.tgsports.cn">
 <meta name="keywords" content="">
 <meta name="description" content="">
 <!-- style base -->

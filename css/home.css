@@ -1225,7 +1225,7 @@ em,i,strong {
 
 .banner .search {
     position: absolute;
-    z-index: 10;
+    z-index: 99;
     top: 300px;
     left: 50%;
     margin-left: -310px;
